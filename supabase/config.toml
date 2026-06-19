@@ -1,0 +1,7 @@
+project_id = "waswlptvcxhxctfyeyyv"
+
+[functions.send-contact-email]
+verify_jwt = false
+
+[functions.add-brevo-contact]
+verify_jwt = false
