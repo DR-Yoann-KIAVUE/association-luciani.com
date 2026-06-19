@@ -1,73 +1,63 @@
-# Welcome to your Lovable project
+# Association Luciani - Prevention & Sport Sante
 
-## Project info
+Site vitrine de l'Association Luciani, dediee a la prevention sante, au sport-sante et aux formations de premiers secours.
 
-**URL**: https://lovable.dev/projects/46095e5d-b21c-42e2-af63-2ee661e660bb
+## Stack technique
 
-## How can I edit this code?
+- **React 18** + **TypeScript**
+- **Vite** (build & dev server)
+- **Tailwind CSS** + **shadcn/ui** (composants UI)
+- **React Router v6** (routing SPA)
+- **Supabase** (backend & fonctions serverless)
+- **TanStack React Query** (data fetching)
+- **React Hook Form** + **Zod** (formulaires & validation)
 
-There are several ways of editing your application.
+## Installation
 
-**Use Lovable**
+```bash
+# Cloner le repo
+git clone https://github.com/DR-Yoann-KIAVUE/association-luciani.com.git
+cd association-luciani.com
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/46095e5d-b21c-42e2-af63-2ee661e660bb) and start prompting.
+# Installer les dependances
+npm install
 
-Changes made via Lovable will be committed automatically to this repo.
+# Creer le fichier d'environnement
+cp .env.example .env
+# Remplir les variables dans .env (voir section ci-dessous)
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Lancer le serveur de dev
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Le site sera accessible sur `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Variables d'environnement
 
-**Use GitHub Codespaces**
+Creer un fichier `.env` a la racine avec :
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+VITE_SUPABASE_PROJECT_ID="votre-project-id"
+VITE_SUPABASE_URL="https://votre-project-id.supabase.co"
+VITE_SUPABASE_PUBLISHABLE_KEY="votre-cle-anon-supabase"
+```
 
-## What technologies are used for this project?
+## Scripts
 
-This project is built with:
+| Commande | Description |
+|----------|-------------|
+| `npm run dev` | Serveur de developpement |
+| `npm run build` | Build de production |
+| `npm run preview` | Preview du build de production |
+| `npm run lint` | Linter ESLint |
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deploiement
 
-## How can I deploy this project?
+Le site est deploye sur **Vercel** avec deploiement automatique via GitHub :
 
-Simply open [Lovable](https://lovable.dev/projects/46095e5d-b21c-42e2-af63-2ee661e660bb) and click on Share -> Publish.
+- **Production** : push sur `main` → deploiement sur `association-luciani.com`
+- **Preview** : push sur toute autre branche → URL de preview Vercel
 
-## Can I connect a custom domain to my Lovable project?
+## Licence
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Tous droits reserves - Association Luciani
