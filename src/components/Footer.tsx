@@ -109,6 +109,15 @@ const Footer = () => {
                 </span>
               </li>
               <li className="flex items-start gap-2">
+                <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 text-accent" />
+                <a
+                  href="tel:+33630196986"
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                >
+                  06 30 19 69 86
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
                 <Mail className="w-4 h-4 mt-0.5 flex-shrink-0 text-accent" />
                 <a
                   href="mailto:luciani.association@gmail.com"
@@ -186,6 +195,7 @@ const Footer = () => {
             },
             url: "https://association-luciani.fr",
             email: "luciani.association@gmail.com",
+            telephone: "+33630196986",
           }),
         }}
       />
