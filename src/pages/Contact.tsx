@@ -272,6 +272,21 @@ const Contact = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
+                    <div className="bg-secondary/10 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-6 h-6 text-secondary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-primary mb-1">Téléphone</h3>
+                      <a
+                        href="tel:+33630196986"
+                        className="text-muted-foreground hover:underline"
+                      >
+                        06 30 19 69 86
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
                     <div className="bg-accent/10 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
                       <Mail className="w-6 h-6 text-accent" />
                     </div>
