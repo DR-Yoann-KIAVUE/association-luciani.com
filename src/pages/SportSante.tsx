@@ -392,7 +392,7 @@ const SportSante = () => {
               </Link>
             </Button>
             <Button asChild variant="gold" size="lg">
-              <a href="https://app.association-luciani.com/login" target="_blank" rel="noopener noreferrer">
+              <a href="https://app.association-luciani.com/register">
                 Je m&apos;inscris au cours de sport
               </a>
             </Button>
@@ -466,7 +466,7 @@ const SportSante = () => {
                     </p>
                     <div className="space-y-3">
                       <Button asChild variant="secondary" size="lg" className="w-full">
-                        <a href="https://app.association-luciani.com/login" target="_blank" rel="noopener noreferrer">
+                        <a href="https://app.association-luciani.com/login">
                           Se connecter à mon espace membre
                         </a>
                       </Button>

@@ -51,7 +51,7 @@ const Navigation = () => {
           {/* CTA Desktop - plus compacts */}
           <div className="hidden lg:flex items-center gap-2">
             <Button asChild variant="outline" size="sm">
-              <a href="https://app.association-luciani.com/" target="_blank" rel="noopener noreferrer" className="text-xs">
+              <a href="https://app.association-luciani.com/" className="text-xs">
                 Se connecter
               </a>
             </Button>
@@ -95,7 +95,7 @@ const Navigation = () => {
               ))}
               <div className="flex flex-col gap-2 mt-2">
                 <Button asChild variant="outline" size="lg">
-                  <a href="https://app.association-luciani.com/" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                  <a href="https://app.association-luciani.com/" onClick={() => setIsOpen(false)}>
                     Se connecter
                   </a>
                 </Button>

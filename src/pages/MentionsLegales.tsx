@@ -41,8 +41,6 @@ const MentionsLegales = () => {
                     Les conditions générales de l'espace membre sont consultables depuis la page de connexion de l'application :{" "}
                     <a
                       href="https://app.association-luciani.com/cgv"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="text-accent underline"
                     >
                       app.association-luciani.com
@@ -110,7 +108,7 @@ const MentionsLegales = () => {
                     Hébergement du site
                   </h3>
                   <p className="text-muted-foreground">
-                    Ce site est hébergé par Lovable
+                    Ce site est hébergé par Vercel Inc. (440 N Barranca Ave #4133, Covina, CA 91723, États-Unis)
                   </p>
                 </div>
 
