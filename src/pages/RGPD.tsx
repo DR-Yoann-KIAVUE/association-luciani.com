@@ -277,9 +277,9 @@ const RGPD = () => {
                     <td className="border p-3 text-muted-foreground">France</td>
                   </tr>
                   <tr>
-                    <td className="border p-3 text-muted-foreground">Lovable</td>
-                    <td className="border p-3 text-muted-foreground">Hébergement du site</td>
-                    <td className="border p-3 text-muted-foreground">UE</td>
+                    <td className="border p-3 text-muted-foreground">Vercel Inc.</td>
+                    <td className="border p-3 text-muted-foreground">Hébergement du site vitrine</td>
+                    <td className="border p-3 text-muted-foreground">États-Unis (diffusion via des serveurs en UE)</td>
                   </tr>
                 </tbody>
               </table>
