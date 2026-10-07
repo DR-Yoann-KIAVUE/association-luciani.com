@@ -65,12 +65,12 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://association-luciani.sportigo.club/public/auth/login"
+                  href="https://app.association-luciani.com/login"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  Sportigo - Espace membre
+                  Espace membre
                 </a>
               </li>
               <li>
