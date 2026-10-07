@@ -66,8 +66,6 @@ const Footer = () => {
               <li>
                 <a
                   href="https://app.association-luciani.com/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
                   Espace membre
@@ -76,8 +74,6 @@ const Footer = () => {
               <li>
                 <a
                   href="https://app.association-luciani.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
                   Se connecter
@@ -86,8 +82,6 @@ const Footer = () => {
               <li>
                 <a
                   href="https://app.association-luciani.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
                   Réserver mon créneau de sport
