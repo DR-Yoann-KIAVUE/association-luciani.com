@@ -14,32 +14,8 @@ import coachLea from "@/assets/coach-lea.png";
 import coachNoemie from "@/assets/coach-noemie.png";
 import coachYoann from "@/assets/coach-yoann.png";
 import coachClarisse from "@/assets/coach-clarisse-new.png";
-import { useEffect } from "react";
 
 const SportSante = () => {
-  useEffect(() => {
-    // Charger le script Sportigo si pas déjà chargé
-    const existingScript = document.querySelector('script[src="https://standalone.api.sportigo.fr/component-standalone.js"]');
-    
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.src = 'https://standalone.api.sportigo.fr/component-standalone.js';
-      script.async = true;
-      script.onload = () => {
-        // Initialiser le widget après le chargement du script
-        if (typeof (window as any).initComponent === 'function') {
-          (window as any).initComponent("Appointment", "sportigo-container", "ad220ca5-8b76-4353-9d0e-025f2a8165f7", {colored: true, readonly: false});
-        }
-      };
-      document.body.appendChild(script);
-    } else {
-      // Le script est déjà chargé, initialiser directement
-      if (typeof (window as any).initComponent === 'function') {
-        (window as any).initComponent("Appointment", "sportigo-container", "ad220ca5-8b76-4353-9d0e-025f2a8165f7", {colored: true, readonly: false});
-      }
-    }
-  }, []);
-
   // Fonction pour obtenir l'image du coach
   const getCoachImage = (coachName: string) => {
     switch (coachName) {
@@ -416,7 +392,7 @@ const SportSante = () => {
               </Link>
             </Button>
             <Button asChild variant="gold" size="lg">
-              <a href="https://association-luciani.sportigo.fr/buy" target="_blank" rel="noopener noreferrer">
+              <a href="https://app.association-luciani.com/login" target="_blank" rel="noopener noreferrer">
                 Je m&apos;inscris au cours de sport
               </a>
             </Button>
@@ -424,16 +400,16 @@ const SportSante = () => {
         </div>
       </section>
 
-      {/* Espace Sportigo */}
+      {/* Espace membre */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 font-['Poppins'] text-primary">
-                Votre espace Sportigo
+                Votre espace membre
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Gérez vos réservations en toute autonomie avec notre plateforme Sportigo
+                Gérez vos réservations en toute autonomie avec notre application en ligne
               </p>
             </div>
 
@@ -441,12 +417,12 @@ const SportSante = () => {
               <Card className="border-2">
                 <CardHeader>
                   <CardTitle className="text-2xl font-['Poppins'] text-primary">
-                    Qu'est-ce que Sportigo ?
+                    Qu'est-ce que l'espace membre ?
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    Sportigo est notre plateforme de gestion en ligne qui vous permet de :
+                    L'espace membre est notre application en ligne qui vous permet de :
                   </p>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
@@ -490,8 +466,8 @@ const SportSante = () => {
                     </p>
                     <div className="space-y-3">
                       <Button asChild variant="secondary" size="lg" className="w-full">
-                        <a href="https://association-luciani.sportigo.fr/" target="_blank" rel="noopener noreferrer">
-                          Se connecter à Sportigo
+                        <a href="https://app.association-luciani.com/login" target="_blank" rel="noopener noreferrer">
+                          Se connecter à mon espace membre
                         </a>
                       </Button>
                     </div>
