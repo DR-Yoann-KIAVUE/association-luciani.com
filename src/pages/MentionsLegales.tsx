@@ -29,13 +29,25 @@ const MentionsLegales = () => {
                     Moyens de paiement
                   </h3>
                   <p className="text-muted-foreground">
-                    <strong>Adhésion Sport et Santé :</strong> via Sportigo/Mollie (CB)
+                    <strong>Adhésion Sport et Santé :</strong> via notre espace membre (CB)
                   </p>
                   <p className="text-muted-foreground">
                     <strong>Club Prévention :</strong> via Stripe (CB)
                   </p>
                   <p className="text-muted-foreground">
                     <strong>Formations :</strong> sur devis
+                  </p>
+                  <p className="text-muted-foreground">
+                    Les conditions générales de l'espace membre sont consultables depuis la page de connexion de l'application :{" "}
+                    <a
+                      href="https://app.association-luciani.com/cgv"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent underline"
+                    >
+                      app.association-luciani.com
+                    </a>
+                    .
                   </p>
                 </div>
                 <div>

@@ -272,8 +272,8 @@ const RGPD = () => {
                     <td className="border p-3 text-muted-foreground">France / UE</td>
                   </tr>
                   <tr className="bg-muted/30">
-                    <td className="border p-3 text-muted-foreground">Sportigo</td>
-                    <td className="border p-3 text-muted-foreground">Gestion des adhésions</td>
+                    <td className="border p-3 text-muted-foreground">Hostinger (espace membre app.association-luciani.com)</td>
+                    <td className="border p-3 text-muted-foreground">Hébergement de l'espace membre : adhésions et réservations</td>
                     <td className="border p-3 text-muted-foreground">France</td>
                   </tr>
                   <tr>
