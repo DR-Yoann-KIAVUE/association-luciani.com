@@ -67,8 +67,7 @@ const AppSection = () => (
     <div className="container mx-auto px-4">
       <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
         <div>
-          <p className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
-            <span className="w-2 h-2 rounded-full bg-emerald-300" aria-hidden="true" />
+          <p className="text-sm font-semibold uppercase tracking-wide text-white/80 mb-4">
             Nouveau · Application officielle
           </p>
           <div className="flex items-center gap-4 mb-6">
@@ -91,7 +90,7 @@ const AppSection = () => (
           <ul className="space-y-3 mb-10">
             {highlights.map(({ icon: Icon, text }) => (
               <li key={text} className="flex items-start gap-3">
-                <span className="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center flex-shrink-0">
+                <span className="w-9 h-9 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
                   <Icon className="w-4 h-4" aria-hidden="true" />
                 </span>
                 <span className="text-white/90 pt-1.5">{text}</span>

@@ -170,12 +170,11 @@ const Home = () => {
           </div>
 
           {/* Application mobile */}
-          <div className="mt-6 inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-5 bg-black/35 backdrop-blur-sm rounded-full px-5 py-3">
-            <a href="#application" className="text-white text-sm font-medium whitespace-nowrap">
-              <span className="inline-block w-2 h-2 rounded-full bg-emerald-300 mr-2 align-middle" aria-hidden="true" />
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+            <a href="#application" className="text-white text-sm font-medium whitespace-nowrap hover:underline underline-offset-4">
               Nouveau : l'application Association LUCIANI
             </a>
-            <StoreBadges appleHeight={36} />
+            <StoreBadges appleHeight={40} />
           </div>
         </div>
       </section>
