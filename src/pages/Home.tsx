@@ -22,6 +22,7 @@ import coachLea from "@/assets/coach-lea.png";
 import coachNoemie from "@/assets/coach-noemie.png";
 import coachYoann from "@/assets/coach-yoann.png";
 import coachClarisse from "@/assets/coach-clarisse-new.png";
+import AppSection from "@/components/AppSection";
 const Home = () => {
 
   // Fonction pour obtenir l'image du coach
@@ -283,6 +284,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Notre application */}
+      <AppSection />
 
       {/* Planning Preview */}
       <section className="py-20 bg-muted/30">

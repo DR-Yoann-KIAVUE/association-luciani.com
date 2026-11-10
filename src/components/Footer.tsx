@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Heart, Mail, MapPin, Phone } from "lucide-react";
 import logoBlancComplet from "@/assets/logo-blanc-complet.png";
+import { StoreBadges, APP_INSTALL_URL } from "@/components/AppSection";
 
 const Footer = () => {
   return (
@@ -23,6 +24,10 @@ const Footer = () => {
             <p className="text-xs text-primary-foreground/60">
               Fondée par Dr KIAVUE Yoann, cardiologue
             </p>
+            <div className="mt-6">
+              <p className="text-sm font-semibold mb-3 font-['Poppins']">Notre application</p>
+              <StoreBadges appleHeight={40} />
+            </div>
           </div>
 
           {/* Navigation rapide */}
@@ -85,6 +90,14 @@ const Footer = () => {
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
                   Réserver mon créneau de sport
+                </a>
+              </li>
+              <li>
+                <a
+                  href={APP_INSTALL_URL}
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                >
+                  Télécharger l'application
                 </a>
               </li>
             </ul>
