@@ -14,6 +14,7 @@ import coachLea from "@/assets/coach-lea.png";
 import coachNoemie from "@/assets/coach-noemie.png";
 import coachYoann from "@/assets/coach-yoann.png";
 import coachClarisse from "@/assets/coach-clarisse-new.png";
+import { StoreBadges } from "@/components/AppSection";
 
 const SportSante = () => {
   // Fonction pour obtenir l'image du coach
@@ -474,6 +475,12 @@ const SportSante = () => {
                     <p className="text-sm text-muted-foreground text-center">
                       Vous recevrez vos identifiants par email après votre adhésion
                     </p>
+                    <div className="pt-6 border-t border-border">
+                      <p className="text-sm font-semibold text-primary text-center mb-3">
+                        Ou sur votre téléphone, avec l'application
+                      </p>
+                      <StoreBadges appleHeight={40} className="justify-center" />
+                    </div>
                   </div>
                 </CardContent>
               </Card>

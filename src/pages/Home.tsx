@@ -22,7 +22,7 @@ import coachLea from "@/assets/coach-lea.png";
 import coachNoemie from "@/assets/coach-noemie.png";
 import coachYoann from "@/assets/coach-yoann.png";
 import coachClarisse from "@/assets/coach-clarisse-new.png";
-import AppSection from "@/components/AppSection";
+import AppSection, { StoreBadges } from "@/components/AppSection";
 const Home = () => {
 
   // Fonction pour obtenir l'image du coach
@@ -120,7 +120,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[90vh] py-20 md:py-0 flex items-center justify-center overflow-hidden">
         <video
           autoPlay
           loop
@@ -167,6 +167,15 @@ const Home = () => {
                 <ArrowRight className="inline-block w-6 h-6 ml-2 group-hover:translate-x-2 transition-transform" />
               </p>
             </Link>
+          </div>
+
+          {/* Application mobile */}
+          <div className="mt-6 inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-5 bg-black/35 backdrop-blur-sm rounded-full px-5 py-3">
+            <a href="#application" className="text-white text-sm font-medium whitespace-nowrap">
+              <span className="inline-block w-2 h-2 rounded-full bg-emerald-300 mr-2 align-middle" aria-hidden="true" />
+              Nouveau : l'application Association LUCIANI
+            </a>
+            <StoreBadges appleHeight={36} />
           </div>
         </div>
       </section>
@@ -284,9 +293,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* Notre application */}
-      <AppSection />
 
       {/* Planning Preview */}
       <section className="py-20 bg-muted/30">
@@ -424,6 +430,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Notre application */}
+      <AppSection />
 
       {/* Entreprises CTA */}
       <section className="py-16 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white">
