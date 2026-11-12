@@ -23,6 +23,7 @@ import coachNoemie from "@/assets/coach-noemie.png";
 import coachYoann from "@/assets/coach-yoann.png";
 import coachClarisse from "@/assets/coach-clarisse-new.png";
 import AppSection, { StoreBadges } from "@/components/AppSection";
+import CarteCoeurSection from "@/components/CarteCoeurSection";
 const Home = () => {
 
   // Fonction pour obtenir l'image du coach
@@ -429,6 +430,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* La Carte Cœur */}
+      <CarteCoeurSection />
 
       {/* Notre application */}
       <AppSection />

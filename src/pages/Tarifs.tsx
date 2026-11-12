@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2, Sparkles, Heart, Star } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
+import CarteCoeurSection from "@/components/CarteCoeurSection";
 
 const Tarifs = () => {
   const [isAnnual, setIsAnnual] = useState(true);
@@ -217,6 +218,9 @@ const Tarifs = () => {
           </div>
         </div>
       </section>
+
+      {/* La Carte Cœur */}
+      <CarteCoeurSection />
 
       {/* Programme de Parrainage */}
       <section className="py-16 bg-background">

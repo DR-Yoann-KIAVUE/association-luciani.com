@@ -1,0 +1,62 @@
+import { useState } from "react";
+import { X } from "lucide-react";
+import { LIEN_OFFRIR, aujourdhuiAParis, campagneDuJour } from "@/config/carteCoeur";
+
+const CLE = "bandeau-carte-coeur-ferme";
+
+/** Jour pris en compte : aujourd'hui, ou ?apercu=AAAA-MM-JJ pour vérifier une campagne à l'avance. */
+const jourCourant = (): string => {
+  const apercu = new URLSearchParams(window.location.search).get("apercu");
+  return apercu && /^\d{4}-\d{2}-\d{2}$/.test(apercu) ? apercu : aujourdhuiAParis();
+};
+
+const dejaFerme = (id: string): boolean => {
+  try {
+    return window.sessionStorage.getItem(CLE) === id;
+  } catch {
+    return false;
+  }
+};
+
+/** Bandeau saisonnier affiché en haut de toutes les pages pendant une campagne active. */
+const BandeauCarteCoeur = () => {
+  const campagne = campagneDuJour(jourCourant());
+  const [ferme, setFerme] = useState(() => (campagne ? dejaFerme(campagne.id) : true));
+
+  if (!campagne || ferme) return null;
+
+  const fermer = () => {
+    setFerme(true);
+    try {
+      window.sessionStorage.setItem(CLE, campagne.id);
+    } catch {
+      // Stockage indisponible : le bandeau reviendra à la prochaine page.
+    }
+  };
+
+  return (
+    <div
+      role="region"
+      aria-label="Offre de saison"
+      className="relative text-white font-['Geist',sans-serif]"
+      style={{ background: "linear-gradient(150deg, #A12E3C, #6E172C)" }}
+    >
+      <div className="container mx-auto px-12 py-2.5 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-center">
+        <span className="font-medium">{campagne.message}</span>
+        <a href={LIEN_OFFRIR} className="font-semibold underline underline-offset-4 hover:no-underline">
+          Offrir la Carte Cœur
+        </a>
+      </div>
+      <button
+        type="button"
+        onClick={fermer}
+        aria-label="Fermer le bandeau"
+        className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-md hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+      >
+        <X className="w-4 h-4" aria-hidden="true" />
+      </button>
+    </div>
+  );
+};
+
+export default BandeauCarteCoeur;
