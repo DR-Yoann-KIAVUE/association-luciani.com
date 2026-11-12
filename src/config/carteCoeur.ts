@@ -1,6 +1,9 @@
 // La Carte Cœur : abonnement LUCIANI à offrir.
 // Tout ce qui peut changer (lien, prix, campagnes du bandeau) est réuni ici.
 
+import carteNoelWebp from "@/assets/carte-coeur-noel.webp";
+import carteNoelPng from "@/assets/carte-coeur-noel.png";
+
 /** Lien de tous les boutons « Offrir ». Le paramètre src=site sert à mesurer l'origine des achats. */
 export const LIEN_OFFRIR = "https://app.association-luciani.com/offrir?src=site";
 
@@ -25,11 +28,20 @@ export type Campagne = {
   fin: string;
   /** Une campagne inactive n'est jamais affichée, même pendant sa période. */
   active: boolean;
+  /** Visuel de la carte propre à l'occasion (facultatif). */
+  image?: { webp: string; png: string; alt: string };
 };
 
 /** Campagnes du bandeau saisonnier. Pour réutiliser le bandeau : passer `active` à true. */
 export const CAMPAGNES: Campagne[] = [
-  { id: "noel-2026", message: "Pour Noël, offrez la Carte Cœur", debut: "2026-12-01", fin: "2026-12-25", active: true },
+  {
+    id: "noel-2026",
+    message: "Pour Noël, offrez la Carte Cœur",
+    debut: "2026-12-01",
+    fin: "2026-12-25",
+    active: true,
+    image: { webp: carteNoelWebp, png: carteNoelPng, alt: "Carte Cœur LUCIANI, édition Joyeux Noël" },
+  },
   { id: "nouvel-an-2027", message: "Pour la nouvelle année, offrez la Carte Cœur", debut: "2026-12-28", fin: "2027-01-01", active: false },
   { id: "saint-valentin-2027", message: "Pour la Saint-Valentin, offrez la Carte Cœur", debut: "2027-01-27", fin: "2027-02-14", active: false },
   { id: "grands-meres-2027", message: "Pour la fête des grands-mères, offrez la Carte Cœur", debut: "2027-02-15", fin: "2027-03-07", active: false },
