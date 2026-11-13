@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { LIEN_OFFRIR, aujourdhuiAParis, campagneDuJour } from "@/config/carteCoeur";
 
 const CLE = "bandeau-carte-coeur-ferme";
 
-/** Jour pris en compte : aujourd'hui, ou ?apercu=AAAA-MM-JJ pour vérifier une campagne à l'avance. */
-const jourCourant = (): string => {
+/** Jour d'aperçu demandé par ?apercu=AAAA-MM-JJ, pour vérifier une campagne à l'avance. */
+const jourApercu = (): string | null => {
   const apercu = new URLSearchParams(window.location.search).get("apercu");
-  return apercu && /^\d{4}-\d{2}-\d{2}$/.test(apercu) ? apercu : aujourdhuiAParis();
+  return apercu && /^\d{4}-\d{2}-\d{2}$/.test(apercu) ? apercu : null;
 };
 
 const dejaFerme = (id: string): boolean => {
@@ -20,8 +20,19 @@ const dejaFerme = (id: string): boolean => {
 
 /** Bandeau saisonnier affiché en haut de toutes les pages pendant une campagne active. */
 const BandeauCarteCoeur = () => {
-  const campagne = campagneDuJour(jourCourant());
-  const [ferme, setFerme] = useState(() => (campagne ? dejaFerme(campagne.id) : true));
+  // Premier rendu identique au pré-rendu ; l'aperçu et la fermeture sont lus une fois la page chargée.
+  const [jour, setJour] = useState(aujourdhuiAParis);
+  const [ferme, setFerme] = useState(false);
+  const campagne = campagneDuJour(jour);
+
+  useEffect(() => {
+    const apercu = jourApercu();
+    if (apercu) setJour(apercu);
+  }, []);
+
+  useEffect(() => {
+    if (campagne) setFerme(dejaFerme(campagne.id));
+  }, [campagne]);
 
   if (!campagne || ferme) return null;
 

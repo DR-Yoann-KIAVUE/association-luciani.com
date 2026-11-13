@@ -2,9 +2,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import Seo from "./components/Seo";
 import BandeauCarteCoeur from "./components/BandeauCarteCoeur";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
@@ -34,33 +35,33 @@ function ScrollToTop() {
   return null;
 }
 
+/** Le routeur est fourni par main.tsx (navigateur) ou entry-server.tsx (pré-rendu). */
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Analytics />
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <BandeauCarteCoeur />
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sport-sante" element={<SportSante />} />
-          <Route path="/formations" element={<Formations />} />
-          <Route path="/tarifs" element={<Tarifs />} />
-          <Route path="/pack-prevention" element={<PackPrevention />} />
-          <Route path="/a-propos" element={<APropos />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/mentions-legales" element={<MentionsLegales />} />
-          <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
-          <Route path="/rgpd" element={<RGPD />} />
-          <Route path="/essai-gratuit" element={<EssaiGratuit />} />
-          <Route path="/inscription-club-prevention" element={<InscriptionClubPrevention />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <ScrollToTop />
+      <Seo />
+      <BandeauCarteCoeur />
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sport-sante" element={<SportSante />} />
+        <Route path="/formations" element={<Formations />} />
+        <Route path="/tarifs" element={<Tarifs />} />
+        <Route path="/pack-prevention" element={<PackPrevention />} />
+        <Route path="/a-propos" element={<APropos />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
+        <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+        <Route path="/rgpd" element={<RGPD />} />
+        <Route path="/essai-gratuit" element={<EssaiGratuit />} />
+        <Route path="/inscription-club-prevention" element={<InscriptionClubPrevention />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
     </TooltipProvider>
   </QueryClientProvider>
 );

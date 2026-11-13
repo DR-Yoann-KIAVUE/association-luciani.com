@@ -10,6 +10,10 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  ssr: {
+    // Paquets publiés en CommonJS : intégrés au rendu serveur pour l'import ESM de Node.
+    noExternal: ["react-helmet-async"],
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

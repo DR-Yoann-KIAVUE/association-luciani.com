@@ -21,7 +21,7 @@ import coachJb from "@/assets/coach-jb.png";
 import coachLea from "@/assets/coach-lea.png";
 import coachNoemie from "@/assets/coach-noemie.png";
 import coachYoann from "@/assets/coach-yoann.png";
-import coachClarisse from "@/assets/coach-clarisse-new.png";
+import coachClarisse from "@/assets/coach-clarisse-new.jpg";
 import AppSection, { StoreBadges } from "@/components/AppSection";
 import CarteCoeurSection from "@/components/CarteCoeurSection";
 const Home = () => {

@@ -65,8 +65,18 @@ const APropos = () => {
                     <h3 className="text-2xl font-bold text-primary mb-2 font-['Poppins']">
                       Dr KIAVUE Yoann
                     </h3>
-                    <p className="text-lg text-secondary font-semibold mb-4">
+                    <p className="text-lg text-secondary font-semibold mb-2">
                       Cardiologue - Fondateur de l'Association LUCIANI
+                    </p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Cardiologue spécialisé en prévention cardiovasculaire, il est aussi le fondateur de la{" "}
+                      <a
+                        href="https://www.clinique-cardiovasculaire-raphaeloise.fr/"
+                        className="text-primary font-medium underline underline-offset-4 hover:no-underline"
+                      >
+                        Clinique Cardiovasculaire Raphaëloise
+                      </a>
+                      , à Saint-Raphaël.
                     </p>
                   </div>
                 </div>

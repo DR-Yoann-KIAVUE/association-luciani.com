@@ -190,6 +190,8 @@ const Footer = () => {
               "Association de prévention cardiovasculaire et formation aux premiers secours",
             address: {
               "@type": "PostalAddress",
+              streetAddress: "87 avenue Archimède, Pôle Epsilon 3",
+              postalCode: "83700",
               addressLocality: "Saint-Raphaël",
               addressRegion: "Var",
               addressCountry: "FR",
@@ -200,7 +202,7 @@ const Footer = () => {
               name: "Dr KIAVUE Yoann",
               jobTitle: "Cardiologue",
             },
-            url: "https://association-luciani.fr",
+            url: "https://www.association-luciani.fr",
             email: "luciani.association@gmail.com",
             telephone: "+33630196986",
           }),
