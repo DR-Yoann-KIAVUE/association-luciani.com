@@ -37,7 +37,8 @@ export const CAMPAGNES: Campagne[] = [
   {
     id: "noel-2026",
     message: "Pour Noël, offrez la Carte Cœur",
-    debut: "2026-12-01",
+    // Vente ouverte dès la publication : le bandeau s'affiche tout de suite, jusqu'au 25 décembre inclus.
+    debut: "2026-11-13",
     fin: "2026-12-25",
     active: true,
     image: { webp: carteNoelWebp, png: carteNoelPng, alt: "Carte Cœur LUCIANI, édition Joyeux Noël" },
