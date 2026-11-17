@@ -82,7 +82,7 @@ const SportSante = () => (
         </div>
 
         <div className="mt-10">
-          <Planning detail />
+          <Planning />
         </div>
 
         <div className="mt-10 grid md:grid-cols-[1fr_auto] gap-6 items-center rounded-xl border border-border p-6 md:p-8">

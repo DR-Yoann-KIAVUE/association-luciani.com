@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import FondVivant from "@/components/FondVivant";
 import Planning from "@/components/Planning";
 import TrouverMonCours from "@/components/TrouverMonCours";
 import sportImage from "@/assets/illustration-sport.jpg";
@@ -62,6 +63,7 @@ const Home = () => {
 
       {/* En-tête */}
       <section data-hero className="relative overflow-hidden text-white" style={{ background: "linear-gradient(150deg, #A12E3C, #6E172C)" }}>
+        <FondVivant />
         <svg
           aria-hidden="true"
           viewBox="0 0 1440 200"

@@ -199,6 +199,92 @@ All colors MUST be HSL.
     box-shadow: var(--card-shadow-hover);
   }
 
+  /* Fond vivant des en-têtes : formes organiques en mouvement lent. */
+  .fond-vivant .forme {
+    position: absolute;
+    display: block;
+    will-change: transform, border-radius;
+  }
+  .fond-vivant .forme-1 {
+    left: -9%;
+    top: -34%;
+    width: 34vw;
+    height: 34vw;
+    min-width: 260px;
+    min-height: 260px;
+    background: #c4475a;
+    opacity: 0.55;
+    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+    animation: deriver-1 22s ease-in-out infinite alternate;
+  }
+  .fond-vivant .forme-2 {
+    right: -8%;
+    bottom: -42%;
+    width: 38vw;
+    height: 38vw;
+    min-width: 280px;
+    min-height: 280px;
+    background: #4f0d1f;
+    opacity: 0.7;
+    border-radius: 58% 42% 38% 62% / 55% 60% 40% 45%;
+    animation: deriver-2 26s ease-in-out infinite alternate;
+  }
+  .fond-vivant .forme-3 {
+    right: 16%;
+    top: -22%;
+    width: 16vw;
+    height: 16vw;
+    min-width: 140px;
+    min-height: 140px;
+    background: #e07a88;
+    opacity: 0.28;
+    border-radius: 50% 50% 34% 66% / 62% 38% 62% 38%;
+    animation: deriver-3 18s ease-in-out infinite alternate;
+  }
+  .fond-vivant .forme-4 {
+    left: 30%;
+    bottom: -30%;
+    width: 22vw;
+    height: 22vw;
+    min-width: 180px;
+    min-height: 180px;
+    background: #b23548;
+    opacity: 0.4;
+    border-radius: 36% 64% 57% 43% / 48% 39% 61% 52%;
+    animation: deriver-4 30s ease-in-out infinite alternate;
+  }
+  .fond-vivant .halo {
+    position: absolute;
+    left: var(--halo-x, 50%);
+    top: var(--halo-y, 50%);
+    width: 520px;
+    height: 520px;
+    margin: -260px 0 0 -260px;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(255, 255, 255, 0.13), transparent);
+    opacity: var(--halo-opacite, 0);
+    transition: opacity 0.5s;
+  }
+
+  @keyframes deriver-1 {
+    0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }
+    50% { transform: translate3d(7vw, 5vh, 0) rotate(38deg) scale(1.12); border-radius: 61% 39% 45% 55% / 58% 36% 64% 42%; }
+    100% { transform: translate3d(3vw, 12vh, 0) rotate(80deg) scale(0.96); border-radius: 37% 63% 58% 42% / 46% 61% 39% 54%; }
+  }
+  @keyframes deriver-2 {
+    0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); border-radius: 58% 42% 38% 62% / 55% 60% 40% 45%; }
+    50% { transform: translate3d(-8vw, -7vh, 0) rotate(-32deg) scale(1.1); border-radius: 40% 60% 62% 38% / 43% 41% 59% 57%; }
+    100% { transform: translate3d(-3vw, -14vh, 0) rotate(-70deg) scale(1.02); border-radius: 64% 36% 44% 56% / 60% 52% 48% 40%; }
+  }
+  @keyframes deriver-3 {
+    0% { transform: translate3d(0, 0, 0) rotate(0deg); border-radius: 50% 50% 34% 66% / 62% 38% 62% 38%; }
+    100% { transform: translate3d(-10vw, 16vh, 0) rotate(120deg) scale(1.25); border-radius: 38% 62% 60% 40% / 44% 58% 42% 56%; }
+  }
+  @keyframes deriver-4 {
+    0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); border-radius: 36% 64% 57% 43% / 48% 39% 61% 52%; }
+    100% { transform: translate3d(12vw, -10vh, 0) rotate(-90deg) scale(1.2); border-radius: 60% 40% 42% 58% / 38% 57% 43% 62%; }
+  }
+
   @keyframes monter {
     from { opacity: 0; transform: translateY(14px); }
     to { opacity: 1; transform: none; }
@@ -216,5 +302,7 @@ All colors MUST be HSL.
     .js [data-hero] [data-cascade] > *, .js [data-hero] .photo-hero, .prix-anime, .etape-anime { animation: none; }
     .ecg-trace { animation: none; stroke-dashoffset: 0; }
     .carte-vivante:hover { transform: none; }
+    .fond-vivant .forme { animation: none; }
+    .fond-vivant .halo { display: none; }
   }
 }

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import FondVivant from "@/components/FondVivant";
 
 type PageHeroProps = {
   surtitre?: string;
@@ -20,6 +21,7 @@ const PageHero = ({ surtitre, titre, texte, ton = "clair", image, children }: Pa
       className={bordeaux ? "relative overflow-hidden text-white" : "border-b border-border bg-muted/60"}
       style={bordeaux ? { background: "linear-gradient(150deg, #A12E3C, #6E172C)" } : undefined}
     >
+      {bordeaux && <FondVivant />}
       {bordeaux && (
         <svg
           aria-hidden="true"
