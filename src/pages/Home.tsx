@@ -4,14 +4,11 @@ import { ArrowRight, Award, CheckCircle2, HeartPulse, MapPin } from "lucide-reac
 import FondVivant from "@/components/FondVivant";
 import Planning from "@/components/Planning";
 import TrouverMonCours from "@/components/TrouverMonCours";
-import sportImage from "@/assets/illustration-sport.jpg";
-import plageImage from "@/assets/illustration-plage.jpg";
-import formationsImage from "@/assets/illustration-secours.jpg";
-import preventionImage from "@/assets/illustration-conference.jpg";
 import coachYoann from "@/assets/coach-yoann.png";
 import AppSection, { StoreBadges } from "@/components/AppSection";
 import CarteCoeurSection from "@/components/CarteCoeurSection";
 import Titre from "@/components/Titre";
+import Photo from "@/components/Photo";
 
 const APPLICATION = {
   "@context": "https://schema.org",
@@ -40,8 +37,7 @@ const poles = [
     lien: "/sport-sante",
     bouton: "sport" as const,
     couleur: "hsl(var(--sport-accent))",
-    image: sportImage,
-    alt: "Cours collectif de sport santé encadré par un coach",
+    photo: "sport" as const,
   },
   {
     titre: "Club Prévention",
@@ -49,8 +45,7 @@ const poles = [
     lien: "/pack-prevention",
     bouton: "gold" as const,
     couleur: "hsl(var(--accent-gold))",
-    image: preventionImage,
-    alt: "Conférence de prévention cardiovasculaire",
+    photo: "conference" as const,
   },
   {
     titre: "Formations Premiers Secours",
@@ -58,8 +53,7 @@ const poles = [
     lien: "/formations",
     bouton: "secondary" as const,
     couleur: "hsl(var(--secondary))",
-    image: formationsImage,
-    alt: "Initiation au massage cardiaque sur mannequin",
+    photo: "secours" as const,
   },
 ];
 
@@ -74,14 +68,8 @@ const Home = () => {
         className="relative flex min-h-[calc(100svh-4.5rem)] items-center overflow-hidden text-white"
         style={{ backgroundColor: "hsl(354 51% 59%)" }}
       >
-        <img
-          src={plageImage}
-          alt="Cours de sport santé en plein air, en bord de mer"
-          width={2000}
-          height={1131}
-          decoding="async"
-          className="photo-fond"
-        />
+        <Photo nom="plage" width={2000} height={1131} fetchPriority="high" className="photo-fond" />
+        <span aria-hidden="true" className="voile-hero" />
         <FondVivant ton="rouge" />
         <div className="relative container mx-auto px-4 py-16 md:py-20 text-center">
           <div className="mx-auto max-w-4xl" data-cascade>
@@ -152,13 +140,11 @@ const Home = () => {
               >
                 <div className="h-1.5" style={{ backgroundColor: pole.couleur }} />
                 <div className="aspect-[3/2] overflow-hidden bg-muted">
-                  <img
-                    src={pole.image}
-                    alt={pole.alt}
+                  <Photo
+                    nom={pole.photo}
                     width={600}
                     height={400}
                     loading="lazy"
-                    decoding="async"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
                   />
                 </div>

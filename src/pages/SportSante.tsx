@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import { StoreBadges } from "@/components/AppSection";
 import PageHero from "@/components/PageHero";
-import photoHero from "@/assets/illustration-sport.jpg";
 import Planning from "@/components/Planning";
 import { COACHS } from "@/config/planning";
 import Titre from "@/components/Titre";
@@ -54,7 +53,7 @@ const SportSante = () => (
 
     <PageHero
       ton="sport"
-      image={{ src: photoHero, alt: "Cours collectif de sport santé encadré par un coach" }}
+      image="sport"
       surtitre="Sport & Santé · Saint-Raphaël"
       titre="Le sport, un allié essentiel pour un cœur en pleine forme"
       texte="Des séances collectives encadrées par des coachs diplômés, adaptées à tous les niveaux, pour améliorer votre endurance, votre force et votre bien-être cardio."

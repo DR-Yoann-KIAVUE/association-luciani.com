@@ -5,7 +5,7 @@ import formationCprTraining from "@/assets/formation-cpr-training.jpg";
 import webinaireOnline from "@/assets/webinaire-online.jpg";
 import elderlyManMobile from "@/assets/elderly-man-mobile.jpg";
 import PageHero from "@/components/PageHero";
-import photoHero from "@/assets/illustration-conference.jpg";
+import { PHOTOS } from "@/components/Photo";
 import Titre from "@/components/Titre";
 
 const images = [
@@ -22,7 +22,7 @@ const images = [
     texte: "Conférences en ligne animées par des experts en santé cardiovasculaire",
   },
   {
-    src: photoHero,
+    src: PHOTOS.conference.jpg,
     alt: "Conférence de prévention cardiovasculaire",
     titre: "Conférences prévention",
     texte: "Interventions thématiques pour comprendre et prévenir les risques",
@@ -97,7 +97,7 @@ const PackPrevention = () => {
     <div className="min-h-screen bg-background">
       <PageHero
         ton="marine"
-      image={{ src: photoHero, alt: "Conférence de prévention cardiovasculaire" }}
+      image="conference"
         surtitre="Vivre plus longtemps et en meilleure santé"
         titre="Club Prévention"
         texte="Rejoignez votre Club Prévention. Informez-vous, formez-vous pour votre santé."

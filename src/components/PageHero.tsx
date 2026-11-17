@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import FondVivant from "@/components/FondVivant";
+import Photo, { type NomPhoto } from "@/components/Photo";
 
 /** Couleur de fond de chaque ton. « clair » : pages pratiques, sans fond animé. */
 const FONDS = { rouge: "hsl(354 51% 59%)", sport: "hsl(196 93% 27%)", marine: "hsl(215 90% 15%)" } as const;
@@ -9,8 +10,8 @@ type PageHeroProps = {
   titre: string;
   texte?: ReactNode;
   ton?: keyof typeof FONDS | "clair";
-  /** Photo fondue dans le fond, à droite du texte. */
-  image?: { src: string; alt: string };
+  /** Photo voilée en fond, derrière le texte. */
+  image?: NomPhoto;
   children?: ReactNode;
 };
 
@@ -24,8 +25,9 @@ const PageHero = ({ surtitre, titre, texte, ton = "clair", image, children }: Pa
       style={colore ? { backgroundColor: FONDS[ton] } : undefined}
     >
       {colore && image && (
-        <img src={image.src} alt={image.alt} width={2000} height={1131} decoding="async" className="photo-fond" style={{ objectPosition: "center 35%" }} />
+        <Photo nom={image} width={2000} height={1131} fetchPriority="high" className="photo-fond" style={{ objectPosition: "center 35%" }} />
       )}
+      {colore && <span aria-hidden="true" className="voile-hero" />}
       {colore && <FondVivant ton={ton} />}
       <div className={`relative container mx-auto px-4 text-center ${colore ? "py-16 md:py-20" : "py-14 md:py-20"}`}>
         <div className="mx-auto min-w-0 max-w-3xl" data-cascade>

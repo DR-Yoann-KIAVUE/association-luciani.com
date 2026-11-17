@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
+import PageHero from "@/components/PageHero";
 
 const InscriptionClubPrevention = () => {
   const [formData, setFormData] = useState({
@@ -68,49 +69,41 @@ const InscriptionClubPrevention = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mb-10 md:mb-14">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Club Prévention</p>
-            <h1 className="mt-3 text-4xl md:text-5xl font-semibold text-primary">Rejoignez le Club Prévention</h1>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Remplissez le formulaire ci-dessous pour accéder à nos webinaires,
-              conférences et contenus exclusifs sur la prévention cardiovasculaire.
-            </p>
-          </div>
+      <PageHero
+        ton="marine"
+        surtitre="Club Prévention"
+        titre="Rejoignez le Club Prévention"
+        texte="Remplissez le formulaire ci-dessous pour accéder à nos webinaires, conférences et contenus exclusifs sur la prévention cardiovasculaire."
+      />
 
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
-            {/* Benefits */}
-            <div className="order-2 lg:order-1">
-              <Card className="bg-card/50 backdrop-blur-sm border-border/50 h-full">
-                <CardHeader>
-                  <CardTitle className="text-xl md:text-2xl text-foreground">
-                    Ce qui vous attend
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-[hsl(var(--accent-gold))] mt-0.5 flex-shrink-0" />
-                      <p className="text-foreground">{benefit}</p>
-                    </div>
-                  ))}
-                  <div className="pt-6 border-t border-border/50 mt-6">
-                    <p className="text-sm text-muted-foreground">
-                      Vous êtes à 1 clic de vous rendre acteur de votre santé.
-                      <br />
-                      Rejoignez notre communauté engagée pour la prévention cardiovasculaire.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-start">
+            {/* Ce qui vous attend */}
+            <div className="order-2 lg:order-1 lg:sticky lg:top-28">
+              <h2 className="text-2xl md:text-3xl font-semibold text-primary">Ce qui vous attend</h2>
+              <p className="mt-4 flex items-baseline gap-2">
+                <span className="text-5xl font-semibold tracking-tight tabular-nums text-primary">99 €</span>
+                <span className="text-muted-foreground">/ an</span>
+              </p>
+              <ul className="mt-6 divide-y divide-border rounded-2xl border border-border">
+                {benefits.map((benefit) => (
+                  <li key={benefit} className="flex items-start gap-3 p-4">
+                    <CheckCircle aria-hidden="true" className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent-texte" />
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 border-l-2 border-jaune pl-4 text-muted-foreground">
+                Vous êtes à 1 clic de vous rendre acteur de votre santé. Rejoignez notre communauté engagée pour la
+                prévention cardiovasculaire.
+              </p>
             </div>
 
             {/* Form */}
             <div className="order-1 lg:order-2">
-              <Card className="bg-card border-border shadow-xl">
-                <CardHeader className="bg-[hsl(var(--accent-gold))] text-white rounded-t-lg">
+              <Card className="overflow-hidden rounded-2xl bg-card border-border shadow-[var(--card-shadow-hover)]">
+                <CardHeader className="bg-primary text-primary-foreground rounded-t-lg">
                   <CardTitle className="text-xl md:text-2xl text-center">
                     Inscription au Club Prévention
                   </CardTitle>
@@ -120,7 +113,7 @@ const InscriptionClubPrevention = () => {
                     {/* Genre */}
                     <div className="space-y-3">
                       <Label className="text-foreground font-medium">
-                        Genre <span className="text-[hsl(var(--accent-gold))]">*</span>
+                        Genre <span className="text-accent-texte">*</span>
                       </Label>
                       <RadioGroup
                         value={formData.genre}
@@ -154,7 +147,7 @@ const InscriptionClubPrevention = () => {
                     {/* Nom */}
                     <div className="space-y-2">
                       <Label htmlFor="nom" className="text-foreground font-medium">
-                        Nom <span className="text-[hsl(var(--accent-gold))]">*</span>
+                        Nom <span className="text-accent-texte">*</span>
                       </Label>
                       <Input
                         id="nom"
@@ -172,7 +165,7 @@ const InscriptionClubPrevention = () => {
                     {/* Prénom */}
                     <div className="space-y-2">
                       <Label htmlFor="prenom" className="text-foreground font-medium">
-                        Prénom <span className="text-[hsl(var(--accent-gold))]">*</span>
+                        Prénom <span className="text-accent-texte">*</span>
                       </Label>
                       <Input
                         id="prenom"
@@ -190,7 +183,7 @@ const InscriptionClubPrevention = () => {
                     {/* Email */}
                     <div className="space-y-2">
                       <Label htmlFor="email" className="text-foreground font-medium">
-                        Email <span className="text-[hsl(var(--accent-gold))]">*</span>
+                        Email <span className="text-accent-texte">*</span>
                       </Label>
                       <Input
                         id="email"
@@ -208,7 +201,7 @@ const InscriptionClubPrevention = () => {
                     {/* Téléphone */}
                     <div className="space-y-2">
                       <Label htmlFor="telephone" className="text-foreground font-medium">
-                        Téléphone <span className="text-[hsl(var(--accent-gold))]">*</span>
+                        Téléphone <span className="text-accent-texte">*</span>
                       </Label>
                       <Input
                         id="telephone"
@@ -226,7 +219,9 @@ const InscriptionClubPrevention = () => {
                     {/* Submit Button */}
                     <Button
                       type="submit"
-                      className="w-full bg-[hsl(var(--accent-gold))] hover:bg-[hsl(var(--accent-gold))]/90 text-white text-lg py-6"
+                      variant="gold"
+                      size="lg"
+                      className="w-full text-lg"
                     >
                       Je rejoins le Club Prévention
                     </Button>

@@ -13,9 +13,22 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone, Send } from "lucide-react";
+import { CRENEAUX, semaineType } from "@/config/planning";
 import { supabase } from "@/integrations/supabase/client";
 import PageHero from "@/components/PageHero";
+
+/** Lieux des cours, tirés du planning de l'application (orthographe harmonisée). */
+const LIEUX = Object.entries(
+  semaineType(CRENEAUX)
+    .flatMap(({ creneaux }) => creneaux)
+    .reduce<Record<string, Set<string>>>((lieux, creneau) => {
+      if (!creneau.location) return lieux;
+      const lieu = creneau.location.replace("Cardio Vasculaire", "Cardio-Vasculaire");
+      (lieux[lieu] ??= new Set()).add(creneau.activity.name);
+      return lieux;
+    }, {}),
+).map(([lieu, activites]) => ({ lieu, activites: [...activites] }));
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -87,6 +100,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageHero
+        ton="rouge"
         surtitre="Contact"
         titre="Contactez-nous"
         texte="Une question ? Un projet de formation ? Nous sommes à votre écoute"
@@ -262,6 +276,15 @@ const Contact = () => {
                       <br />
                       83700 Saint-Raphaël
                     </p>
+                    <a
+                      href="https://www.google.com/maps/dir/?api=1&destination=87+avenue+Archim%C3%A8de%2C+83700+Saint-Rapha%C3%ABl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-accent-texte hover:underline underline-offset-4"
+                    >
+                      Voir l'itinéraire
+                      <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                    </a>
                     </div>
                   </div>
 
@@ -304,20 +327,12 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <div>
-                    <p className="font-semibold text-primary">
-                      Clinique Cardio-Vasculaire Raphaëloise
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Lieu principal pour Pilates, Yoga et Circuit training
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-primary">Plage du Débarquement</p>
-                    <p className="text-sm text-muted-foreground">
-                      Cardio Renfo en plein air (mercredis)
-                    </p>
-                  </div>
+                  {LIEUX.map(({ lieu, activites }) => (
+                    <div key={lieu}>
+                      <p className="font-semibold text-primary">{lieu}</p>
+                      <p className="text-sm text-muted-foreground">{activites.join(", ")}</p>
+                    </div>
+                  ))}
                 </CardContent>
               </Card>
             </div>

@@ -32,6 +32,7 @@ const APropos = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageHero
+        ton="marine"
         surtitre="Qui sommes-nous"
         titre="L'Association"
         texte="Une association locale engagée pour la prévention cardiovasculaire à Saint-Raphaël"
@@ -96,22 +97,23 @@ const APropos = () => {
         </div>
       </section>
 
-      {/* Nos actions */}
-      <section className="py-20 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-            <Titre titre="Envie de nous rejoindre ?" texte="Découvrez nos cours pendant un mois, gratuitement et sans engagement." />
-            <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-              <Button asChild variant="cta" size="lg">
-                <Link to="/essai-gratuit">
-                  Mois d'essai gratuit
-                  <ArrowRight aria-hidden="true" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link to="/contact">Nous contacter</Link>
-              </Button>
-            </div>
+      {/* Nous rejoindre */}
+      <section className="bg-jaune text-jaune-foreground">
+        <div className="container mx-auto px-4 py-16 md:py-20 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold">Envie de nous rejoindre ?</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg">
+            Découvrez nos cours pendant un mois, gratuitement et sans engagement.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+            <Button asChild size="lg">
+              <Link to="/essai-gratuit">
+                Mois d'essai gratuit
+                <ArrowRight aria-hidden="true" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="border-primary/40 bg-transparent hover:bg-white/40">
+              <Link to="/contact">Nous contacter</Link>
+            </Button>
           </div>
         </div>
       </section>
