@@ -4,6 +4,7 @@ import { ArrowRight, Check, Clock, Users } from "lucide-react";
 import formationMassage1 from "@/assets/formation-massage-cardiaque-1.jpg";
 import atelierScolaire from "@/assets/atelier-scolaire.jpg";
 import PageHero from "@/components/PageHero";
+import photoHero from "@/assets/illustration-secours.jpg";
 
 const Formations = () => {
   const formations = [
@@ -48,6 +49,7 @@ const Formations = () => {
     <div className="min-h-screen">
       <PageHero
         ton="bordeaux"
+      image={{ src: photoHero, alt: "Initiation au massage cardiaque sur mannequin" }}
         surtitre="Alerter · Masser · Défibriller"
         titre="Nos formations"
         texte={

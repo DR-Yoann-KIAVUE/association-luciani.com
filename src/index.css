@@ -173,6 +173,11 @@ All colors MUST be HSL.
   .js [data-hero] [data-cascade] > *:nth-child(4) { animation-delay: 0.24s; }
   .js [data-hero] [data-cascade] > *:nth-child(5) { animation-delay: 0.32s; }
 
+  /* Photo de l'en-tête : entrée douce. */
+  .js [data-hero] .photo-hero {
+    animation: monter 1s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
   /* Tracé ECG qui se dessine, puis battement discret. */
   .ecg-trace {
     stroke-dasharray: 1;
@@ -208,7 +213,7 @@ All colors MUST be HSL.
 
   @media (prefers-reduced-motion: reduce) {
     .js section:not([data-hero]) > .container > * { opacity: 1; transform: none; transition: none; }
-    .js [data-hero] [data-cascade] > *, .prix-anime, .etape-anime { animation: none; }
+    .js [data-hero] [data-cascade] > *, .js [data-hero] .photo-hero, .prix-anime, .etape-anime { animation: none; }
     .ecg-trace { animation: none; stroke-dashoffset: 0; }
     .carte-vivante:hover { transform: none; }
   }

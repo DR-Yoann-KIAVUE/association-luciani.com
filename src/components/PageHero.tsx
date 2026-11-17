@@ -6,11 +6,13 @@ type PageHeroProps = {
   texte?: ReactNode;
   /** "bordeaux" pour les pages de service, "clair" pour les pages pratiques. */
   ton?: "bordeaux" | "clair";
+  /** Photo affichée à droite du texte sur grand écran. */
+  image?: { src: string; alt: string };
   children?: ReactNode;
 };
 
 /** En-tête commun à toutes les pages : surtitre, titre H1, accroche et actions. */
-const PageHero = ({ surtitre, titre, texte, ton = "clair", children }: PageHeroProps) => {
+const PageHero = ({ surtitre, titre, texte, ton = "clair", image, children }: PageHeroProps) => {
   const bordeaux = ton === "bordeaux";
   return (
     <section
@@ -37,7 +39,8 @@ const PageHero = ({ surtitre, titre, texte, ton = "clair", children }: PageHeroP
         </svg>
       )}
       <div className={`relative container mx-auto px-4 ${bordeaux ? "py-16 md:py-24" : "py-14 md:py-20"}`}>
-        <div className="max-w-3xl" data-cascade>
+        <div className={image ? "grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-12 items-center" : ""}>
+        <div className="min-w-0 max-w-3xl" data-cascade>
           {surtitre && (
             <p className={`text-xs font-medium uppercase tracking-[0.18em] ${bordeaux ? "text-white/70" : "text-accent"}`}>
               {surtitre}
@@ -52,6 +55,17 @@ const PageHero = ({ surtitre, titre, texte, ton = "clair", children }: PageHeroP
             </p>
           )}
           {children && <div className="mt-8 flex flex-col sm:flex-row gap-3">{children}</div>}
+        </div>
+        {image && (
+          <img
+            src={image.src}
+            alt={image.alt}
+            width={1024}
+            height={688}
+            decoding="async"
+            className="photo-hero hidden lg:block w-full h-auto rounded-2xl object-cover shadow-[0_30px_60px_-30px_rgba(0,0,0,0.55)]"
+          />
+        )}
         </div>
       </div>
     </section>

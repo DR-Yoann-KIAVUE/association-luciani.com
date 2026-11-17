@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import PageHero from "@/components/PageHero";
+import photoHero from "@/assets/illustration-plage.jpg";
 import Planning from "@/components/Planning";
 import TrouverMonCours from "@/components/TrouverMonCours";
 
@@ -23,6 +24,7 @@ const EssaiGratuit = () => (
   <main className="min-h-screen bg-background">
     <PageHero
       ton="bordeaux"
+      image={{ src: photoHero, alt: "Cours de sport santé en plein air, en bord de mer" }}
       surtitre="Mois d'essai gratuit"
       titre="Testez le programme pendant 1 mois"
       texte="Profitez de votre mois d’essai gratuit en quelques clics."

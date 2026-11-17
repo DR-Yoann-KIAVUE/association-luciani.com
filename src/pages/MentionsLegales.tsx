@@ -81,7 +81,20 @@ const MentionsLegales = () => {
                     Association loi 1901
                   </p>
                   <p className="text-muted-foreground">
-                    Siège social : Saint-Raphaël, France
+                    Siège social : 87 avenue Archimède, Pôle Epsilon 3, Bât B, 83700 Saint-Raphaël, France
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-primary mb-2">
+                    Conception et édition du site
+                  </h3>
+                  <p className="text-muted-foreground">
+                    DRYKSPHR, société par actions simplifiée (SAS), SIREN 937 935 187, Bâtiment B, 87 avenue Archimède,
+                    83700 Saint-Raphaël, France.
+                  </p>
+                  <p className="text-muted-foreground">
+                    Directeur de la publication : Dr Yoann Kiavue.
                   </p>
                 </div>
                 

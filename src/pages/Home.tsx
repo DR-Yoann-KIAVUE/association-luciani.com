@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Planning from "@/components/Planning";
 import TrouverMonCours from "@/components/TrouverMonCours";
-import sportImage from "@/assets/sport-sante.jpg";
-import formationsImage from "@/assets/premiers-secours-new.jpg";
-import preventionImage from "@/assets/prevention-audience.jpg";
+import sportImage from "@/assets/illustration-sport.jpg";
+import plageImage from "@/assets/illustration-plage.jpg";
+import formationsImage from "@/assets/illustration-secours.jpg";
+import preventionImage from "@/assets/illustration-conference.jpg";
 import coachYoann from "@/assets/coach-yoann.png";
 import AppSection, { StoreBadges } from "@/components/AppSection";
 import CarteCoeurSection from "@/components/CarteCoeurSection";
@@ -37,21 +38,21 @@ const Home = () => {
       texte: "Cours collectifs encadrés par des coachs diplômés pour renforcer votre cœur.",
       lien: "/sport-sante",
       image: sportImage,
-      alt: "Cours Sport et Santé pour la prévention cardiovasculaire",
+      alt: "Cours collectif de sport santé encadré par un coach",
     },
     {
       titre: "Club Prévention",
       texte: "Webinaires, conférences et newsletter pour vous informer et prévenir.",
       lien: "/pack-prevention",
       image: preventionImage,
-      alt: "Conférences et webinaires de prévention cardiovasculaire",
+      alt: "Conférence de prévention cardiovasculaire",
     },
     {
       titre: "Formations Premiers Secours",
       texte: "Alerter, masser, défibriller : apprenez les gestes qui sauvent avec nos formateurs diplômés.",
       lien: "/formations",
       image: formationsImage,
-      alt: "Formation aux gestes de premiers secours",
+      alt: "Initiation au massage cardiaque sur mannequin",
     },
   ];
 
@@ -78,7 +79,8 @@ const Home = () => {
           />
         </svg>
         <div className="relative container mx-auto px-4 py-20 md:py-28 lg:py-32">
-          <div className="max-w-3xl" data-cascade>
+          <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-12 items-center">
+          <div className="min-w-0 max-w-3xl" data-cascade>
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/70">
               Prévention cardiovasculaire · Saint-Raphaël
             </p>
@@ -101,6 +103,15 @@ const Home = () => {
               </Button>
             </div>
             <p className="mt-4 text-sm text-white/70">Sans engagement. Tous les cours et le Club Prévention inclus.</p>
+          </div>
+          <img
+            src={plageImage}
+            alt="Cours de sport santé en plein air, en bord de mer"
+            width={1024}
+            height={688}
+            decoding="async"
+            className="photo-hero hidden lg:block w-full h-auto rounded-2xl object-cover shadow-[0_30px_60px_-30px_rgba(0,0,0,0.55)]"
+          />
           </div>
 
           {/* Application mobile */}

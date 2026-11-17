@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import formationCprTraining from "@/assets/formation-cpr-training.jpg";
 import webinaireOnline from "@/assets/webinaire-online.jpg";
-import webinairePrevention from "@/assets/webinaire-prevention-new.jpg";
 import elderlyManMobile from "@/assets/elderly-man-mobile.jpg";
 import PageHero from "@/components/PageHero";
+import photoHero from "@/assets/illustration-conference.jpg";
 
 const images = [
   {
@@ -21,7 +21,7 @@ const images = [
     texte: "Conférences en ligne animées par des experts en santé cardiovasculaire",
   },
   {
-    src: webinairePrevention,
+    src: photoHero,
     alt: "Conférence de prévention cardiovasculaire",
     titre: "Conférences prévention",
     texte: "Interventions thématiques pour comprendre et prévenir les risques",
@@ -96,6 +96,7 @@ const PackPrevention = () => {
     <div className="min-h-screen bg-background">
       <PageHero
         ton="bordeaux"
+      image={{ src: photoHero, alt: "Conférence de prévention cardiovasculaire" }}
         surtitre="Vivre plus longtemps et en meilleure santé"
         titre="Club Prévention"
         texte="Rejoignez votre Club Prévention. Informez-vous, formez-vous pour votre santé."
