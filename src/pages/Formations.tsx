@@ -5,6 +5,7 @@ import formationMassage1 from "@/assets/formation-massage-cardiaque-1.jpg";
 import atelierScolaire from "@/assets/atelier-scolaire.jpg";
 import PageHero from "@/components/PageHero";
 import photoHero from "@/assets/illustration-secours.jpg";
+import Titre from "@/components/Titre";
 
 const Formations = () => {
   const formations = [
@@ -73,10 +74,7 @@ const Formations = () => {
       {/* Formations */}
       <section id="formats" className="scroll-mt-24 py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Initiations de 2 heures</p>
-            <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Adaptées à chaque public et besoin</h2>
-          </div>
+          <Titre surtitre="Initiations de 2 heures" titre="Adaptées à chaque public et besoin" />
 
           <div className="mt-10 grid md:grid-cols-2 gap-6 lg:gap-8">
             {formations.map((formation, index) => {

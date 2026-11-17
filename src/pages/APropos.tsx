@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import presidentYoann from "@/assets/president-yoann.png";
 import PageHero from "@/components/PageHero";
+import Titre from "@/components/Titre";
 
 const APropos = () => {
   const valeurs = [
@@ -81,8 +82,7 @@ const APropos = () => {
       {/* Nos valeurs */}
       <section className="py-20 md:py-24 bg-muted/60">
         <div className="container mx-auto px-4">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Ce qui nous guide</p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Nos valeurs</h2>
+          <Titre surtitre="Ce qui nous guide" titre="Nos valeurs" />
 
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {valeurs.map((valeur, index) => (
@@ -100,12 +100,7 @@ const APropos = () => {
       <section className="py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-            <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-4xl font-semibold text-primary">Envie de nous rejoindre ?</h2>
-              <p className="mt-3 text-lg text-muted-foreground">
-                Découvrez nos cours pendant un mois, gratuitement et sans engagement.
-              </p>
-            </div>
+            <Titre titre="Envie de nous rejoindre ?" texte="Découvrez nos cours pendant un mois, gratuitement et sans engagement." />
             <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
               <Button asChild variant="cta" size="lg">
                 <Link to="/essai-gratuit">

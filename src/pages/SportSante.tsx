@@ -6,6 +6,7 @@ import PageHero from "@/components/PageHero";
 import photoHero from "@/assets/illustration-sport.jpg";
 import Planning from "@/components/Planning";
 import { COACHS } from "@/config/planning";
+import Titre from "@/components/Titre";
 
 const questions = [
   {
@@ -72,14 +73,7 @@ const SportSante = () => (
     {/* Planning */}
     <section id="planning" className="scroll-mt-24 py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Du lundi au vendredi</p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Planning des séances de sport</h2>
-          <p className="mt-3 text-lg text-muted-foreground">
-            Toutes les séances sont encadrées par nos coach·es sportifs diplômés et kinésithérapeutes, pour vous garantir
-            un accompagnement sécurisé et adapté à vos besoins.
-          </p>
-        </div>
+        <Titre surtitre="Du lundi au vendredi" titre="Planning des séances de sport" texte="Toutes les séances sont encadrées par nos coach·es sportifs diplômés et kinésithérapeutes, pour vous garantir un accompagnement sécurisé et adapté à vos besoins." />
 
         <div className="mt-10">
           <Planning />
@@ -107,8 +101,7 @@ const SportSante = () => (
     {/* Coachs */}
     <section className="py-20 md:py-24 bg-muted/60">
       <div className="container mx-auto px-4">
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">L'équipe</p>
-        <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Nos coachs diplômés</h2>
+        <Titre surtitre="L'équipe" titre="Nos coachs diplômés" />
 
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {Object.entries(COACHS).map(([nom, coach]) => (
@@ -174,13 +167,7 @@ const SportSante = () => (
     {/* Espace membre */}
     <section className="py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Adhérents</p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Votre espace membre</h2>
-          <p className="mt-3 text-lg text-muted-foreground">
-            Gérez vos réservations en toute autonomie avec notre application en ligne
-          </p>
-        </div>
+        <Titre surtitre="Adhérents" titre="Votre espace membre" texte="Gérez vos réservations en toute autonomie avec notre application en ligne" />
 
         <div className="mt-10 grid lg:grid-cols-2 gap-6">
           <div className="min-w-0 rounded-xl border border-border p-6 md:p-8">

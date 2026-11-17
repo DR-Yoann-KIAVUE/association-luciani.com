@@ -30,13 +30,13 @@ const Tarifs = () => {
       {/* En-tête et adhésions */}
       <section className="pt-16 md:pt-20 pb-20 md:pb-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl">
+          <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Programme Sport & Santé</p>
-            <h1 className="mt-3 text-4xl md:text-5xl font-semibold text-primary">Tarifs & Adhésions</h1>
+            <h1 className="mt-3 text-4xl md:text-6xl font-semibold text-primary">Tarifs & Adhésions</h1>
             <p className="mt-4 text-lg text-muted-foreground">
               Le Club Prévention est inclus dans toutes les adhésions. Vous hésitez ? Le premier mois est gratuit.
             </p>
-            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3">
               <Button asChild variant="cta" size="lg">
                 <a href={LIEN_ESSAI}>
                   Essayer gratuitement pendant 1 mois

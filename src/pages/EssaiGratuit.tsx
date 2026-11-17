@@ -5,6 +5,7 @@ import PageHero from "@/components/PageHero";
 import photoHero from "@/assets/illustration-plage.jpg";
 import Planning from "@/components/Planning";
 import TrouverMonCours from "@/components/TrouverMonCours";
+import Titre from "@/components/Titre";
 
 const TRIAL_REGISTRATION_URL = "https://app.association-luciani.com/register?planId=ae932234-ac5e-4ee9-b190-5864b063fb05";
 
@@ -74,10 +75,7 @@ const EssaiGratuit = () => (
 
     <section className="pb-20 md:pb-24">
       <div className="container mx-auto px-4">
-        <div className="max-w-2xl">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Par où commencer</p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Trouvez le cours fait pour vous</h2>
-        </div>
+        <Titre surtitre="Par où commencer" titre="Trouvez le cours fait pour vous" />
         <div className="mt-10">
           <TrouverMonCours inscriptionDirecte />
         </div>
@@ -86,10 +84,7 @@ const EssaiGratuit = () => (
 
     <section className="pb-20 md:pb-24">
       <div className="container mx-auto px-4">
-        <div className="max-w-2xl">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Les cours à essayer</p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Le planning de la semaine</h2>
-        </div>
+        <Titre surtitre="Les cours à essayer" titre="Le planning de la semaine" />
         <div className="mt-10">
           <Planning />
         </div>

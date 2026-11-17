@@ -6,6 +6,7 @@ import webinaireOnline from "@/assets/webinaire-online.jpg";
 import elderlyManMobile from "@/assets/elderly-man-mobile.jpg";
 import PageHero from "@/components/PageHero";
 import photoHero from "@/assets/illustration-conference.jpg";
+import Titre from "@/components/Titre";
 
 const images = [
   {
@@ -146,9 +147,7 @@ const PackPrevention = () => {
       {/* Bénéfices */}
       <section className="py-20 md:py-24 bg-muted/60">
         <div className="container mx-auto px-4">
-          <h2 className="max-w-2xl text-3xl md:text-4xl font-semibold text-primary">
-            Pourquoi souscrire au Club Prévention ?
-          </h2>
+          <Titre titre="Pourquoi souscrire au Club Prévention ?" />
 
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefices.map((item, index) => (
@@ -179,12 +178,7 @@ const PackPrevention = () => {
       {/* En images */}
       <section className="py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl font-semibold text-primary">Club Prévention en images</h2>
-            <p className="mt-3 text-lg text-muted-foreground">
-              Découvrez l'ambiance de nos sessions de formation et webinaires
-            </p>
-          </div>
+          <Titre titre="Club Prévention en images" texte="Découvrez l'ambiance de nos sessions de formation et webinaires" />
 
           <div className="mt-10 grid sm:grid-cols-2 gap-6">
             {images.map((image) => (

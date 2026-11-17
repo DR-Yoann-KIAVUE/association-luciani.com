@@ -24,7 +24,8 @@ All colors MUST be HSL.
 
     /* Turquoise santé et vitalité */
     --secondary: 174 72% 41%;
-    --secondary-foreground: 0 0% 100%;
+    /* Bleu nuit sur turquoise : le blanc n'y est pas assez lisible. */
+    --secondary-foreground: 215 90% 15%;
 
     --muted: 214 30% 96%;
     --muted-foreground: 215 16% 40%;
@@ -178,6 +179,42 @@ All colors MUST be HSL.
   .js [data-hero] [data-cascade] > *:nth-child(3) { animation-delay: 0.16s; }
   .js [data-hero] [data-cascade] > *:nth-child(4) { animation-delay: 0.24s; }
   .js [data-hero] [data-cascade] > *:nth-child(5) { animation-delay: 0.32s; }
+
+  /* Photo plein cadre derrière un texte centré : voilée par la couleur de l'en-tête. */
+  .photo-fond {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% 75%;
+    opacity: 0.42;
+    mix-blend-mode: luminosity;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, #000 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, #000 100%);
+  }
+  .js [data-hero] .photo-fond {
+    animation: apparaitre-fond 1.6s ease-out both;
+  }
+  @keyframes apparaitre-fond {
+    from { opacity: 0; transform: scale(1.05); }
+  }
+  /* Encart d'essai : léger soulèvement au survol. */
+  .encart-essai {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s;
+  }
+  .encart-essai:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 26px 50px -20px rgba(4, 31, 73, 0.6);
+  }
+  /* Filet sous les titres : il s'étire à l'apparition. */
+  .js .filet-titre {
+    transform: scaleX(0);
+    transition: transform 0.7s 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .js [data-vu] .filet-titre {
+    transform: scaleX(1);
+  }
 
   /* Photo de l'en-tête : fondue dans la couleur, sans cadre. */
   .photo-hero {
@@ -382,7 +419,9 @@ All colors MUST be HSL.
 
   @media (prefers-reduced-motion: reduce) {
     .js section:not([data-hero]) > .container > * { opacity: 1; transform: none; transition: none; }
-    .js [data-hero] [data-cascade] > *, .js [data-hero] .photo-hero, .prix-anime, .etape-anime { animation: none; }
+    .js [data-hero] [data-cascade] > *, .js [data-hero] .photo-hero, .js [data-hero] .photo-fond, .prix-anime, .etape-anime { animation: none; }
+    .js .filet-titre { transform: none; transition: none; }
+    .encart-essai:hover { transform: none; }
     .ecg-trace { animation: none; stroke-dashoffset: 0; }
     .carte-vivante:hover { transform: none; }
     .fond-vivant .forme { animation: none; }

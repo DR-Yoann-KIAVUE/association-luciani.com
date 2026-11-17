@@ -20,25 +20,27 @@ const PageHero = ({ surtitre, titre, texte, ton = "clair", image, children }: Pa
   return (
     <section
       data-hero
-      className={colore ? "relative overflow-hidden text-white" : "border-b border-border bg-muted"}
+      className={colore ? "relative flex min-h-[58vh] items-center overflow-hidden text-white" : "border-b border-border bg-muted"}
       style={colore ? { backgroundColor: FONDS[ton] } : undefined}
     >
-      {colore && image && <img src={image.src} alt={image.alt} width={2048} height={1152} decoding="async" className="photo-hero" />}
+      {colore && image && (
+        <img src={image.src} alt={image.alt} width={2000} height={1131} decoding="async" className="photo-fond" style={{ objectPosition: "center 35%" }} />
+      )}
       {colore && <FondVivant ton={ton} />}
-      <div className={`relative container mx-auto px-4 ${colore ? "py-20 md:py-28" : "py-14 md:py-20"}`}>
-        <div className="min-w-0 max-w-2xl" data-cascade>
+      <div className={`relative container mx-auto px-4 text-center ${colore ? "py-16 md:py-20" : "py-14 md:py-20"}`}>
+        <div className="mx-auto min-w-0 max-w-3xl" data-cascade>
           {surtitre && (
             <p className={`text-xs font-medium uppercase tracking-[0.18em] ${colore ? "text-white/85" : "text-accent-texte"}`}>
               {surtitre}
             </p>
           )}
-          <h1 className={`mt-4 text-4xl md:text-5xl font-semibold leading-[1.08] ${colore ? "" : "text-primary"}`}>
+          <h1 className={`mt-4 text-4xl md:text-6xl font-semibold leading-[1.06] ${colore ? "" : "text-primary"}`}>
             {titre}
           </h1>
           {texte && (
-            <p className={`mt-5 text-lg leading-relaxed ${colore ? "text-white/95" : "text-muted-foreground"}`}>{texte}</p>
+            <p className={`mx-auto mt-5 max-w-2xl text-lg md:text-xl leading-relaxed ${colore ? "text-white/95" : "text-muted-foreground"}`}>{texte}</p>
           )}
-          {children && <div className="mt-8 flex flex-col sm:flex-row gap-3">{children}</div>}
+          {children && <div className="mt-9 flex flex-col sm:flex-row justify-center gap-3">{children}</div>}
         </div>
       </div>
     </section>
