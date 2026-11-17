@@ -79,7 +79,7 @@ const AppSection = () => (
               height={72}
               className="w-16 h-16 md:w-[72px] md:h-[72px] rounded-[22%] shadow-lg flex-shrink-0"
             />
-            <h2 className="text-4xl md:text-5xl font-bold font-['Poppins'] leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
               Le sport santé, dans votre poche.
             </h2>
           </div>
@@ -106,7 +106,7 @@ const AppSection = () => (
         </div>
 
         <div className="bg-white text-foreground rounded-2xl p-6 md:p-8 shadow-2xl">
-          <h3 className="text-2xl font-bold font-['Poppins'] text-[#6E172C] mb-6">Installez l'app en 3 étapes</h3>
+          <h3 className="text-2xl font-bold text-[#6E172C] mb-6">Installez l'app en 3 étapes</h3>
           <ol className="space-y-4 mb-8">
             {steps.map((step, i) => (
               <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">

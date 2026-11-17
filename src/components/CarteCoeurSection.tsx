@@ -13,7 +13,7 @@ const CarteCoeurSection = () => (
   <section
     id="carte-coeur"
     aria-labelledby="titre-carte-coeur"
-    className="py-20 bg-[#FAFAFA] border-y border-[#E6E6E6] text-[#161616] font-['Geist',sans-serif]"
+    className="py-20 bg-[#FAFAFA] border-y border-[#E6E6E6] text-[#161616]"
   >
     <div className="container mx-auto px-4">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
@@ -21,7 +21,7 @@ const CarteCoeurSection = () => (
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#A12E3C]">Offrir un abonnement</p>
           <h2
             id="titre-carte-coeur"
-            className="mt-3 text-5xl md:text-6xl font-extralight tracking-tight leading-none font-['Geist',sans-serif]"
+            className="mt-3 text-5xl md:text-6xl font-light tracking-tight leading-none"
           >
             La Carte <span className="font-semibold text-[#A12E3C]">Cœur</span>
           </h2>

@@ -1,72 +1,97 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Heart, Sparkles } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
+import PageHero from "@/components/PageHero";
+import Planning from "@/components/Planning";
 
 const TRIAL_REGISTRATION_URL = "https://app.association-luciani.com/register?planId=ae932234-ac5e-4ee9-b190-5864b063fb05";
 
 const benefits = [
   "Accès illimité à tous les cours pendant 1 mois",
   "Découverte du programme Sport & Santé et du Club Prévention",
+  "Sans engagement",
 ];
 
-const EssaiGratuit = () => {
-  return (
-    <main className="min-h-screen bg-gradient-to-b from-background to-muted/30">
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="rounded-3xl border border-border bg-card p-8 md:p-12 shadow-xl">
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-6">
-                <Heart className="w-4 h-4" />
-                Mois d'essai gratuit
-              </div>
+const etapes = [
+  { titre: "Inscrivez-vous en ligne", texte: "Créez votre compte depuis le formulaire officiel d'inscription au mois d'essai gratuit." },
+  { titre: "Réservez vos séances", texte: "Choisissez vos cours dans votre espace membre ou dans l'application, 24h/24." },
+  { titre: "Venez bouger", texte: "Les coachs adaptent chaque séance à votre niveau, y compris si vous débutez." },
+];
 
-              <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-                Testez le programme pendant <span className="text-primary">1 mois</span>
-              </h1>
+const EssaiGratuit = () => (
+  <main className="min-h-screen bg-background">
+    <PageHero
+      ton="bordeaux"
+      surtitre="Mois d'essai gratuit"
+      titre="Testez le programme pendant 1 mois"
+      texte="Profitez de votre mois d’essai gratuit en quelques clics."
+    >
+      <Button asChild variant="clair" size="lg">
+        <a href={TRIAL_REGISTRATION_URL}>
+          Démarrer mon essai gratuit
+          <ArrowRight aria-hidden="true" />
+        </a>
+      </Button>
+    </PageHero>
 
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl">
-                Profitez de votre mois d’essai gratuit en quelques clics.
-              </p>
-
-              <div className="space-y-4">
-                {benefits.map((benefit) => (
-                  <div key={benefit} className="flex items-start gap-3">
-                    <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-                    <p className="text-foreground">{benefit}</p>
+    <section className="py-20 md:py-24">
+      <div className="container mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Ce qui est inclus</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Un mois complet pour vous faire une idée</h2>
+            <ul className="mt-8 divide-y divide-border border-y border-border">
+              {benefits.map((benefit) => (
+                <li key={benefit} className="flex items-center gap-3 py-4">
+                  <Check aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-accent" />
+                  <span className="font-medium">{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Comment ça marche</p>
+            <ol className="mt-6 space-y-6">
+              {etapes.map((etape, index) => (
+                <li key={etape.titre} className="grid grid-cols-[2.5rem_1fr] gap-4">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-accent text-sm font-semibold tabular-nums text-accent">
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-semibold text-primary">{etape.titre}</h3>
+                    <p className="mt-1 text-muted-foreground">{etape.texte}</p>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            <Card className="border-border bg-card shadow-xl">
-              <CardContent className="flex h-full flex-col justify-center p-8 md:p-10">
-                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Sparkles className="h-8 w-8" />
-                </div>
-
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-                  Démarrer mon essai gratuit
-                </h2>
-
-                <p className="text-muted-foreground mb-8">
-                  Cliquez ci-dessous pour accéder au formulaire officiel d'inscription au mois d'essai gratuit.
-                </p>
-
-                <Button asChild variant="cta" size="lg" className="w-full text-lg py-6">
-                  <a href={TRIAL_REGISTRATION_URL}>Essai gratuit</a>
-                </Button>
-
-                <p className="mt-4 text-center text-xs text-muted-foreground">
-                  Le lien s'ouvre dans le même onglet.
-                </p>
-              </CardContent>
-            </Card>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
-      </section>
-    </main>
-  );
-};
+      </div>
+    </section>
+
+    <section className="py-20 md:py-24 bg-muted/60">
+      <div className="container mx-auto px-4">
+        <div className="max-w-2xl">
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Les cours à essayer</p>
+          <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Le planning de la semaine</h2>
+        </div>
+        <div className="mt-10">
+          <Planning />
+        </div>
+        <div className="mt-8 flex flex-col sm:flex-row gap-3">
+          <Button asChild variant="cta" size="lg">
+            <a href={TRIAL_REGISTRATION_URL}>
+              Démarrer mon essai gratuit
+              <ArrowRight aria-hidden="true" />
+            </a>
+          </Button>
+          <Button asChild variant="outline" size="lg">
+            <Link to="/tarifs">Voir les tarifs après l'essai</Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  </main>
+);
 
 export default EssaiGratuit;

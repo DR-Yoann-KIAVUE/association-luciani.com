@@ -8,71 +8,60 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 215 25% 15%;
+    /* Charte LUCIANI : rouge #A12E3C, bordeaux #6E172C, gris neutres, police Geist. */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 0 0% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 0 0% 9%;
 
-    /* Bleu nuit professionnel */
-    --primary: 215 90% 15%;
+    /* Encre : titres et fonds sombres */
+    --primary: 0 0% 9%;
     --primary-foreground: 0 0% 100%;
 
-    /* Turquoise santé/vitalité */
-    --secondary: 174 72% 41%;
+    /* Bordeaux profond */
+    --secondary: 346 65% 26%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 214 20% 92%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 37%;
 
-    /* Rouge santé pour CTA */
-    --accent: 354 51% 59%;
+    /* Rouge LUCIANI : appels à l'action */
+    --accent: 353 56% 41%;
     --accent-foreground: 0 0% 100%;
-    
-    /* Jaune/Or pour accents */
-    --accent-gold: 45 100% 53%;
-    --accent-gold-foreground: 215 25% 15%;
-    
-    /* Orange vif */
-    --accent-orange: 20 100% 65%;
+
+    /* Anciennes couleurs d'accent, ramenées au rouge de la charte */
+    --accent-gold: 353 56% 41%;
+    --accent-gold-foreground: 0 0% 100%;
+    --accent-orange: 353 56% 41%;
     --accent-orange-foreground: 0 0% 100%;
-    
-    /* Bleu teal Sport & Santé */
-    --sport-accent: 196 93% 27%;
+    --sport-accent: 346 65% 26%;
     --sport-accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 20% 88%;
-    --input: 214 20% 88%;
-    --ring: 174 72% 41%;
+    --border: 0 0% 90%;
+    --input: 0 0% 85%;
+    --ring: 353 56% 41%;
 
-    --radius: 0.75rem;
-    
-    /* Custom tokens pour l'association */
-    --hero-gradient: linear-gradient(135deg, hsl(215 90% 15%) 0%, hsl(215 80% 25%) 100%);
-    --card-shadow: 0 4px 6px -1px hsl(215 25% 15% / 0.1), 0 2px 4px -2px hsl(215 25% 15% / 0.1);
-    --card-shadow-hover: 0 10px 15px -3px hsl(215 25% 15% / 0.15), 0 4px 6px -4px hsl(215 25% 15% / 0.1);
+    --radius: 0.625rem;
+
+    --hero-gradient: linear-gradient(150deg, #A12E3C, #6E172C);
+    --card-shadow: 0 1px 2px hsl(0 0% 9% / 0.04), 0 8px 24px -12px hsl(0 0% 9% / 0.12);
+    --card-shadow-hover: 0 2px 4px hsl(0 0% 9% / 0.05), 0 18px 40px -16px hsl(0 0% 9% / 0.22);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -127,12 +116,35 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
-  
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-feature-settings: "ss01", "cv11";
+    overflow-x: clip;
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+    font-family: inherit;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid #A12E3C;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   }
 }

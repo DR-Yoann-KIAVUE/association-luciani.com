@@ -5,43 +5,47 @@ import { Button } from "@/components/ui/button";
 import logoLuciani from "@/assets/logo-luciani.png";
 import { LIEN_OFFRIR } from "@/config/carteCoeur";
 
+const navLinks = [
+  { href: "/", label: "Accueil" },
+  { href: "/sport-sante", label: "Sport & Santé" },
+  { href: "/pack-prevention", label: "Club Prévention" },
+  { href: "/formations", label: "Formations" },
+  { href: "/a-propos", label: "L'association" },
+  { href: "/tarifs", label: "Tarifs & adhésion" },
+  { href: "/contact", label: "Contact" },
+];
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  const navLinks = [
-    { href: "/", label: "Accueil" },
-    { href: "/sport-sante", label: "Sport & Santé" },
-    { href: "/pack-prevention", label: "Club Prévention" },
-    { href: "/formations", label: "Formations" },
-    { href: "/a-propos", label: "L'association" },
-    { href: "/tarifs", label: "Tarifs" },
-    { href: "/contact", label: "Contact" },
-  ];
-
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border shadow-sm">
-      <div className="container mx-auto px-4 py-5">
-        <div className="flex items-center justify-between h-30">
-          {/* Logo - aligné à gauche */}
-          <Link to="/" className="flex items-center group">
+    <nav aria-label="Navigation principale" className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between gap-4 h-[72px]">
+          <Link to="/" className="flex items-center flex-shrink-0" aria-label="Association LUCIANI, accueil">
             <img
               src={logoLuciani}
               alt="Association LUCIANI - Prévention & Secours"
-              className="w-[180px] h-auto transition-transform group-hover:scale-105"
+              width={540}
+              height={243}
+              className="w-[132px] h-auto"
             />
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Navigation ordinateur */}
           <div className="hidden xl:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`px-2 2xl:px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
-                  isActive(link.href) ? "bg-secondary text-secondary-foreground" : "text-foreground hover:bg-muted"
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={`relative px-2.5 2xl:px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors after:absolute after:inset-x-2.5 after:-bottom-0.5 after:h-0.5 after:rounded-full after:transition-colors ${
+                  isActive(link.href)
+                    ? "text-accent after:bg-accent"
+                    : "text-foreground/80 hover:text-foreground after:bg-transparent"
                 }`}
               >
                 {link.label}
@@ -49,88 +53,75 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* CTA Desktop - plus compacts */}
           <div className="hidden xl:flex items-center gap-2">
-            <Button asChild variant="outline" size="sm">
-              <a href="https://app.association-luciani.com/" className="text-xs">
-                Se connecter
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="sm"
-              className="border-[#A12E3C] text-[#A12E3C] hover:bg-[#A12E3C] hover:text-white"
+            <a
+              href="https://app.association-luciani.com/"
+              className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground whitespace-nowrap"
             >
-              <a href={LIEN_OFFRIR} className="text-xs">
-                <Gift className="w-3.5 h-3.5" aria-hidden="true" />
+              Se connecter
+            </a>
+            <Button asChild variant="gold" size="sm">
+              <a href={LIEN_OFFRIR}>
+                <Gift aria-hidden="true" />
                 Offrir
               </a>
             </Button>
-            <Button asChild variant="gold" size="sm">
-              <Link to="/tarifs" className="text-xs">
-                Adhérer
-              </Link>
-            </Button>
             <Button asChild variant="cta" size="sm">
-              <Link to="/essai-gratuit" className="text-xs">
-                Mois d'essai gratuit
-              </Link>
+              <Link to="/essai-gratuit">Mois d'essai gratuit</Link>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile : action principale toujours visible, puis menu */}
+          <div className="xl:hidden flex items-center gap-1">
+            <Button asChild variant="cta" size="sm">
+              <Link to="/essai-gratuit">Essai gratuit</Link>
+            </Button>
           <button
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="xl:hidden p-2 rounded-lg hover:bg-muted transition-colors"
-            aria-label="Menu"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-md hover:bg-muted transition-colors"
+            aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={isOpen}
+            aria-controls="menu-mobile"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
           </button>
+          </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Navigation mobile */}
         {isOpen && (
-          <div className="xl:hidden py-4 border-t border-border animate-in slide-in-from-top">
-            <div className="flex flex-col gap-2">
+          <div id="menu-mobile" className="xl:hidden pb-5 border-t border-border max-h-[calc(100dvh-72px)] overflow-y-auto">
+            <div className="flex flex-col">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    isActive(link.href) ? "bg-secondary text-secondary-foreground" : "text-foreground hover:bg-muted"
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                  className={`flex min-h-12 items-center border-b border-border px-1 text-base font-medium ${
+                    isActive(link.href) ? "text-accent" : "text-foreground"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="flex flex-col gap-2 mt-2">
-                <Button asChild variant="outline" size="lg">
-                  <a href="https://app.association-luciani.com/" onClick={() => setIsOpen(false)}>
-                    Se connecter
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-[#A12E3C] text-[#A12E3C] hover:bg-[#A12E3C] hover:text-white"
-                >
-                  <a href={LIEN_OFFRIR} onClick={() => setIsOpen(false)}>
-                    <Gift className="w-4 h-4" aria-hidden="true" />
-                    Offrir la Carte Cœur
-                  </a>
-                </Button>
-                <Button asChild variant="gold" size="lg">
-                  <Link to="/tarifs" onClick={() => setIsOpen(false)}>
-                    Adhérer
-                  </Link>
-                </Button>
+              <div className="flex flex-col gap-2 mt-5">
                 <Button asChild variant="cta" size="lg">
                   <Link to="/essai-gratuit" onClick={() => setIsOpen(false)}>
                     Mois d'essai gratuit
                   </Link>
+                </Button>
+                <Button asChild variant="gold" size="lg">
+                  <a href={LIEN_OFFRIR} onClick={() => setIsOpen(false)}>
+                    <Gift aria-hidden="true" />
+                    Offrir la Carte Cœur
+                  </a>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <a href="https://app.association-luciani.com/" onClick={() => setIsOpen(false)}>
+                    Se connecter
+                  </a>
                 </Button>
               </div>
             </div>

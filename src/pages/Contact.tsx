@@ -15,6 +15,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import PageHero from "@/components/PageHero";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -85,28 +86,21 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-primary/5 to-background">
-        <div className="container mx-auto px-4 text-center">
-          <Send className="w-16 h-16 text-accent mx-auto mb-6" />
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 font-['Poppins'] text-primary">
-            Contactez-nous
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Une question ? Un projet de formation ? Nous sommes à votre écoute
-          </p>
-        </div>
-      </section>
+      <PageHero
+        surtitre="Contact"
+        titre="Contactez-nous"
+        texte="Une question ? Un projet de formation ? Nous sommes à votre écoute"
+      />
 
       {/* Contact Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             {/* Form */}
             <div>
-              <Card className="border-2">
+              <Card className="border">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-['Poppins'] text-primary">
+                  <CardTitle className="text-2xl text-primary">
                     Envoyez-nous un message
                   </CardTitle>
                 </CardHeader>
@@ -247,16 +241,16 @@ const Contact = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-6 flex flex-col justify-center">
-              <Card className="border-2">
+            <div className="space-y-6">
+              <Card className="border">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-['Poppins'] text-primary">
+                  <CardTitle className="text-2xl text-primary">
                     Nos coordonnées
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="bg-secondary/10 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="bg-muted w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
                       <MapPin className="w-6 h-6 text-secondary" />
                     </div>
                     <div>
@@ -272,7 +266,7 @@ const Contact = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="bg-secondary/10 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="bg-muted w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
                       <Phone className="w-6 h-6 text-secondary" />
                     </div>
                     <div>
@@ -287,7 +281,7 @@ const Contact = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="bg-accent/10 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="bg-muted w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
                       <Mail className="w-6 h-6 text-accent" />
                     </div>
                     <div>
@@ -303,9 +297,9 @@ const Contact = () => {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
+              <Card className="border">
                 <CardHeader>
-                  <CardTitle className="text-xl font-['Poppins'] text-primary">
+                  <CardTitle className="text-xl text-primary">
                     Lieux de nos activités
                   </CardTitle>
                 </CardHeader>

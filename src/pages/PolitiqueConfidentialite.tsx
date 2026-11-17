@@ -1,23 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Shield } from "lucide-react";
+import PageHero from "@/components/PageHero";
 
 const PolitiqueConfidentialite = () => {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-muted/30 to-background">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-center mb-6">
-            <Shield className="w-16 h-16 text-accent" />
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 font-['Poppins'] text-primary text-center">
-            Politique de Confidentialité
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-center">
-            Protection de vos données personnelles
-          </p>
-        </div>
-      </section>
+      <PageHero titre="Politique de Confidentialité" texte="Protection de vos données personnelles" />
 
       {/* Contenu */}
       <section className="py-20 bg-background">
@@ -27,7 +14,7 @@ const PolitiqueConfidentialite = () => {
             {/* Introduction */}
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-primary mb-4 font-['Poppins']">
+                <h2 className="text-2xl font-semibold text-primary mb-4">
                   1. Introduction
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
@@ -42,7 +29,7 @@ const PolitiqueConfidentialite = () => {
             {/* Responsable du traitement */}
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-primary mb-4 font-['Poppins']">
+                <h2 className="text-2xl font-semibold text-primary mb-4">
                   2. Responsable du traitement
                 </h2>
                 <div className="text-muted-foreground leading-relaxed space-y-2">
@@ -57,7 +44,7 @@ const PolitiqueConfidentialite = () => {
             {/* Données collectées */}
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-primary mb-4 font-['Poppins']">
+                <h2 className="text-2xl font-semibold text-primary mb-4">
                   3. Données collectées
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
@@ -76,7 +63,7 @@ const PolitiqueConfidentialite = () => {
             {/* Finalités du traitement */}
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-primary mb-4 font-['Poppins']">
+                <h2 className="text-2xl font-semibold text-primary mb-4">
                   4. Finalités du traitement
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
@@ -97,7 +84,7 @@ const PolitiqueConfidentialite = () => {
             {/* Base légale */}
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-primary mb-4 font-['Poppins']">
+                <h2 className="text-2xl font-semibold text-primary mb-4">
                   5. Base légale du traitement
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
@@ -115,7 +102,7 @@ const PolitiqueConfidentialite = () => {
             {/* Durée de conservation */}
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-primary mb-4 font-['Poppins']">
+                <h2 className="text-2xl font-semibold text-primary mb-4">
                   6. Durée de conservation
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
@@ -134,7 +121,7 @@ const PolitiqueConfidentialite = () => {
             {/* Destinataires des données */}
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-primary mb-4 font-['Poppins']">
+                <h2 className="text-2xl font-semibold text-primary mb-4">
                   7. Destinataires des données
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
@@ -155,7 +142,7 @@ const PolitiqueConfidentialite = () => {
             {/* Vos droits */}
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-primary mb-4 font-['Poppins']">
+                <h2 className="text-2xl font-semibold text-primary mb-4">
                   8. Vos droits
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
@@ -179,7 +166,7 @@ const PolitiqueConfidentialite = () => {
             {/* Cookies */}
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-primary mb-4 font-['Poppins']">
+                <h2 className="text-2xl font-semibold text-primary mb-4">
                   9. Cookies
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
@@ -198,7 +185,7 @@ const PolitiqueConfidentialite = () => {
             {/* Sécurité */}
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-primary mb-4 font-['Poppins']">
+                <h2 className="text-2xl font-semibold text-primary mb-4">
                   10. Sécurité des données
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
@@ -212,7 +199,7 @@ const PolitiqueConfidentialite = () => {
             {/* Réclamation */}
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-primary mb-4 font-['Poppins']">
+                <h2 className="text-2xl font-semibold text-primary mb-4">
                   11. Réclamation
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
@@ -226,7 +213,7 @@ const PolitiqueConfidentialite = () => {
             {/* Mise à jour */}
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-primary mb-4 font-['Poppins']">
+                <h2 className="text-2xl font-semibold text-primary mb-4">
                   12. Mise à jour de la politique
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">

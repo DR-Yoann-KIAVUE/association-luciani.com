@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { LifeBuoy, Clock, Users, CheckCircle2 } from "lucide-react";
-import formationsImage from "@/assets/formations-secours.jpg";
+import { ArrowRight, Check, Clock, Users } from "lucide-react";
 import formationMassage1 from "@/assets/formation-massage-cardiaque-1.jpg";
 import atelierScolaire from "@/assets/atelier-scolaire.jpg";
+import PageHero from "@/components/PageHero";
 
 const Formations = () => {
   const formations = [
@@ -47,105 +46,84 @@ const Formations = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `linear-gradient(rgba(215, 38, 61, 0.8), rgba(215, 38, 61, 0.8)), url(${formationsImage})`,
-          }}
-        />
-        <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <LifeBuoy className="w-16 h-16 mx-auto mb-4" />
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 font-['Poppins']">
-            Nos formations
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/95 leading-relaxed">
-            Alerter . Masser . Défibriller
-          </p>
-        </div>
-      </section>
-
-      {/* Intro */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-              Des sessions accessibles à tous, animées par des{" "}
-              <strong className="text-primary">formateurs diplômés</strong>.
-              Objectif : savoir <strong>alerter</strong>, pratiquer un{" "}
-              <strong>massage cardiaque</strong> et utiliser un{" "}
-              <strong>DAE</strong> en toute sécurité.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        ton="bordeaux"
+        surtitre="Alerter · Masser · Défibriller"
+        titre="Nos formations"
+        texte={
+          <>
+            Des sessions accessibles à tous, animées par des formateurs diplômés. Objectif : savoir alerter, pratiquer
+            un massage cardiaque et utiliser un DAE en toute sécurité.
+          </>
+        }
+      >
+        <Button asChild variant="clair" size="lg">
+          <Link to="/contact">
+            Demander un devis
+            <ArrowRight aria-hidden="true" />
+          </Link>
+        </Button>
+        <Button asChild variant="contour" size="lg">
+          <a href="#formats">Voir les formations</a>
+        </Button>
+      </PageHero>
 
       {/* Formations */}
-      <section className="py-20 bg-muted/30">
+      <section id="formats" className="scroll-mt-24 py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 font-['Poppins'] text-primary">
-            Nos formations
-          </h2>
-          <p className="text-center text-muted-foreground mb-12 text-lg">
-            Adaptées à chaque public et besoin
-          </p>
+          <div className="max-w-2xl">
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Initiations de 2 heures</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Adaptées à chaque public et besoin</h2>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="mt-10 grid md:grid-cols-2 gap-6 lg:gap-8">
             {formations.map((formation, index) => {
               const formationImage = index === 0 ? formationMassage1 : atelierScolaire;
               return (
-                <Card
-                  key={index}
-                  className="hover:shadow-[var(--card-shadow-hover)] transition-all duration-300 border-2 hover:border-accent overflow-hidden flex flex-col"
+                <article
+                  key={formation.titre}
+                  className="flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-[var(--card-shadow)]"
                 >
-                  <div className="h-48 overflow-hidden">
-                    <img 
-                      src={formationImage} 
+                  <div className="aspect-[16/9] overflow-hidden bg-muted">
+                    <img
+                      src={formationImage}
                       alt={formation.titre}
-                      className="w-full h-full object-cover"
+                      width={800}
+                      height={450}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
                     />
                   </div>
-                  <CardHeader>
-                    <div className="bg-accent/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <LifeBuoy className="w-8 h-8 text-accent" />
-                    </div>
-                    <CardTitle className="text-xl font-['Poppins'] text-primary text-center">
-                      {formation.titre}
-                    </CardTitle>
-                    <div className="flex justify-center gap-4 text-sm text-muted-foreground pt-2">
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        <span>{formation.duree}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Users className="w-4 h-4" />
-                        <span>{formation.public}</span>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex-1 flex flex-col">
-                    <p className="text-muted-foreground text-center mb-6">
-                      {formation.description}
+                  <div className="flex flex-1 flex-col p-6 md:p-8">
+                    <h3 className="text-2xl font-semibold text-primary">{formation.titre}</h3>
+                    <p className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm text-muted-foreground">
+                      <span className="inline-flex items-center gap-1.5">
+                        <Clock aria-hidden="true" className="h-4 w-4" />
+                        {formation.duree}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <Users aria-hidden="true" className="h-4 w-4" />
+                        {formation.public}
+                      </span>
                     </p>
-                    
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-primary mb-3 text-center">Exemple de déroulé :</h4>
-                      <ul className="space-y-2">
-                        {formation.programme.map((etape, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                            <span>{etape}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <Button variant="cta" size="sm" asChild className="w-full mt-auto">
-                      <Link to="/contact">Programmer</Link>
+                    <p className="mt-4 leading-relaxed text-muted-foreground">{formation.description}</p>
+
+                    <h4 className="mt-6 text-sm font-semibold uppercase tracking-wider text-primary">Exemple de déroulé</h4>
+                    <ol className="mt-3 flex-1 space-y-2">
+                      {formation.programme.map((etape) => (
+                        <li key={etape} className="flex items-start gap-3 text-sm text-muted-foreground">
+                          <Check aria-hidden="true" className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
+                          <span>{etape}</span>
+                        </li>
+                      ))}
+                    </ol>
+
+                    <Button asChild variant="cta" size="lg" className="mt-8 w-full sm:w-auto sm:self-start">
+                      <Link to="/contact">Programmer une session</Link>
                     </Button>
-                  </CardContent>
-                </Card>
+                  </div>
+                </article>
               );
             })}
           </div>
@@ -153,59 +131,47 @@ const Formations = () => {
       </section>
 
       {/* Méthode */}
-      <section className="py-20 bg-background">
+      <section className="py-20 md:py-24 bg-muted/60">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 font-['Poppins'] text-primary">
-              Notre méthode
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {methode.map((item, index) => (
-                <Card
-                  key={index}
-                  className="border-2 hover:border-secondary transition-all"
-                >
-                  <CardContent className="flex items-center gap-4 p-6">
-                    <CheckCircle2 className="w-6 h-6 text-secondary flex-shrink-0" />
-                    <p className="text-foreground font-medium">{item}</p>
-                  </CardContent>
-                </Card>
-              ))}
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Pédagogie</p>
+              <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Notre méthode</h2>
+              <ul className="mt-8 divide-y divide-border border-y border-border">
+                {methode.map((item) => (
+                  <li key={item} className="flex items-center gap-3 py-4">
+                    <Check aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-accent" />
+                    <span className="font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-
-            <Card className="mt-12 border-2 border-accent/30 bg-accent/5">
-              <CardHeader>
-                <CardTitle className="text-2xl font-['Poppins'] text-primary flex items-center gap-2">
-                  <CheckCircle2 className="w-6 h-6 text-accent" />
-                  Attestation et conformité
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Tous nos intervenants sont diplômés et régulièrement formés
-                  aux dernières normes. Le matériel utilisé est conforme aux
-                  standards en vigueur et un protocole d'hygiène strict est
-                  appliqué pour chaque session.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="self-end rounded-xl border border-border bg-card p-6 md:p-8">
+              <h3 className="text-xl font-semibold text-primary">Attestation et conformité</h3>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                Tous nos intervenants sont diplômés et régulièrement formés aux dernières normes. Le matériel utilisé
+                est conforme aux standards en vigueur et un protocole d'hygiène strict est appliqué pour chaque session.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Final */}
-      <section className="py-16 bg-gradient-to-r from-accent to-accent/90 text-accent-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-['Poppins']">
-            Prêt à apprendre les gestes qui sauvent ?
-          </h2>
-          <p className="text-lg mb-8 text-accent-foreground/90 max-w-2xl mx-auto">
-            Demandez un devis ou programmez une session dès maintenant
-          </p>
-          <Button asChild variant="secondary" size="lg">
-            <Link to="/contact">Demander un devis</Link>
-          </Button>
+      {/* Appel à l'action */}
+      <section className="text-white" style={{ background: "linear-gradient(150deg, #A12E3C, #6E172C)" }}>
+        <div className="container mx-auto px-4 py-16 md:py-20">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-semibold">Prêt à apprendre les gestes qui sauvent ?</h2>
+              <p className="mt-3 text-lg text-white/80">Demandez un devis ou programmez une session dès maintenant</p>
+            </div>
+            <Button asChild variant="clair" size="lg" className="flex-shrink-0">
+              <Link to="/contact">
+                Demander un devis
+                <ArrowRight aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
     </div>

@@ -1,23 +1,11 @@
-import { Shield, Lock, Eye, FileText, UserCheck, Database, Bell, Scale } from "lucide-react";
+import { Lock, Eye, FileText, UserCheck, Database, Bell, Scale } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import PageHero from "@/components/PageHero";
 
 const RGPD = () => {
   return (
     <main className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="bg-primary text-primary-foreground py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <Shield className="w-16 h-16 mx-auto mb-6 text-accent" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 font-['Poppins']">
-              RGPD
-            </h1>
-            <p className="text-xl text-primary-foreground/80">
-              Règlement Général sur la Protection des Données
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero titre="RGPD" texte="Règlement Général sur la Protection des Données" />
 
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
@@ -33,7 +21,7 @@ const RGPD = () => {
 
           {/* Principes fondamentaux */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-primary mb-6 font-['Poppins'] flex items-center gap-3">
+            <h2 className="text-2xl font-semibold text-primary mb-6 flex items-center gap-3">
               <Scale className="w-6 h-6 text-accent" />
               Principes fondamentaux du RGPD
             </h2>
@@ -103,7 +91,7 @@ const RGPD = () => {
 
           {/* Vos droits */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-primary mb-6 font-['Poppins'] flex items-center gap-3">
+            <h2 className="text-2xl font-semibold text-primary mb-6 flex items-center gap-3">
               <UserCheck className="w-6 h-6 text-accent" />
               Vos droits selon le RGPD
             </h2>
@@ -155,7 +143,7 @@ const RGPD = () => {
 
           {/* Bases légales */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-primary mb-6 font-['Poppins'] flex items-center gap-3">
+            <h2 className="text-2xl font-semibold text-primary mb-6 flex items-center gap-3">
               <FileText className="w-6 h-6 text-accent" />
               Bases légales de nos traitements
             </h2>
@@ -172,7 +160,7 @@ const RGPD = () => {
                     <td className="border p-3 text-muted-foreground">Gestion des adhésions</td>
                     <td className="border p-3 text-muted-foreground">Exécution du contrat</td>
                   </tr>
-                  <tr className="bg-muted/30">
+                  <tr className="bg-muted/60">
                     <td className="border p-3 text-muted-foreground">Inscriptions aux formations</td>
                     <td className="border p-3 text-muted-foreground">Exécution du contrat</td>
                   </tr>
@@ -180,7 +168,7 @@ const RGPD = () => {
                     <td className="border p-3 text-muted-foreground">Envoi de newsletters</td>
                     <td className="border p-3 text-muted-foreground">Consentement</td>
                   </tr>
-                  <tr className="bg-muted/30">
+                  <tr className="bg-muted/60">
                     <td className="border p-3 text-muted-foreground">Réponse aux demandes de contact</td>
                     <td className="border p-3 text-muted-foreground">Intérêt légitime</td>
                   </tr>
@@ -188,7 +176,7 @@ const RGPD = () => {
                     <td className="border p-3 text-muted-foreground">Données de santé (certificats médicaux)</td>
                     <td className="border p-3 text-muted-foreground">Obligation légale</td>
                   </tr>
-                  <tr className="bg-muted/30">
+                  <tr className="bg-muted/60">
                     <td className="border p-3 text-muted-foreground">Comptabilité et facturation</td>
                     <td className="border p-3 text-muted-foreground">Obligation légale</td>
                   </tr>
@@ -199,7 +187,7 @@ const RGPD = () => {
 
           {/* Mesures de sécurité */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-primary mb-6 font-['Poppins'] flex items-center gap-3">
+            <h2 className="text-2xl font-semibold text-primary mb-6 flex items-center gap-3">
               <Lock className="w-6 h-6 text-accent" />
               Mesures de sécurité
             </h2>
@@ -248,7 +236,7 @@ const RGPD = () => {
 
           {/* Sous-traitants */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-primary mb-6 font-['Poppins'] flex items-center gap-3">
+            <h2 className="text-2xl font-semibold text-primary mb-6 flex items-center gap-3">
               <Database className="w-6 h-6 text-accent" />
               Nos sous-traitants
             </h2>
@@ -271,7 +259,7 @@ const RGPD = () => {
                     <td className="border p-3 text-muted-foreground">Envoi d'emails</td>
                     <td className="border p-3 text-muted-foreground">France / UE</td>
                   </tr>
-                  <tr className="bg-muted/30">
+                  <tr className="bg-muted/60">
                     <td className="border p-3 text-muted-foreground">Hostinger (espace membre app.association-luciani.com)</td>
                     <td className="border p-3 text-muted-foreground">Hébergement de l'espace membre : adhésions et réservations</td>
                     <td className="border p-3 text-muted-foreground">France</td>
@@ -288,7 +276,7 @@ const RGPD = () => {
 
           {/* Notification de violation */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-primary mb-6 font-['Poppins'] flex items-center gap-3">
+            <h2 className="text-2xl font-semibold text-primary mb-6 flex items-center gap-3">
               <Bell className="w-6 h-6 text-accent" />
               Notification des violations de données
             </h2>
@@ -320,7 +308,7 @@ const RGPD = () => {
 
           {/* Exercer vos droits */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-primary mb-6 font-['Poppins'] flex items-center gap-3">
+            <h2 className="text-2xl font-semibold text-primary mb-6 flex items-center gap-3">
               <Eye className="w-6 h-6 text-accent" />
               Comment exercer vos droits ?
             </h2>
@@ -355,7 +343,7 @@ const RGPD = () => {
 
           {/* Réclamation CNIL */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-primary mb-6 font-['Poppins']">
+            <h2 className="text-2xl font-semibold text-primary mb-6">
               Réclamation auprès de la CNIL
             </h2>
             <p className="text-muted-foreground">

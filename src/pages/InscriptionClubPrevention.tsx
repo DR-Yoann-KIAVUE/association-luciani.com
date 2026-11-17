@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Heart, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 const InscriptionClubPrevention = () => {
   const [formData, setFormData] = useState({
@@ -67,26 +67,20 @@ const InscriptionClubPrevention = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-background to-muted/30">
+    <main className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10 md:mb-16">
-            <div className="inline-flex items-center gap-2 bg-[hsl(var(--accent-gold))]/10 text-[hsl(var(--accent-gold))] px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Heart className="w-4 h-4" />
-              Club Prévention
-            </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-              Rejoignez le{" "}
-              <span className="text-[hsl(var(--accent-gold))]">Club Prévention</span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <div className="max-w-3xl mb-10 md:mb-14">
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Club Prévention</p>
+            <h1 className="mt-3 text-4xl md:text-5xl font-semibold text-primary">Rejoignez le Club Prévention</h1>
+            <p className="mt-4 text-lg text-muted-foreground">
               Remplissez le formulaire ci-dessous pour accéder à nos webinaires,
               conférences et contenus exclusifs sur la prévention cardiovasculaire.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
             {/* Benefits */}
             <div className="order-2 lg:order-1">
               <Card className="bg-card/50 backdrop-blur-sm border-border/50 h-full">

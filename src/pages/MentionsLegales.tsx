@@ -1,25 +1,16 @@
 import { Card, CardContent } from "@/components/ui/card";
+import PageHero from "@/components/PageHero";
 
 const MentionsLegales = () => {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-muted/30 to-background">
-        <div className="container mx-auto px-4">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 font-['Poppins'] text-primary text-center">
-            Mentions Légales
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-center">
-            Informations légales et modalités de paiement
-          </p>
-        </div>
-      </section>
+      <PageHero titre="Mentions Légales" texte="Informations légales et modalités de paiement" />
 
       {/* Paiement & modalités */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8 font-['Poppins'] text-primary">
+            <h2 className="text-3xl font-semibold text-center mb-8 text-primary">
               Paiement & modalités
             </h2>
             <Card>
@@ -74,10 +65,10 @@ const MentionsLegales = () => {
       </section>
 
       {/* Informations légales */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-muted/60">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8 font-['Poppins'] text-primary">
+            <h2 className="text-3xl font-semibold text-center mb-8 text-primary">
               Informations légales
             </h2>
             <Card>
