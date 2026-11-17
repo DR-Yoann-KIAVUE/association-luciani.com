@@ -53,7 +53,7 @@ const Navigation = () => {
                 aria-current={isActive(link.href) ? "page" : undefined}
                 className={`relative px-2.5 2xl:px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors after:absolute after:inset-x-2.5 after:-bottom-0.5 after:h-0.5 after:rounded-full after:transition-colors ${
                   isActive(link.href)
-                    ? "text-accent after:bg-accent"
+                    ? "text-accent-texte after:bg-accent"
                     : "text-foreground/80 hover:text-foreground after:bg-transparent"
                 }`}
               >
@@ -69,7 +69,7 @@ const Navigation = () => {
             >
               Se connecter
             </a>
-            <Button asChild variant="gold" size="sm">
+            <Button asChild variant="outline" size="sm" className="border-accent-texte text-accent-texte hover:bg-accent hover:text-white hover:border-accent">
               <a href={LIEN_OFFRIR}>
                 <Gift aria-hidden="true" />
                 Offrir
@@ -109,7 +109,7 @@ const Navigation = () => {
                   onClick={() => setIsOpen(false)}
                   aria-current={isActive(link.href) ? "page" : undefined}
                   className={`flex min-h-12 items-center border-b border-border px-1 text-base font-medium ${
-                    isActive(link.href) ? "text-accent" : "text-foreground"
+                    isActive(link.href) ? "text-accent-texte" : "text-foreground"
                   }`}
                 >
                   {link.label}
@@ -121,7 +121,7 @@ const Navigation = () => {
                     Mois d'essai gratuit
                   </Link>
                 </Button>
-                <Button asChild variant="gold" size="lg">
+                <Button asChild variant="outline" size="lg" className="border-accent-texte text-accent-texte hover:bg-accent hover:text-white hover:border-accent">
                   <a href={LIEN_OFFRIR} onClick={() => setIsOpen(false)}>
                     <Gift aria-hidden="true" />
                     Offrir la Carte Cœur

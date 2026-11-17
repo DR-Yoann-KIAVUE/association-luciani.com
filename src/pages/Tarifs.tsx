@@ -31,7 +31,7 @@ const Tarifs = () => {
       <section className="pt-16 md:pt-20 pb-20 md:pb-24">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Programme Sport & Santé</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Programme Sport & Santé</p>
             <h1 className="mt-3 text-4xl md:text-5xl font-semibold text-primary">Tarifs & Adhésions</h1>
             <p className="mt-4 text-lg text-muted-foreground">
               Le Club Prévention est inclus dans toutes les adhésions. Vous hésitez ? Le premier mois est gratuit.
@@ -83,7 +83,7 @@ const Tarifs = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-16">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Parrainage</p>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Parrainage</p>
               <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Programme de parrainage</h2>
               <p className="mt-4 text-lg text-muted-foreground">
                 Parrainez vos proches et bénéficiez de récompenses exceptionnelles.
@@ -99,7 +99,7 @@ const Tarifs = () => {
             <ol className="rounded-xl border border-border divide-y divide-border">
               {parrainage.map((palier) => (
                 <li key={palier.filleuls} className="grid sm:grid-cols-[8rem_1fr] gap-x-6 gap-y-1 p-6">
-                  <p className="text-xl font-semibold text-accent">{palier.filleuls}</p>
+                  <p className="text-xl font-semibold text-accent-texte">{palier.filleuls}</p>
                   <div>
                     <p className="font-semibold text-primary">{palier.recompense}</p>
                     <p className="mt-1 text-sm text-muted-foreground">{palier.condition}</p>
@@ -116,7 +116,7 @@ const Tarifs = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Sans adhésion Sport & Santé</p>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Sans adhésion Sport & Santé</p>
               <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Rejoindre le Club Prévention</h2>
               <p className="mt-6 flex items-baseline gap-2">
                 <span className="text-5xl font-semibold tracking-tight tabular-nums text-primary">99 €</span>
@@ -131,7 +131,7 @@ const Tarifs = () => {
               <p className="mt-6 text-sm text-muted-foreground">
                 Pas encore convaincu ? Testez tous les services de l'association pendant 1 mois : programme sport & santé
                 en illimité et Club Prévention inclus.{" "}
-                <Link to="/essai-gratuit" className="font-semibold text-accent underline underline-offset-4 hover:no-underline">
+                <Link to="/essai-gratuit" className="font-semibold text-accent-texte underline underline-offset-4 hover:no-underline">
                   Tester 1 mois
                 </Link>
               </p>
@@ -139,7 +139,7 @@ const Tarifs = () => {
             <ul className="rounded-xl border border-border bg-card divide-y divide-border">
               {clubPrevention.map((item) => (
                 <li key={item} className="flex items-start gap-3 p-5">
-                  <Check aria-hidden="true" className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                  <Check aria-hidden="true" className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent-texte" />
                   <span>{item}</span>
                 </li>
               ))}

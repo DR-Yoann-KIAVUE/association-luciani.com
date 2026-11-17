@@ -8,49 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Charte LUCIANI : rouge #A12E3C, bordeaux #6E172C, gris neutres, police Geist. */
+    /* Direction artistique LUCIANI : bleu nuit, turquoise, rouge, jaune, orange, bleu sport. */
     --background: 0 0% 100%;
-    --foreground: 0 0% 9%;
+    --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
+    --card-foreground: 215 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
+    --popover-foreground: 215 25% 15%;
 
-    /* Encre : titres et fonds sombres */
-    --primary: 0 0% 9%;
+    /* Bleu nuit : titres et fonds sombres */
+    --primary: 215 90% 15%;
     --primary-foreground: 0 0% 100%;
 
-    /* Bordeaux profond */
-    --secondary: 346 65% 26%;
+    /* Turquoise santé et vitalité */
+    --secondary: 174 72% 41%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 37%;
+    --muted: 214 30% 96%;
+    --muted-foreground: 215 16% 40%;
 
-    /* Rouge LUCIANI : appels à l'action */
-    --accent: 353 56% 41%;
+    /* Rouge : appels à l'action */
+    --accent: 354 51% 59%;
     --accent-foreground: 0 0% 100%;
+    /* Rouge soutenu : textes et liens rouges sur fond clair (contraste suffisant) */
+    --accent-texte: 354 52% 44%;
 
-    /* Anciennes couleurs d'accent, ramenées au rouge de la charte */
-    --accent-gold: 353 56% 41%;
-    --accent-gold-foreground: 0 0% 100%;
-    --accent-orange: 353 56% 41%;
+    /* Jaune */
+    --accent-gold: 45 100% 53%;
+    --accent-gold-foreground: 215 90% 15%;
+
+    /* Orange */
+    --accent-orange: 20 100% 65%;
     --accent-orange-foreground: 0 0% 100%;
-    --sport-accent: 346 65% 26%;
+
+    /* Bleu Sport & Santé */
+    --sport-accent: 196 93% 27%;
     --sport-accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 85%;
-    --ring: 353 56% 41%;
+    --border: 214 20% 88%;
+    --input: 214 20% 82%;
+    --ring: 174 72% 41%;
 
     --radius: 0.625rem;
 
-    --hero-gradient: linear-gradient(150deg, #A12E3C, #6E172C);
+    --hero-gradient: linear-gradient(150deg, hsl(354 51% 59%), hsl(354 50% 50%));
     --card-shadow: 0 1px 2px hsl(0 0% 9% / 0.04), 0 8px 24px -12px hsl(0 0% 9% / 0.12);
     --card-shadow-hover: 0 2px 4px hsl(0 0% 9% / 0.05), 0 18px 40px -16px hsl(0 0% 9% / 0.22);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -139,7 +145,7 @@ All colors MUST be HSL.
   }
 
   :focus-visible {
-    outline: 2px solid #A12E3C;
+    outline: 2px solid hsl(174 72% 41%);
     outline-offset: 2px;
   }
 
@@ -173,9 +179,31 @@ All colors MUST be HSL.
   .js [data-hero] [data-cascade] > *:nth-child(4) { animation-delay: 0.24s; }
   .js [data-hero] [data-cascade] > *:nth-child(5) { animation-delay: 0.32s; }
 
-  /* Photo de l'en-tête : entrée douce. */
+  /* Photo de l'en-tête : fondue dans la couleur, sans cadre. */
+  .photo-hero {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 72% center;
+    opacity: 0.28;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 30%, #000 100%);
+    mask-image: linear-gradient(to bottom, transparent 30%, #000 100%);
+  }
+  @media (min-width: 1024px) {
+    .photo-hero {
+      width: 64%;
+      opacity: 1;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 38%, #000 70%);
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 38%, #000 70%);
+    }
+  }
   .js [data-hero] .photo-hero {
-    animation: monter 1s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: apparaitre 1.4s 0.1s ease-out both;
+  }
+  @keyframes apparaitre {
+    from { opacity: 0; transform: scale(1.04); }
   }
 
   /* Tracé ECG qui se dessine, puis battement discret. */
@@ -214,12 +242,12 @@ All colors MUST be HSL.
   .carte-tarif:hover,
   .carte-tarif:focus-within {
     --leve: -8px;
-    box-shadow: 0 30px 60px -28px rgba(110, 23, 44, 0.45);
-    border-color: #a12e3c;
+    box-shadow: 0 30px 60px -28px rgba(4, 31, 73, 0.4);
+    border-color: hsl(var(--accent));
   }
   .carte-tarif-vedette {
-    background: linear-gradient(150deg, #a12e3c, #6e172c);
-    box-shadow: 0 24px 50px -24px rgba(110, 23, 44, 0.6);
+    background: linear-gradient(150deg, hsl(215 90% 20%), hsl(215 90% 12%));
+    box-shadow: 0 24px 50px -24px rgba(4, 31, 73, 0.65);
   }
   @media (min-width: 1024px) {
     .carte-tarif-vedette { --leve: -12px; }
@@ -231,7 +259,7 @@ All colors MUST be HSL.
     z-index: 0;
     opacity: 0;
     transition: opacity 0.35s;
-    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(161, 46, 60, 0.1), transparent 65%);
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), hsl(var(--accent) / 0.12), transparent 65%);
   }
   .carte-tarif-vedette .carte-tarif-reflet {
     background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(255, 255, 255, 0.22), transparent 65%);
@@ -259,51 +287,52 @@ All colors MUST be HSL.
     display: block;
     will-change: transform, border-radius;
   }
+  /* Couleurs des formes selon le ton de l'en-tête. */
+  .fond-rouge { --f1: #ffd84d; --f2: #ff914d; --f3: #e3929a; --f4: #b9505b; }
+  .fond-sport { --f1: #ffd84d; --f2: #1db5a6; --f3: #2f93ad; --f4: #04506a; }
+  .fond-marine { --f1: #ffd84d; --f2: #cc616b; --f3: #1db5a6; --f4: #0a3470; }
+  /* Jaune et orange : calés dans les coins par rapport à leur propre taille, pour ne jamais passer sur le texte. */
   .fond-vivant .forme-1 {
-    left: -9%;
-    top: -34%;
-    width: 34vw;
-    height: 34vw;
-    min-width: 260px;
-    min-height: 260px;
-    background: #c4475a;
-    opacity: 0.55;
+    --taille: clamp(130px, 23vw, 360px);
+    left: calc(var(--taille) * -0.5);
+    top: calc(var(--taille) * -0.66);
+    width: var(--taille);
+    height: var(--taille);
+    background: var(--f1);
     border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
     animation: deriver-1 22s ease-in-out infinite alternate;
   }
   .fond-vivant .forme-2 {
-    right: -8%;
-    bottom: -42%;
-    width: 38vw;
-    height: 38vw;
-    min-width: 280px;
-    min-height: 280px;
-    background: #4f0d1f;
-    opacity: 0.7;
+    --taille: clamp(150px, 26vw, 400px);
+    right: calc(var(--taille) * -0.4);
+    bottom: calc(var(--taille) * -0.62);
+    width: var(--taille);
+    height: var(--taille);
+    background: var(--f2);
     border-radius: 58% 42% 38% 62% / 55% 60% 40% 45%;
     animation: deriver-2 26s ease-in-out infinite alternate;
   }
   .fond-vivant .forme-3 {
-    right: 16%;
-    top: -22%;
-    width: 16vw;
-    height: 16vw;
-    min-width: 140px;
-    min-height: 140px;
-    background: #e07a88;
-    opacity: 0.28;
+    left: 38%;
+    top: -26%;
+    width: 15vw;
+    height: 15vw;
+    min-width: 130px;
+    min-height: 130px;
+    background: var(--f3);
+    opacity: 0.4;
     border-radius: 50% 50% 34% 66% / 62% 38% 62% 38%;
     animation: deriver-3 18s ease-in-out infinite alternate;
   }
   .fond-vivant .forme-4 {
-    left: 30%;
-    bottom: -30%;
+    left: 22%;
+    bottom: -36%;
     width: 22vw;
     height: 22vw;
     min-width: 180px;
     min-height: 180px;
-    background: #b23548;
-    opacity: 0.4;
+    background: var(--f4);
+    opacity: 0.5;
     border-radius: 36% 64% 57% 43% / 48% 39% 61% 52%;
     animation: deriver-4 30s ease-in-out infinite alternate;
   }
@@ -322,13 +351,13 @@ All colors MUST be HSL.
 
   @keyframes deriver-1 {
     0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }
-    50% { transform: translate3d(7vw, 5vh, 0) rotate(38deg) scale(1.12); border-radius: 61% 39% 45% 55% / 58% 36% 64% 42%; }
-    100% { transform: translate3d(3vw, 12vh, 0) rotate(80deg) scale(0.96); border-radius: 37% 63% 58% 42% / 46% 61% 39% 54%; }
+    50% { transform: translate3d(2vw, 1vh, 0) rotate(38deg) scale(1.08); border-radius: 61% 39% 45% 55% / 58% 36% 64% 42%; }
+    100% { transform: translate3d(1vw, 2vh, 0) rotate(80deg) scale(0.96); border-radius: 37% 63% 58% 42% / 46% 61% 39% 54%; }
   }
   @keyframes deriver-2 {
     0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); border-radius: 58% 42% 38% 62% / 55% 60% 40% 45%; }
-    50% { transform: translate3d(-8vw, -7vh, 0) rotate(-32deg) scale(1.1); border-radius: 40% 60% 62% 38% / 43% 41% 59% 57%; }
-    100% { transform: translate3d(-3vw, -14vh, 0) rotate(-70deg) scale(1.02); border-radius: 64% 36% 44% 56% / 60% 52% 48% 40%; }
+    50% { transform: translate3d(-2vw, -1vh, 0) rotate(-32deg) scale(1.08); border-radius: 40% 60% 62% 38% / 43% 41% 59% 57%; }
+    100% { transform: translate3d(-1vw, -2vh, 0) rotate(-70deg) scale(1.02); border-radius: 64% 36% 44% 56% / 60% 52% 48% 40%; }
   }
   @keyframes deriver-3 {
     0% { transform: translate3d(0, 0, 0) rotate(0deg); border-radius: 50% 50% 34% 66% / 62% 38% 62% 38%; }

@@ -52,7 +52,7 @@ const SportSante = () => (
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ) }} />
 
     <PageHero
-      ton="bordeaux"
+      ton="sport"
       image={{ src: photoHero, alt: "Cours collectif de sport santé encadré par un coach" }}
       surtitre="Sport & Santé · Saint-Raphaël"
       titre="Le sport, un allié essentiel pour un cœur en pleine forme"
@@ -73,7 +73,7 @@ const SportSante = () => (
     <section id="planning" className="scroll-mt-24 py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Du lundi au vendredi</p>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Du lundi au vendredi</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Planning des séances de sport</h2>
           <p className="mt-3 text-lg text-muted-foreground">
             Toutes les séances sont encadrées par nos coach·es sportifs diplômés et kinésithérapeutes, pour vous garantir
@@ -107,7 +107,7 @@ const SportSante = () => (
     {/* Coachs */}
     <section className="py-20 md:py-24 bg-muted/60">
       <div className="container mx-auto px-4">
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">L'équipe</p>
+        <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">L'équipe</p>
         <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Nos coachs diplômés</h2>
 
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -123,7 +123,7 @@ const SportSante = () => (
                 className="h-20 w-20 rounded-full object-cover"
               />
               <h3 className="mt-5 text-xl font-semibold text-primary">{nom}</h3>
-              <p className="text-sm font-medium text-accent">{coach.specialite}</p>
+              <p className="text-sm font-medium text-accent-texte">{coach.specialite}</p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{coach.bio}</p>
             </article>
           ))}
@@ -136,7 +136,7 @@ const SportSante = () => (
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Avant de commencer</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Avant de commencer</p>
             <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Questions fréquentes</h2>
           </div>
           <dl className="divide-y divide-border border-y border-border">
@@ -152,7 +152,7 @@ const SportSante = () => (
     </section>
 
     {/* Appel à l'action */}
-    <section className="text-white" style={{ background: "linear-gradient(150deg, #A12E3C, #6E172C)" }}>
+    <section className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-16 md:py-20">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
           <div>
@@ -160,7 +160,7 @@ const SportSante = () => (
             <p className="mt-3 text-lg text-white/80">Avec le Club Prévention inclus.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-            <Button asChild variant="clair" size="lg">
+            <Button asChild variant="gold" size="lg">
               <Link to="/essai-gratuit">J'essaie 1 mois gratuitement</Link>
             </Button>
             <Button asChild variant="contour" size="lg">
@@ -175,7 +175,7 @@ const SportSante = () => (
     <section className="py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Adhérents</p>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Adhérents</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Votre espace membre</h2>
           <p className="mt-3 text-lg text-muted-foreground">
             Gérez vos réservations en toute autonomie avec notre application en ligne
@@ -191,7 +191,7 @@ const SportSante = () => (
             <ul className="mt-5 space-y-3">
               {espaceMembre.map(({ titre, texte }) => (
                 <li key={titre} className="flex items-start gap-3">
-                  <Check aria-hidden="true" className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                  <Check aria-hidden="true" className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent-texte" />
                   <span className="text-muted-foreground">
                     <strong className="font-semibold text-foreground">{titre}</strong> {texte}
                   </span>

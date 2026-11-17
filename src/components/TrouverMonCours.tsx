@@ -107,7 +107,7 @@ const TrouverMonCours = ({ inscriptionDirecte = false }: { inscriptionDirecte?: 
                   key={choix.valeur}
                   type="button"
                   onClick={() => repondre(choix.valeur)}
-                  className="group flex min-h-20 items-center justify-between gap-4 rounded-xl border border-input bg-background p-5 text-left transition-[border-color,background-color,transform] duration-200 hover:border-accent hover:bg-[#F7ECEE]/50 active:scale-[0.99]"
+                  className="group flex min-h-20 items-center justify-between gap-4 rounded-xl border border-input bg-background p-5 text-left transition-[border-color,background-color,transform] duration-200 hover:border-accent hover:bg-muted active:scale-[0.99]"
                 >
                   <span>
                     <span className="block font-semibold text-primary">{choix.libelle}</span>
@@ -115,7 +115,7 @@ const TrouverMonCours = ({ inscriptionDirecte = false }: { inscriptionDirecte?: 
                   </span>
                   <ArrowRight
                     aria-hidden="true"
-                    className="h-5 w-5 flex-shrink-0 text-muted-foreground transition-[color,transform] duration-200 group-hover:translate-x-1 group-hover:text-accent"
+                    className="h-5 w-5 flex-shrink-0 text-muted-foreground transition-[color,transform] duration-200 group-hover:translate-x-1 group-hover:text-accent-texte"
                   />
                 </button>
               ))}
@@ -124,7 +124,7 @@ const TrouverMonCours = ({ inscriptionDirecte = false }: { inscriptionDirecte?: 
         ) : (
           <div className="etape-anime grid lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-12">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Votre programme</p>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Votre programme</p>
               <h3 className="mt-2 text-2xl md:text-3xl font-semibold text-primary">
                 {propositions.length > 1 ? "Les cours faits pour vous" : "Le cours fait pour vous"}
               </h3>
@@ -148,7 +148,7 @@ const TrouverMonCours = ({ inscriptionDirecte = false }: { inscriptionDirecte?: 
                         {seance.titre}{seance.coach && <span className="font-normal text-muted-foreground"> avec {seance.coach}</span>}
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        <span className="font-medium tabular-nums text-accent">
+                        <span className="font-medium tabular-nums text-accent-texte">
                           {seance.jour} · {seance.plage}
                         </span>
                         {seance.lieu ? ` · ${seance.lieu}` : ""}
@@ -177,7 +177,7 @@ const TrouverMonCours = ({ inscriptionDirecte = false }: { inscriptionDirecte?: 
                 {["Premier mois gratuit, sans engagement", "Tous les cours accessibles pendant l'essai", "Club Prévention inclus"].map(
                   (point) => (
                     <li key={point} className="flex items-start gap-2">
-                      <Check aria-hidden="true" className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
+                      <Check aria-hidden="true" className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-texte" />
                       {point}
                     </li>
                   ),

@@ -95,7 +95,7 @@ const PackPrevention = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageHero
-        ton="bordeaux"
+        ton="marine"
       image={{ src: photoHero, alt: "Conférence de prévention cardiovasculaire" }}
         surtitre="Vivre plus longtemps et en meilleure santé"
         titre="Club Prévention"
@@ -117,7 +117,7 @@ const PackPrevention = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">L'adhésion</p>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">L'adhésion</p>
               <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Ce qui est inclus</h2>
               <p className="mt-6 flex items-baseline gap-2">
                 <span className="text-5xl font-semibold tracking-tight tabular-nums text-primary">99 €</span>
@@ -126,7 +126,7 @@ const PackPrevention = () => {
               <p className="mt-2 text-muted-foreground">Accès à tous les contenus et événements</p>
               <p className="mt-6 border-l-2 border-accent pl-4 text-sm text-muted-foreground">
                 Le Club Prévention est inclus dans les adhésions aux séances de sport.{" "}
-                <Link to="/tarifs" className="font-semibold text-accent underline underline-offset-4 hover:no-underline">
+                <Link to="/tarifs" className="font-semibold text-accent-texte underline underline-offset-4 hover:no-underline">
                   Voir toutes les adhésions
                 </Link>
               </p>
@@ -134,7 +134,7 @@ const PackPrevention = () => {
             <ul className="rounded-xl border border-border divide-y divide-border">
               {packItems.map((item) => (
                 <li key={item} className="flex items-start gap-3 p-5">
-                  <Check aria-hidden="true" className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                  <Check aria-hidden="true" className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent-texte" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -153,7 +153,7 @@ const PackPrevention = () => {
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefices.map((item, index) => (
               <article key={item.titre} className="rounded-xl border border-border bg-card p-6">
-                <p className="text-sm font-semibold tabular-nums text-accent">{String(index + 1).padStart(2, "0")}</p>
+                <p className="text-sm font-semibold tabular-nums text-accent-texte">{String(index + 1).padStart(2, "0")}</p>
                 <h3 className="mt-3 text-lg font-semibold text-primary">{item.titre}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
               </article>
@@ -237,7 +237,7 @@ const PackPrevention = () => {
               <ul className="mt-8 divide-y divide-border border-y border-border">
                 {newsletter.map((item) => (
                   <li key={item} className="flex items-center gap-3 py-5">
-                    <Check aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-accent" />
+                    <Check aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-accent-texte" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -248,7 +248,7 @@ const PackPrevention = () => {
       </section>
 
       {/* Appel à l'action */}
-      <section className="text-white" style={{ background: "linear-gradient(150deg, #A12E3C, #6E172C)" }}>
+      <section className="bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 py-16 md:py-20">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div>
@@ -257,7 +257,7 @@ const PackPrevention = () => {
                 Rejoignez notre communauté et bénéficiez d'un accompagnement complet pour 99€ par an
               </p>
             </div>
-            <Button asChild variant="clair" size="lg" className="flex-shrink-0">
+            <Button asChild variant="gold" size="lg" className="flex-shrink-0">
               <Link to="/inscription-club-prevention">
                 Je rejoins le Club
                 <ArrowRight aria-hidden="true" />

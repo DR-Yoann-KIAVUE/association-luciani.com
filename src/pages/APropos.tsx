@@ -41,7 +41,7 @@ const APropos = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Le fondateur</p>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Le fondateur</p>
               <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Le mot du président</h2>
               <div className="mt-8 flex items-center gap-4">
                 <img
@@ -53,7 +53,7 @@ const APropos = () => {
                 />
                 <div>
                   <h3 className="text-xl font-semibold text-primary">Dr KIAVUE Yoann</h3>
-                  <p className="text-sm font-medium text-accent">Cardiologue - Fondateur de l'Association LUCIANI</p>
+                  <p className="text-sm font-medium text-accent-texte">Cardiologue - Fondateur de l'Association LUCIANI</p>
                 </div>
               </div>
             </div>
@@ -81,13 +81,13 @@ const APropos = () => {
       {/* Nos valeurs */}
       <section className="py-20 md:py-24 bg-muted/60">
         <div className="container mx-auto px-4">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Ce qui nous guide</p>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Ce qui nous guide</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Nos valeurs</h2>
 
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {valeurs.map((valeur, index) => (
               <article key={valeur.titre} className="rounded-xl border border-border bg-card p-6">
-                <p className="text-sm font-semibold tabular-nums text-accent">{String(index + 1).padStart(2, "0")}</p>
+                <p className="text-sm font-semibold tabular-nums text-accent-texte">{String(index + 1).padStart(2, "0")}</p>
                 <h3 className="mt-3 text-xl font-semibold text-primary">{valeur.titre}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{valeur.description}</p>
               </article>

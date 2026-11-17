@@ -38,6 +38,7 @@ const Home = () => {
       titre: "Sport & Santé",
       texte: "Cours collectifs encadrés par des coachs diplômés pour renforcer votre cœur.",
       lien: "/sport-sante",
+      couleur: "hsl(var(--sport-accent))",
       image: sportImage,
       alt: "Cours collectif de sport santé encadré par un coach",
     },
@@ -45,6 +46,7 @@ const Home = () => {
       titre: "Club Prévention",
       texte: "Webinaires, conférences et newsletter pour vous informer et prévenir.",
       lien: "/pack-prevention",
+      couleur: "hsl(var(--accent-gold))",
       image: preventionImage,
       alt: "Conférence de prévention cardiovasculaire",
     },
@@ -52,6 +54,7 @@ const Home = () => {
       titre: "Formations Premiers Secours",
       texte: "Alerter, masser, défibriller : apprenez les gestes qui sauvent avec nos formateurs diplômés.",
       lien: "/formations",
+      couleur: "hsl(var(--secondary))",
       image: formationsImage,
       alt: "Initiation au massage cardiaque sur mannequin",
     },
@@ -62,34 +65,25 @@ const Home = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(APPLICATION) }} />
 
       {/* En-tête */}
-      <section data-hero className="relative overflow-hidden text-white" style={{ background: "linear-gradient(150deg, #A12E3C, #6E172C)" }}>
-        <FondVivant />
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 1440 200"
-          preserveAspectRatio="none"
-          className="pointer-events-none absolute inset-x-0 bottom-10 h-40 w-full text-white/10"
-        >
-          <path
-            d="M0 120 H520 l28 -18 l24 18 h60 l22 -92 l30 160 l26 -68 h70 l30 -26 l30 26 H1440"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            vectorEffect="non-scaling-stroke"
-            pathLength={1}
-            className="ecg-trace"
-          />
-        </svg>
-        <div className="relative container mx-auto px-4 py-20 md:py-28 lg:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-12 items-center">
-          <div className="min-w-0 max-w-3xl" data-cascade>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/70">
+      <section data-hero className="relative overflow-hidden text-white" style={{ backgroundColor: "hsl(354 51% 59%)" }}>
+        <img
+          src={plageImage}
+          alt="Cours de sport santé en plein air, en bord de mer"
+          width={2048}
+          height={1152}
+          decoding="async"
+          className="photo-hero"
+        />
+        <FondVivant ton="rouge" />
+        <div className="relative container mx-auto px-4 py-20 md:py-28 lg:py-36">
+          <div className="min-w-0 max-w-2xl" data-cascade>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/85">
               Prévention cardiovasculaire · Saint-Raphaël
             </p>
             <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05]">
               Bouger pour protéger votre cœur
             </h1>
-            <p className="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-white/85">
+            <p className="mt-6 text-lg md:text-xl leading-relaxed text-white/95">
               Portée par le Dr KIAVUE Yoann, cardiologue, l'Association LUCIANI s'engage à Saint-Raphaël
               pour un cœur en meilleure santé, grâce au sport, à la prévention et à la formation aux gestes qui sauvent.
             </p>
@@ -104,24 +98,15 @@ const Home = () => {
                 <a href="#planning">Voir le planning des cours</a>
               </Button>
             </div>
-            <p className="mt-4 text-sm text-white/70">Sans engagement. Tous les cours et le Club Prévention inclus.</p>
-          </div>
-          <img
-            src={plageImage}
-            alt="Cours de sport santé en plein air, en bord de mer"
-            width={1024}
-            height={688}
-            decoding="async"
-            className="photo-hero hidden lg:block w-full h-auto rounded-2xl object-cover shadow-[0_30px_60px_-30px_rgba(0,0,0,0.55)]"
-          />
-          </div>
+            <p className="mt-4 text-sm text-white/85">Sans engagement. Tous les cours et le Club Prévention inclus.</p>
 
-          {/* Application mobile */}
-          <div className="mt-14 pt-8 border-t border-white/15 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
-            <a href="#application" className="text-sm font-medium text-white/90 hover:underline underline-offset-4">
-              Nouveau : l'application Association LUCIANI
-            </a>
-            <StoreBadges appleHeight={40} />
+            {/* Application mobile */}
+            <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+              <a href="#application" className="text-sm font-medium text-white hover:underline underline-offset-4">
+                Nouveau : l'application Association LUCIANI
+              </a>
+              <StoreBadges appleHeight={40} />
+            </div>
           </div>
         </div>
       </section>
@@ -144,7 +129,7 @@ const Home = () => {
       <section className="py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Nos actions</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Nos actions</p>
             <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Nos pôles d'action</h2>
             <p className="mt-3 text-lg text-muted-foreground">
               Trois approches complémentaires pour votre santé cardiovasculaire
@@ -158,6 +143,7 @@ const Home = () => {
                 to={pole.lien}
                 className="carte-vivante group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-[var(--card-shadow)]"
               >
+                <div className="h-1.5" style={{ backgroundColor: pole.couleur }} />
                 <div className="aspect-[3/2] overflow-hidden bg-muted">
                   <img
                     src={pole.image}
@@ -172,7 +158,7 @@ const Home = () => {
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-xl font-semibold text-primary">{pole.titre}</h3>
                   <p className="mt-2 flex-1 leading-relaxed text-muted-foreground">{pole.texte}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent-texte">
                     Découvrir
                     <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
@@ -187,7 +173,7 @@ const Home = () => {
       <section className="pb-20 md:pb-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">En 30 secondes</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">En 30 secondes</p>
             <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Trouvez le cours fait pour vous</h2>
             <p className="mt-3 text-lg text-muted-foreground">
               Trois questions, et nous vous proposons les séances adaptées à votre objectif et à vos horaires.
@@ -200,10 +186,10 @@ const Home = () => {
       </section>
 
       {/* Planning */}
-      <section id="planning" className="scroll-mt-24 py-20 md:py-24 bg-muted/60">
+      <section id="planning" className="scroll-mt-24 pb-20 md:pb-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Cette semaine</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Cette semaine</p>
             <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">
               Planning des cours de sport & santé
             </h2>
@@ -233,7 +219,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center rounded-2xl border border-border p-8 md:p-12">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Mois d'essai gratuit</p>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Mois d'essai gratuit</p>
               <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">
                 Testez tous les cours et le Club Prévention pendant 1 mois
               </h2>
@@ -250,7 +236,7 @@ const Home = () => {
             <ul className="space-y-4">
               {["Accès illimité pendant 1 mois", "Tous les cours disponibles", "Sans engagement"].map((point) => (
                 <li key={point} className="flex items-center gap-3 border-b border-border pb-4 last:border-0 last:pb-0">
-                  <CheckCircle2 aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-accent" />
+                  <CheckCircle2 aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-accent-texte" />
                   <span className="font-medium">{point}</span>
                 </li>
               ))}
@@ -281,7 +267,7 @@ const Home = () => {
                 <p className="text-sm text-muted-foreground">Cardiologue, fondateur de l'Association LUCIANI</p>
               </div>
             </figcaption>
-            <Link to="/a-propos" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline underline-offset-4">
+            <Link to="/a-propos" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-texte hover:underline underline-offset-4">
               Découvrir l'association
               <ArrowRight aria-hidden="true" className="h-4 w-4" />
             </Link>
@@ -300,7 +286,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
             <div className="max-w-2xl">
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Entreprises, écoles, associations</p>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Entreprises, écoles, associations</p>
               <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Sensibiliser, c'est sauver des vies</h2>
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                 Nous organisons des sessions de formation en entreprise, à l'école et auprès d'autres associations.

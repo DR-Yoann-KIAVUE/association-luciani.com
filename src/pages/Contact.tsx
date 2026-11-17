@@ -217,7 +217,7 @@ const Contact = () => {
                         la{" "}
                         <a
                           href="/politique-confidentialite"
-                          className="text-accent underline"
+                          className="text-accent-texte underline"
                         >
                           politique de confidentialité
                         </a>{" "}
@@ -282,13 +282,13 @@ const Contact = () => {
 
                   <div className="flex items-start gap-4">
                     <div className="bg-muted w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-6 h-6 text-accent" />
+                      <Mail className="w-6 h-6 text-accent-texte" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-1">Email</h3>
                       <a
                         href="mailto:luciani.association@gmail.com"
-                        className="text-accent hover:underline"
+                        className="text-accent-texte hover:underline"
                       >
                         luciani.association@gmail.com
                       </a>

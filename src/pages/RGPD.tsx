@@ -22,7 +22,7 @@ const RGPD = () => {
           {/* Principes fondamentaux */}
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-primary mb-6 flex items-center gap-3">
-              <Scale className="w-6 h-6 text-accent" />
+              <Scale className="w-6 h-6 text-accent-texte" />
               Principes fondamentaux du RGPD
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
@@ -92,7 +92,7 @@ const RGPD = () => {
           {/* Vos droits */}
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-primary mb-6 flex items-center gap-3">
-              <UserCheck className="w-6 h-6 text-accent" />
+              <UserCheck className="w-6 h-6 text-accent-texte" />
               Vos droits selon le RGPD
             </h2>
             <div className="space-y-4">
@@ -144,7 +144,7 @@ const RGPD = () => {
           {/* Bases légales */}
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-primary mb-6 flex items-center gap-3">
-              <FileText className="w-6 h-6 text-accent" />
+              <FileText className="w-6 h-6 text-accent-texte" />
               Bases légales de nos traitements
             </h2>
             <div className="overflow-x-auto">
@@ -188,7 +188,7 @@ const RGPD = () => {
           {/* Mesures de sécurité */}
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-primary mb-6 flex items-center gap-3">
-              <Lock className="w-6 h-6 text-accent" />
+              <Lock className="w-6 h-6 text-accent-texte" />
               Mesures de sécurité
             </h2>
             <p className="text-muted-foreground mb-4">
@@ -237,7 +237,7 @@ const RGPD = () => {
           {/* Sous-traitants */}
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-primary mb-6 flex items-center gap-3">
-              <Database className="w-6 h-6 text-accent" />
+              <Database className="w-6 h-6 text-accent-texte" />
               Nos sous-traitants
             </h2>
             <p className="text-muted-foreground mb-4">
@@ -277,7 +277,7 @@ const RGPD = () => {
           {/* Notification de violation */}
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-primary mb-6 flex items-center gap-3">
-              <Bell className="w-6 h-6 text-accent" />
+              <Bell className="w-6 h-6 text-accent-texte" />
               Notification des violations de données
             </h2>
             <p className="text-muted-foreground mb-4">
@@ -309,7 +309,7 @@ const RGPD = () => {
           {/* Exercer vos droits */}
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-primary mb-6 flex items-center gap-3">
-              <Eye className="w-6 h-6 text-accent" />
+              <Eye className="w-6 h-6 text-accent-texte" />
               Comment exercer vos droits ?
             </h2>
             <Card className="bg-accent/10 border-accent">

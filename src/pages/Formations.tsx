@@ -48,7 +48,7 @@ const Formations = () => {
   return (
     <div className="min-h-screen">
       <PageHero
-        ton="bordeaux"
+        ton="rouge"
       image={{ src: photoHero, alt: "Initiation au massage cardiaque sur mannequin" }}
         surtitre="Alerter · Masser · Défibriller"
         titre="Nos formations"
@@ -74,7 +74,7 @@ const Formations = () => {
       <section id="formats" className="scroll-mt-24 py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Initiations de 2 heures</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Initiations de 2 heures</p>
             <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Adaptées à chaque public et besoin</h2>
           </div>
 
@@ -115,7 +115,7 @@ const Formations = () => {
                     <ol className="mt-3 flex-1 space-y-2">
                       {formation.programme.map((etape) => (
                         <li key={etape} className="flex items-start gap-3 text-sm text-muted-foreground">
-                          <Check aria-hidden="true" className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
+                          <Check aria-hidden="true" className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-texte" />
                           <span>{etape}</span>
                         </li>
                       ))}
@@ -137,12 +137,12 @@ const Formations = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Pédagogie</p>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Pédagogie</p>
               <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Notre méthode</h2>
               <ul className="mt-8 divide-y divide-border border-y border-border">
                 {methode.map((item) => (
                   <li key={item} className="flex items-center gap-3 py-4">
-                    <Check aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-accent" />
+                    <Check aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-accent-texte" />
                     <span className="font-medium">{item}</span>
                   </li>
                 ))}
@@ -160,14 +160,14 @@ const Formations = () => {
       </section>
 
       {/* Appel à l'action */}
-      <section className="text-white" style={{ background: "linear-gradient(150deg, #A12E3C, #6E172C)" }}>
+      <section className="bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 py-16 md:py-20">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div>
               <h2 className="text-3xl md:text-4xl font-semibold">Prêt à apprendre les gestes qui sauvent ?</h2>
               <p className="mt-3 text-lg text-white/80">Demandez un devis ou programmez une session dès maintenant</p>
             </div>
-            <Button asChild variant="clair" size="lg" className="flex-shrink-0">
+            <Button asChild variant="gold" size="lg" className="flex-shrink-0">
               <Link to="/contact">
                 Demander un devis
                 <ArrowRight aria-hidden="true" />

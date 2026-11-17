@@ -80,7 +80,7 @@ const CarteAdhesion = ({ adhesion, annuel, rang }: { adhesion: Adhesion; annuel:
           <h3 className={`mt-1 text-2xl font-semibold ${vedette ? "" : "text-primary"}`}>{adhesion.nom}</h3>
         </div>
         {vedette && (
-          <p className="rounded bg-white px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#6E172C]">
+          <p className="rounded bg-jaune px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-jaune-foreground">
             Populaire
           </p>
         )}
@@ -105,7 +105,7 @@ const CarteAdhesion = ({ adhesion, annuel, rang }: { adhesion: Adhesion; annuel:
               key={i}
               style={{ transitionDelay: `${i * 70}ms` }}
               className={`jauge-cours h-1.5 flex-1 rounded-full ${
-                i < cours ? (vedette ? "bg-white" : "bg-accent") : vedette ? "bg-white/20" : "bg-muted"
+                i < cours ? (vedette ? "bg-jaune" : "bg-accent") : vedette ? "bg-white/20" : "bg-muted"
               } ${i < cours ? "jauge-pleine" : ""}`}
             />
           ))}
@@ -117,7 +117,7 @@ const CarteAdhesion = ({ adhesion, annuel, rang }: { adhesion: Adhesion; annuel:
       <ul className={`relative mt-6 flex-1 space-y-2.5 border-t pt-6 text-sm ${vedette ? "border-white/20" : "border-border"}`}>
         {["Club Prévention inclus", "Réservation en ligne et dans l'application"].map((point) => (
           <li key={point} className="flex items-start gap-2.5">
-            <Check aria-hidden="true" className={`mt-0.5 h-4 w-4 flex-shrink-0 ${vedette ? "text-white" : "text-accent"}`} />
+            <Check aria-hidden="true" className={`mt-0.5 h-4 w-4 flex-shrink-0 ${vedette ? "text-white" : "text-accent-texte"}`} />
             {point}
           </li>
         ))}
@@ -128,8 +128,8 @@ const CarteAdhesion = ({ adhesion, annuel, rang }: { adhesion: Adhesion; annuel:
         aria-label={`S'inscrire à l'adhésion ${adhesion.nom}`}
         className={`relative mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md px-6 text-base font-semibold transition-[background-color,color,transform] duration-200 active:scale-[0.98] ${
           vedette
-            ? "bg-white text-[#6E172C] hover:bg-white/90"
-            : "border border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+            ? "bg-jaune text-jaune-foreground hover:bg-jaune/90"
+            : "border border-accent-texte text-accent-texte hover:border-accent hover:bg-accent hover:text-accent-foreground"
         }`}
       >
         S'inscrire

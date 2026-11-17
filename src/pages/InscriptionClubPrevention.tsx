@@ -72,7 +72,7 @@ const InscriptionClubPrevention = () => {
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mb-10 md:mb-14">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Club Prévention</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Club Prévention</p>
             <h1 className="mt-3 text-4xl md:text-5xl font-semibold text-primary">Rejoignez le Club Prévention</h1>
             <p className="mt-4 text-lg text-muted-foreground">
               Remplissez le formulaire ci-dessous pour accéder à nos webinaires,

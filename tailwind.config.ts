@@ -38,7 +38,11 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          texte: "hsl(var(--accent-texte))",
         },
+        jaune: { DEFAULT: "hsl(var(--accent-gold))", foreground: "hsl(var(--accent-gold-foreground))" },
+        orange: { DEFAULT: "hsl(var(--accent-orange))" },
+        sport: { DEFAULT: "hsl(var(--sport-accent))", foreground: "hsl(var(--sport-accent-foreground))" },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

@@ -14,15 +14,14 @@ const buttonVariants = cva(
         outline: "border border-input bg-background text-foreground hover:border-foreground/40 hover:bg-muted",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90",
         ghost: "hover:bg-muted",
-        link: "text-accent underline-offset-4 hover:underline",
-        // Action principale du site : rouge LUCIANI.
-        cta: "bg-accent text-accent-foreground hover:bg-secondary font-semibold",
-        // Anciennes variantes colorées, alignées sur la charte.
-        gold: "border border-accent bg-background text-accent hover:bg-accent hover:text-accent-foreground font-semibold",
-        sport: "bg-accent text-accent-foreground hover:bg-secondary font-semibold",
-        // Sur fond bordeaux.
-        clair: "bg-white text-[#6E172C] hover:bg-white/90 font-semibold",
-        contour: "border border-white/50 text-white hover:bg-white/10 font-semibold",
+        link: "text-accent-texte underline-offset-4 hover:underline",
+        // Action principale du site : rouge.
+        cta: "bg-accent text-accent-foreground hover:bg-accent/90 font-semibold shadow-sm",
+        gold: "bg-jaune text-jaune-foreground hover:bg-jaune/90 font-semibold shadow-sm",
+        sport: "bg-sport text-sport-foreground hover:bg-sport/90 font-semibold shadow-sm",
+        // Sur fond coloré.
+        clair: "bg-white text-primary hover:bg-white/90 font-semibold shadow-sm",
+        contour: "border border-white/60 text-white hover:bg-white/15 font-semibold",
       },
       size: {
         default: "h-11 px-5 py-2",

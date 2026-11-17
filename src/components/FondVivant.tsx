@@ -5,7 +5,10 @@ import { useEffect, useRef } from "react";
  * lentement, dans les tons de la charte, avec un halo qui suit le pointeur.
  * Purement décoratif ; immobile si l'utilisateur préfère réduire les animations.
  */
-const FondVivant = () => {
+// Noms complets : ils doivent apparaître tels quels pour être conservés dans la feuille de style.
+const TONS = { rouge: "fond-rouge", sport: "fond-sport", marine: "fond-marine" } as const;
+
+const FondVivant = ({ ton = "rouge" }: { ton?: keyof typeof TONS }) => {
   const calque = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -35,7 +38,7 @@ const FondVivant = () => {
   }, []);
 
   return (
-    <div ref={calque} aria-hidden="true" className="fond-vivant pointer-events-none absolute inset-0 overflow-hidden">
+    <div ref={calque} aria-hidden="true" className={`fond-vivant ${TONS[ton]} pointer-events-none absolute inset-0 overflow-hidden`}>
       <span className="forme forme-1" />
       <span className="forme forme-2" />
       <span className="forme forme-3" />

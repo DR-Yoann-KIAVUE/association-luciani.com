@@ -32,7 +32,7 @@ const MentionsLegales = () => {
                     Les conditions générales de l'espace membre sont consultables depuis la page de connexion de l'application :{" "}
                     <a
                       href="https://app.association-luciani.com/cgv"
-                      className="text-accent underline"
+                      className="text-accent-texte underline"
                     >
                       app.association-luciani.com
                     </a>

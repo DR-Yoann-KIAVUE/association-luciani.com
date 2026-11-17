@@ -23,7 +23,7 @@ const etapes = [
 const EssaiGratuit = () => (
   <main className="min-h-screen bg-background">
     <PageHero
-      ton="bordeaux"
+      ton="rouge"
       image={{ src: photoHero, alt: "Cours de sport santé en plein air, en bord de mer" }}
       surtitre="Mois d'essai gratuit"
       titre="Testez le programme pendant 1 mois"
@@ -41,23 +41,23 @@ const EssaiGratuit = () => (
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Ce qui est inclus</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Ce qui est inclus</p>
             <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Un mois complet pour vous faire une idée</h2>
             <ul className="mt-8 divide-y divide-border border-y border-border">
               {benefits.map((benefit) => (
                 <li key={benefit} className="flex items-center gap-3 py-4">
-                  <Check aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-accent" />
+                  <Check aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-accent-texte" />
                   <span className="font-medium">{benefit}</span>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Comment ça marche</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Comment ça marche</p>
             <ol className="mt-6 space-y-6">
               {etapes.map((etape, index) => (
                 <li key={etape.titre} className="grid grid-cols-[2.5rem_1fr] gap-4">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-accent text-sm font-semibold tabular-nums text-accent">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-accent text-sm font-semibold tabular-nums text-accent-texte">
                     {index + 1}
                   </span>
                   <div>
@@ -75,7 +75,7 @@ const EssaiGratuit = () => (
     <section className="pb-20 md:pb-24">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Par où commencer</p>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Par où commencer</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Trouvez le cours fait pour vous</h2>
         </div>
         <div className="mt-10">
@@ -84,10 +84,10 @@ const EssaiGratuit = () => (
       </div>
     </section>
 
-    <section className="py-20 md:py-24 bg-muted/60">
+    <section className="pb-20 md:pb-24">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Les cours à essayer</p>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-texte">Les cours à essayer</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Le planning de la semaine</h2>
         </div>
         <div className="mt-10">
