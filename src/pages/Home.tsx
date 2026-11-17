@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Planning from "@/components/Planning";
+import TrouverMonCours from "@/components/TrouverMonCours";
 import sportImage from "@/assets/sport-sante.jpg";
 import formationsImage from "@/assets/premiers-secours-new.jpg";
 import preventionImage from "@/assets/prevention-audience.jpg";
@@ -59,7 +60,7 @@ const Home = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(APPLICATION) }} />
 
       {/* En-tête */}
-      <section className="relative overflow-hidden text-white" style={{ background: "linear-gradient(150deg, #A12E3C, #6E172C)" }}>
+      <section data-hero className="relative overflow-hidden text-white" style={{ background: "linear-gradient(150deg, #A12E3C, #6E172C)" }}>
         <svg
           aria-hidden="true"
           viewBox="0 0 1440 200"
@@ -72,10 +73,12 @@ const Home = () => {
             stroke="currentColor"
             strokeWidth="2"
             vectorEffect="non-scaling-stroke"
+            pathLength={1}
+            className="ecg-trace"
           />
         </svg>
         <div className="relative container mx-auto px-4 py-20 md:py-28 lg:py-32">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl" data-cascade>
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/70">
               Prévention cardiovasculaire · Saint-Raphaël
             </p>
@@ -140,7 +143,7 @@ const Home = () => {
               <Link
                 key={pole.lien}
                 to={pole.lien}
-                className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-[var(--card-shadow)] transition-shadow duration-300 hover:shadow-[var(--card-shadow-hover)]"
+                className="carte-vivante group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-[var(--card-shadow)]"
               >
                 <div className="aspect-[3/2] overflow-hidden bg-muted">
                   <img
@@ -163,6 +166,22 @@ const Home = () => {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trouver mon cours */}
+      <section className="pb-20 md:pb-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl">
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">En 30 secondes</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-primary">Trouvez le cours fait pour vous</h2>
+            <p className="mt-3 text-lg text-muted-foreground">
+              Trois questions, et nous vous proposons les séances adaptées à votre objectif et à vos horaires.
+            </p>
+          </div>
+          <div className="mt-10">
+            <TrouverMonCours />
           </div>
         </div>
       </section>

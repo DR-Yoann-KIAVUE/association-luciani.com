@@ -148,3 +148,68 @@ All colors MUST be HSL.
     *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   }
 }
+
+/* ---------- Mouvement ----------
+   Tout est désactivé sans JavaScript (classe .js absente) et si l'utilisateur
+   préfère réduire les animations. Le contenu reste donc toujours lisible. */
+@layer components {
+  /* Apparition au défilement : blocs de premier niveau de chaque section. */
+  .js section:not([data-hero]) > .container > * {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .js section:not([data-hero]) > .container > *[data-vu] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Entrée de l'en-tête de page, en cascade. */
+  .js [data-hero] [data-cascade] > * {
+    animation: monter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .js [data-hero] [data-cascade] > *:nth-child(2) { animation-delay: 0.08s; }
+  .js [data-hero] [data-cascade] > *:nth-child(3) { animation-delay: 0.16s; }
+  .js [data-hero] [data-cascade] > *:nth-child(4) { animation-delay: 0.24s; }
+  .js [data-hero] [data-cascade] > *:nth-child(5) { animation-delay: 0.32s; }
+
+  /* Tracé ECG qui se dessine, puis battement discret. */
+  .ecg-trace {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: tracer 2.4s 0.3s cubic-bezier(0.65, 0, 0.35, 1) forwards, battre 3.2s 2.8s ease-in-out infinite;
+  }
+
+  /* Changement de prix et d'étape. */
+  .prix-anime, .etape-anime {
+    animation: monter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Cartes cliquables : légère élévation. */
+  .carte-vivante {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s, border-color 0.35s;
+  }
+  .carte-vivante:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  @keyframes monter {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes tracer {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes battre {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.45; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js section:not([data-hero]) > .container > * { opacity: 1; transform: none; transition: none; }
+    .js [data-hero] [data-cascade] > *, .prix-anime, .etape-anime { animation: none; }
+    .ecg-trace { animation: none; stroke-dashoffset: 0; }
+    .carte-vivante:hover { transform: none; }
+  }
+}

@@ -14,6 +14,7 @@ const PageHero = ({ surtitre, titre, texte, ton = "clair", children }: PageHeroP
   const bordeaux = ton === "bordeaux";
   return (
     <section
+      data-hero
       className={bordeaux ? "relative overflow-hidden text-white" : "border-b border-border bg-muted/60"}
       style={bordeaux ? { background: "linear-gradient(150deg, #A12E3C, #6E172C)" } : undefined}
     >
@@ -30,11 +31,13 @@ const PageHero = ({ surtitre, titre, texte, ton = "clair", children }: PageHeroP
             stroke="currentColor"
             strokeWidth="2"
             vectorEffect="non-scaling-stroke"
+            pathLength={1}
+            className="ecg-trace"
           />
         </svg>
       )}
       <div className={`relative container mx-auto px-4 ${bordeaux ? "py-16 md:py-24" : "py-14 md:py-20"}`}>
-        <div className="max-w-3xl">
+        <div className="max-w-3xl" data-cascade>
           {surtitre && (
             <p className={`text-xs font-medium uppercase tracking-[0.18em] ${bordeaux ? "text-white/70" : "text-accent"}`}>
               {surtitre}

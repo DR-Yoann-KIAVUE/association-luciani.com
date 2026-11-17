@@ -4,37 +4,8 @@ import { ArrowRight, Check } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
 import CarteCoeurSection from "@/components/CarteCoeurSection";
+import { ADHESIONS, INSCRIPTION, LIEN_ESSAI } from "@/config/adhesions";
 
-const INSCRIPTION = "https://app.association-luciani.com/register?planId=";
-const LIEN_ESSAI = `${INSCRIPTION}ae932234-ac5e-4ee9-b190-5864b063fb05`;
-
-const adhesions = [
-  {
-    nom: "Découverte",
-    accroche: "Pour débuter en douceur",
-    rythme: "1 cours / semaine",
-    repere: "à moins de 3 euros par cours",
-    annuel: { prix: "149", plan: "56aa4743-8ce2-4f8a-88d0-51528d36e7d2" },
-    mensuel: { prix: "15", plan: "1f87af7e-7787-4b17-ba4b-f6e785542776" },
-  },
-  {
-    nom: "Standard",
-    accroche: "Pour découvrir nos activités",
-    rythme: "2 cours / semaine",
-    repere: "à moins de 2 euros par cours",
-    annuel: { prix: "199", plan: "d67d313a-2000-4ed1-8cae-20fa56eaca7f" },
-    mensuel: { prix: "19", plan: "5c7f7657-96fc-4aef-86e5-5ceb4e022d3b" },
-    populaire: true,
-  },
-  {
-    nom: "Illimitée",
-    accroche: "Pour les plus motivés",
-    rythme: "Cours illimités",
-    repere: "à moins de 1 euro par cours",
-    annuel: { prix: "219", plan: "699b4c98-1dff-4459-a888-20fc277c14c7" },
-    mensuel: { prix: "22", plan: "9a1e070c-7129-48b5-b63b-cbca731e197c" },
-  },
-];
 
 const parrainage = [
   { filleuls: "1 filleul", condition: "Parrainez 1 ami qui devient adhérent payant", recompense: "Carte cadeau de 30 € chez Décathlon" },
@@ -96,8 +67,9 @@ const Tarifs = () => {
           </div>
 
           <div className="mt-8 grid lg:grid-cols-3 gap-6">
-            {adhesions.map((adhesion) => {
+            {ADHESIONS.map((adhesion) => {
               const offre = isAnnual ? adhesion.annuel : adhesion.mensuel;
+              const economie = Number(adhesion.mensuel.prix) * 12 - Number(adhesion.annuel.prix);
               return (
                 <article
                   key={adhesion.nom}
@@ -116,9 +88,14 @@ const Tarifs = () => {
                   <h3 className="mt-1 text-2xl font-semibold text-primary">{adhesion.nom}</h3>
                   <p className="mt-1 text-muted-foreground">{adhesion.accroche}</p>
 
-                  <p className="mt-7 flex items-baseline gap-2">
+                  <p key={isAnnual ? "an" : "mois"} className="prix-anime mt-7 flex items-baseline gap-2">
                     <span className="text-5xl font-semibold tracking-tight tabular-nums text-primary">{offre.prix} €</span>
                     <span className="text-muted-foreground">/ {isAnnual ? "an" : "mois"}</span>
+                  </p>
+                  <p className="mt-2 min-h-5 text-sm text-muted-foreground">
+                    {isAnnual
+                      ? `Soit ${economie} € de moins que 12 mensualités`
+                      : `Soit ${Number(adhesion.mensuel.prix) * 12} € sur 12 mois`}
                   </p>
 
                   <ul className="mt-7 space-y-3 border-t border-border pt-6 flex-1">

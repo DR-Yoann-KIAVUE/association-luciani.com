@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Gift, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -21,8 +21,17 @@ const Navigation = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  // Ombre légère dès que la page défile.
+  const [defile, setDefile] = useState(false);
+  useEffect(() => {
+    const suivre = () => setDefile(window.scrollY > 8);
+    suivre();
+    window.addEventListener("scroll", suivre, { passive: true });
+    return () => window.removeEventListener("scroll", suivre);
+  }, []);
+
   return (
-    <nav aria-label="Navigation principale" className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <nav aria-label="Navigation principale" className={`sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border transition-shadow duration-300 ${defile ? "shadow-[0_6px_24px_-12px_rgba(22,22,22,0.25)]" : ""}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between gap-4 h-[72px]">
           <Link to="/" className="flex items-center flex-shrink-0" aria-label="Association LUCIANI, accueil">
