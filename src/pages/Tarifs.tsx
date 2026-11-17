@@ -4,7 +4,8 @@ import { ArrowRight, Check } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
 import CarteCoeurSection from "@/components/CarteCoeurSection";
-import { ADHESIONS, INSCRIPTION, LIEN_ESSAI } from "@/config/adhesions";
+import CarteAdhesion from "@/components/CarteAdhesion";
+import { ADHESIONS, LIEN_ESSAI } from "@/config/adhesions";
 
 
 const parrainage = [
@@ -66,60 +67,10 @@ const Tarifs = () => {
             </div>
           </div>
 
-          <div className="mt-8 grid lg:grid-cols-3 gap-6">
-            {ADHESIONS.map((adhesion) => {
-              const offre = isAnnual ? adhesion.annuel : adhesion.mensuel;
-              const economie = Number(adhesion.mensuel.prix) * 12 - Number(adhesion.annuel.prix);
-              return (
-                <article
-                  key={adhesion.nom}
-                  className={`relative flex flex-col rounded-xl bg-card p-7 md:p-8 ${
-                    adhesion.populaire
-                      ? "border-2 border-accent shadow-[var(--card-shadow-hover)]"
-                      : "border border-border shadow-[var(--card-shadow)]"
-                  }`}
-                >
-                  {adhesion.populaire && (
-                    <p className="absolute -top-3 left-7 bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground rounded">
-                      Populaire
-                    </p>
-                  )}
-                  <p className="text-sm text-muted-foreground">Adhésion</p>
-                  <h3 className="mt-1 text-2xl font-semibold text-primary">{adhesion.nom}</h3>
-                  <p className="mt-1 text-muted-foreground">{adhesion.accroche}</p>
-
-                  <p key={isAnnual ? "an" : "mois"} className="prix-anime mt-7 flex items-baseline gap-2">
-                    <span className="text-5xl font-semibold tracking-tight tabular-nums text-primary">{offre.prix} €</span>
-                    <span className="text-muted-foreground">/ {isAnnual ? "an" : "mois"}</span>
-                  </p>
-                  <p className="mt-2 min-h-5 text-sm text-muted-foreground">
-                    {isAnnual
-                      ? `Soit ${economie} € de moins que 12 mensualités`
-                      : `Soit ${Number(adhesion.mensuel.prix) * 12} € sur 12 mois`}
-                  </p>
-
-                  <ul className="mt-7 space-y-3 border-t border-border pt-6 flex-1">
-                    <li className="flex items-start gap-3">
-                      <Check aria-hidden="true" className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
-                      <span>
-                        <span className="font-semibold">{adhesion.rythme}</span>
-                        <span className="block text-sm text-muted-foreground">{adhesion.repere}</span>
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check aria-hidden="true" className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
-                      <span className="font-semibold">Club Prévention inclus</span>
-                    </li>
-                  </ul>
-
-                  <Button asChild variant={adhesion.populaire ? "cta" : "outline"} size="lg" className="mt-8 w-full">
-                    <a href={`${INSCRIPTION}${offre.plan}`} aria-label={`S'inscrire à l'adhésion ${adhesion.nom}`}>
-                      S'inscrire
-                    </a>
-                  </Button>
-                </article>
-              );
-            })}
+          <div className="cartes-tarifs mt-10 grid lg:grid-cols-3 gap-6 lg:gap-7 lg:items-stretch">
+            {ADHESIONS.map((adhesion, rang) => (
+              <CarteAdhesion key={adhesion.nom} adhesion={adhesion} annuel={isAnnual} rang={rang} />
+            ))}
           </div>
         </div>
       </section>

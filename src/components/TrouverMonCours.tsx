@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Check, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ADHESIONS, LIEN_ESSAI } from "@/config/adhesions";
-import { COACHS, PLANNING, horaire } from "@/config/planning";
+import { COACHS, CRENEAUX, horaire, semaineType } from "@/config/planning";
 
 /** Questionnaire en trois étapes : propose des cours du planning et une adhésion. */
 
@@ -64,7 +64,9 @@ const TrouverMonCours = ({ inscriptionDirecte = false }: { inscriptionDirecte?: 
   const revenir = () => setReponses(reponses.slice(0, -1));
 
   const [objectif, moment, rythme] = reponses;
-  const seances = PLANNING.flatMap(({ jour, cours }) => cours.map((c) => ({ ...c, jour })));
+  const seances = semaineType(CRENEAUX).flatMap(({ nom, creneaux }) =>
+    creneaux.map((c) => ({ jour: nom, titre: c.activity.name, heure: c.startTime, plage: horaire(c), coach: c.coach?.firstName ?? "", lieu: c.location })),
+  );
   const pourObjectif = seances.filter((s) => COURS_PAR_OBJECTIF[objectif]?.includes(s.titre));
   const auxBonsHoraires = pourObjectif.filter((s) => auBonMoment(s.heure, moment));
   const propositions = (auxBonsHoraires.length > 0 ? auxBonsHoraires : pourObjectif).slice(0, 3);
@@ -143,13 +145,13 @@ const TrouverMonCours = ({ inscriptionDirecte = false }: { inscriptionDirecte?: 
                     />
                     <div className="min-w-0">
                       <p className="font-semibold text-primary">
-                        {seance.titre} <span className="font-normal text-muted-foreground">avec {seance.coach}</span>
+                        {seance.titre}{seance.coach && <span className="font-normal text-muted-foreground"> avec {seance.coach}</span>}
                       </p>
                       <p className="text-sm text-muted-foreground">
                         <span className="font-medium tabular-nums text-accent">
-                          {seance.jour} · {horaire(seance.heure)}
-                        </span>{" "}
-                        · {seance.lieu}
+                          {seance.jour} · {seance.plage}
+                        </span>
+                        {seance.lieu ? ` · ${seance.lieu}` : ""}
                       </p>
                     </div>
                   </li>

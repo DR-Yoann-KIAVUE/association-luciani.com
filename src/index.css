@@ -199,6 +199,60 @@ All colors MUST be HSL.
     box-shadow: var(--card-shadow-hover);
   }
 
+  /* Cartes d'adhésion : inclinaison 3D vers le pointeur, reflet, entrée en cascade. */
+  .cartes-tarifs {
+    perspective: 1400px;
+  }
+  .carte-tarif {
+    transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--leve, 0px));
+    transform-style: preserve-3d;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s, border-color 0.35s;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .carte-tarif:hover,
+  .carte-tarif:focus-within {
+    --leve: -8px;
+    box-shadow: 0 30px 60px -28px rgba(110, 23, 44, 0.45);
+    border-color: #a12e3c;
+  }
+  .carte-tarif-vedette {
+    background: linear-gradient(150deg, #a12e3c, #6e172c);
+    box-shadow: 0 24px 50px -24px rgba(110, 23, 44, 0.6);
+  }
+  @media (min-width: 1024px) {
+    .carte-tarif-vedette { --leve: -12px; }
+    .carte-tarif-vedette:hover, .carte-tarif-vedette:focus-within { --leve: -20px; }
+  }
+  .carte-tarif-reflet {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.35s;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(161, 46, 60, 0.1), transparent 65%);
+  }
+  .carte-tarif-vedette .carte-tarif-reflet {
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(255, 255, 255, 0.22), transparent 65%);
+  }
+  .carte-tarif:hover .carte-tarif-reflet {
+    opacity: 1;
+  }
+  .js [data-vu] > .carte-tarif {
+    /* « backwards » : l'animation ne fige pas la transformation, l'inclinaison reste possible ensuite. */
+    animation: monter 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+  /* Jauge : les segments pleins se remplissent l'un après l'autre. */
+  .js .jauge-pleine {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .js [data-vu] .jauge-pleine {
+    transform: scaleX(1);
+  }
+
   /* Fond vivant des en-têtes : formes organiques en mouvement lent. */
   .fond-vivant .forme {
     position: absolute;
@@ -303,6 +357,9 @@ All colors MUST be HSL.
     .ecg-trace { animation: none; stroke-dashoffset: 0; }
     .carte-vivante:hover { transform: none; }
     .fond-vivant .forme { animation: none; }
+    .carte-tarif { transform: none; transition: none; }
+    .js [data-vu] > .carte-tarif { animation: none; }
+    .js .jauge-pleine { transform: none; transition: none; }
     .fond-vivant .halo { display: none; }
   }
 }
