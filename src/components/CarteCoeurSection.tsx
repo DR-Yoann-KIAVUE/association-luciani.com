@@ -65,7 +65,7 @@ const CarteCoeurSection = () => (
             <source srcSet={carteWebp} type="image/webp" />
             <img
               src={cartePng}
-              alt="Carte Cœur LUCIANI : un an, formule Standard, deux cours par semaine"
+              alt="Carte Cœur LUCIANI : un an, formule Illimitée, cours illimités"
               width={900}
               height={596}
               loading="lazy"

@@ -16,8 +16,8 @@ export const GRILLE = [
   { duree: "1 an", prix: [149, 199, 219] },
 ] as const;
 
-/** Offre mise en avant : 1 an, formule Standard. */
-export const OFFRE_PHARE = { duree: "1 an", formule: "Standard", prix: 199 } as const;
+/** Offre mise en avant : 1 an, formule Illimitée, la plus souscrite des adhésions. */
+export const OFFRE_PHARE = { duree: "1 an", formule: "Illimitée", prix: 219 } as const;
 
 export type Campagne = {
   id: string;
