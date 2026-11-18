@@ -367,8 +367,9 @@ All colors MUST be HSL.
     border-color: hsl(var(--accent));
   }
   .carte-tarif-vedette {
-    background: linear-gradient(150deg, hsl(215 90% 20%), hsl(215 90% 12%));
-    box-shadow: 0 24px 50px -24px rgba(4, 31, 73, 0.65);
+    /* Rouge de la charte, légèrement approfondi vers le bas pour la lisibilité du texte blanc. */
+    background: linear-gradient(160deg, hsl(354 51% 59%), hsl(354 52% 47%));
+    box-shadow: 0 24px 50px -24px hsl(354 52% 40% / 0.7);
   }
   @media (min-width: 1024px) {
     .carte-tarif-vedette { --leve: -12px; }

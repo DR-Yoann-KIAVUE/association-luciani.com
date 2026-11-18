@@ -76,7 +76,7 @@ const CarteAdhesion = ({ adhesion, annuel, rang }: { adhesion: Adhesion; annuel:
 
       <div className="relative flex items-start justify-between gap-4">
         <div>
-          <p className={`text-sm ${vedette ? "text-white/70" : "text-muted-foreground"}`}>Adhésion</p>
+          <p className={`text-sm ${vedette ? "text-white/90" : "text-muted-foreground"}`}>Adhésion</p>
           <h3 className={`mt-1 text-2xl font-semibold ${vedette ? "" : "text-primary"}`}>{adhesion.nom}</h3>
         </div>
         {vedette && (
@@ -85,15 +85,15 @@ const CarteAdhesion = ({ adhesion, annuel, rang }: { adhesion: Adhesion; annuel:
           </p>
         )}
       </div>
-      <p className={`relative mt-1 ${vedette ? "text-white/80" : "text-muted-foreground"}`}>{adhesion.accroche}</p>
+      <p className={`relative mt-1 ${vedette ? "text-white/95" : "text-muted-foreground"}`}>{adhesion.accroche}</p>
 
       <p className="relative mt-8 flex items-baseline gap-2">
         <span className={`text-6xl font-semibold tracking-tight tabular-nums ${vedette ? "" : "text-primary"}`}>
           {prix} €
         </span>
-        <span className={vedette ? "text-white/70" : "text-muted-foreground"}>/ {annuel ? "an" : "mois"}</span>
+        <span className={vedette ? "text-white/90" : "text-muted-foreground"}>/ {annuel ? "an" : "mois"}</span>
       </p>
-      <p className={`relative mt-2 min-h-5 text-sm ${vedette ? "text-white/70" : "text-muted-foreground"}`}>
+      <p className={`relative mt-2 min-h-5 text-sm ${vedette ? "text-white/90" : "text-muted-foreground"}`}>
         {annuel ? `Soit ${economie} € de moins que 12 mensualités` : `Soit ${Number(adhesion.mensuel.prix) * 12} € sur 12 mois`}
       </p>
 
@@ -105,16 +105,16 @@ const CarteAdhesion = ({ adhesion, annuel, rang }: { adhesion: Adhesion; annuel:
               key={i}
               style={{ transitionDelay: `${i * 70}ms` }}
               className={`jauge-cours h-1.5 flex-1 rounded-full ${
-                i < cours ? (vedette ? "bg-jaune" : "bg-accent") : vedette ? "bg-white/20" : "bg-muted"
+                i < cours ? (vedette ? "bg-jaune" : "bg-accent") : vedette ? "bg-white/30" : "bg-muted"
               } ${i < cours ? "jauge-pleine" : ""}`}
             />
           ))}
         </div>
         <p className={`mt-3 font-semibold ${vedette ? "" : "text-primary"}`}>{adhesion.rythme}</p>
-        <p className={`text-sm ${vedette ? "text-white/70" : "text-muted-foreground"}`}>{adhesion.repere}</p>
+        <p className={`text-sm ${vedette ? "text-white/90" : "text-muted-foreground"}`}>{adhesion.repere}</p>
       </div>
 
-      <ul className={`relative mt-6 flex-1 space-y-2.5 border-t pt-6 text-sm ${vedette ? "border-white/20" : "border-border"}`}>
+      <ul className={`relative mt-6 flex-1 space-y-2.5 border-t pt-6 text-sm ${vedette ? "border-white/30" : "border-border"}`}>
         {["Club Prévention inclus", "Réservation en ligne et dans l'application"].map((point) => (
           <li key={point} className="flex items-start gap-2.5">
             <Check aria-hidden="true" className={`mt-0.5 h-4 w-4 flex-shrink-0 ${vedette ? "text-white" : "text-accent-texte"}`} />
