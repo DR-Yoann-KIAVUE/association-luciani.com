@@ -1,4 +1,14 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/donnees/creneaux",
+      "destination": "https://api.association-luciani.com/api/public/associations/83ee3212-978c-4b9e-af12-4074ee83b3a5/class-slots"
+    },
+    {
+      "source": "/donnees/activites",
+      "destination": "https://api.association-luciani.com/api/public/associations/83ee3212-978c-4b9e-af12-4074ee83b3a5/activities"
+    }
+  ]
 }

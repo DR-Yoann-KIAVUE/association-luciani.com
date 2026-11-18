@@ -17,82 +17,12 @@ import heroVideo from "@/assets/hero-video.mp4";
 import sportImage from "@/assets/sport-sante.jpg";
 import formationsImage from "@/assets/premiers-secours-new.jpg";
 import preventionImage from "@/assets/prevention-audience.jpg";
-import coachJb from "@/assets/coach-jb.png";
-import coachLea from "@/assets/coach-lea.png";
-import coachNoemie from "@/assets/coach-noemie.png";
 import coachYoann from "@/assets/coach-yoann.png";
-import coachClarisse from "@/assets/coach-clarisse-new.jpg";
 import AppSection, { StoreBadges } from "@/components/AppSection";
 import CarteCoeurSection from "@/components/CarteCoeurSection";
+import Planning from "@/components/Planning";
+import TrouverMonCours from "@/components/TrouverMonCours";
 const Home = () => {
-
-  // Fonction pour obtenir l'image du coach
-  const getCoachImage = (coachName: string) => {
-    switch (coachName) {
-      case "Jean-Baptiste":
-        return coachJb;
-      case "Léa":
-        return coachLea;
-      case "Noémie":
-        return coachNoemie;
-      case "Clarisse":
-        return coachClarisse;
-      default:
-        return undefined;
-    }
-  };
-
-  const coursesPreview = [
-    {
-      titre: "Pilates",
-      jour: "Lundi",
-      heure: "08:00-09:00",
-      coach: "Noémie",
-      lieu: "Clinique Cardio-Vasculaire Raphaëloise",
-    },
-    {
-      titre: "Pilates",
-      jour: "Lundi",
-      heure: "09:00-10:00",
-      coach: "Noémie",
-      lieu: "Clinique Cardio-Vasculaire Raphaëloise",
-    },
-    {
-      titre: "Circuit training",
-      jour: "Lundi",
-      heure: "13:30-14:30",
-      coach: "Clarisse",
-      lieu: "Salle French Riviera, Saint-Raphaël",
-    },
-    {
-      titre: "Cardio",
-      jour: "Mardi",
-      heure: "11:30-12:30",
-      coach: "Jean-Baptiste",
-      lieu: "Clinique Cardio-Vasculaire Raphaëloise",
-    },
-    {
-      titre: "Cardio Renfo",
-      jour: "Mercredi",
-      heure: "10:00-11:00",
-      coach: "Jean-Baptiste",
-      lieu: "Plage du Débarquement",
-    },
-    {
-      titre: "Yoga",
-      jour: "Jeudi",
-      heure: "18:00-19:00",
-      coach: "Léa",
-      lieu: "Clinique Cardio-Vasculaire Raphaëloise",
-    },
-    {
-      titre: "Circuit training",
-      jour: "Vendredi",
-      heure: "15:00-16:00",
-      coach: "Clarisse",
-      lieu: "Salle French Riviera, Saint-Raphaël",
-    },
-  ];
 
   const trustIndicators = [
     { icon: Award, text: "Formateurs et coachs diplômés" },
@@ -294,6 +224,23 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Trouver mon cours */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-['Poppins'] text-primary">
+              Trouvez le cours fait pour vous
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Trois questions, et nous vous proposons les séances adaptées à votre objectif et à vos horaires.
+            </p>
+          </div>
+          <div className="max-w-5xl mx-auto">
+            <TrouverMonCours />
+          </div>
+        </div>
+      </section>
+
       {/* Planning Preview */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
@@ -307,67 +254,8 @@ const Home = () => {
             </p>
           </div>
 
-          {/* Agenda Format */}
-          <div className="max-w-5xl mx-auto space-y-4">
-            {coursesPreview.map((cours, index) => {
-              const coachImage = getCoachImage(cours.coach);
-              return (
-                <Card
-                  key={index}
-                  className="hover:shadow-[var(--card-shadow-hover)] transition-all duration-300 border-l-4 border-l-[#ff914d]"
-                >
-                  <CardContent className="p-6">
-                    <div className="flex flex-col md:flex-row md:items-center gap-4">
-                      {/* Jour et heure */}
-                      <div className="flex items-center gap-4 md:w-48 flex-shrink-0">
-                        <div className="bg-[#ff914d]/10 rounded-lg p-3 text-center min-w-[80px]">
-                          <p className="text-sm font-semibold text-muted-foreground">{cours.jour}</p>
-                          <p className="text-lg font-bold text-[#ff914d]">{cours.heure}</p>
-                        </div>
-                      </div>
-                      
-                      {/* Photo du coach */}
-                      {coachImage && (
-                        <div className="flex-shrink-0 hidden md:block">
-                          <div className="w-14 h-14 rounded-full overflow-hidden border-3 border-[#ff914d] shadow-md">
-                            <img
-                              src={coachImage}
-                              alt={`Coach ${cours.coach}`}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        </div>
-                      )}
-                      
-                      {/* Cours info */}
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between gap-4">
-                          <div>
-                            <h3 className="text-xl font-bold text-primary mb-2 font-['Poppins']">
-                              {cours.titre}
-                            </h3>
-                            <div className="flex flex-col gap-2 text-sm">
-                              <div className="flex items-center gap-2">
-                                <Users className="w-4 h-4 text-muted-foreground" />
-                                <span className="text-muted-foreground">
-                                  Coach: <strong className="text-foreground">{cours.coach}</strong>
-                                </span>
-                              </div>
-                              <div className="flex items-start gap-2">
-                                <MapPin className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" />
-                                <span className="text-muted-foreground">{cours.lieu}</span>
-                              </div>
-                            </div>
-                          </div>
-                          <Activity className="w-8 h-8 text-[#ff914d] flex-shrink-0" />
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
+          {/* Calendrier branché sur le planning de l'application */}
+          <Planning />
 
           <div className="flex justify-center mt-8">
             <Button asChild variant="outline" size="lg" className="w-full sm:w-auto text-sm sm:text-base px-4 sm:px-6">

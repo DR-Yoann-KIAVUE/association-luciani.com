@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Heart, Sparkles } from "lucide-react";
+import TrouverMonCours from "@/components/TrouverMonCours";
 
 const TRIAL_REGISTRATION_URL = "https://app.association-luciani.com/register?planId=ae932234-ac5e-4ee9-b190-5864b063fb05";
 
@@ -62,6 +63,21 @@ const EssaiGratuit = () => {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Trouver mon cours */}
+      <section className="pb-16 md:pb-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Trouvez le cours fait pour vous</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Trois questions, et nous vous proposons les séances adaptées à votre objectif et à vos horaires.
+            </p>
+          </div>
+          <div className="max-w-5xl mx-auto">
+            <TrouverMonCours inscriptionDirecte />
           </div>
         </div>
       </section>

@@ -15,6 +15,7 @@ import coachNoemie from "@/assets/coach-noemie.png";
 import coachYoann from "@/assets/coach-yoann.png";
 import coachClarisse from "@/assets/coach-clarisse-new.jpg";
 import { StoreBadges } from "@/components/AppSection";
+import Planning from "@/components/Planning";
 
 const SportSante = () => {
   // Fonction pour obtenir l'image du coach
@@ -32,83 +33,6 @@ const SportSante = () => {
         return undefined;
     }
   };
-
-  const planning = [
-    {
-      jour: "Lundi",
-      cours: [
-        {
-          titre: "Pilates",
-          heure: "08:00-09:00",
-          coach: "Noémie",
-          lieu: "Clinique Cardio-Vasculaire Raphaëloise",
-          description: "Posture, mobilité, respiration",
-        },
-        {
-          titre: "Pilates",
-          heure: "09:00-10:00",
-          coach: "Noémie",
-          lieu: "Clinique Cardio-Vasculaire Raphaëloise",
-          description: "Posture, mobilité, respiration",
-        },
-        {
-          titre: "Circuit training",
-          heure: "13:30-14:30",
-          coach: "Clarisse",
-          lieu: "Clinique Cardio-Vasculaire Raphaëloise",
-          description: "Renfo global, fun et efficace",
-        },
-      ],
-    },
-    {
-      jour: "Mardi",
-      cours: [
-        {
-          titre: "Cardio",
-          heure: "11:30-12:30",
-          coach: "Jean-Baptiste",
-          lieu: "Clinique Cardio-Vasculaire Raphaëloise",
-          description: "Endurance accessible et progressive",
-        },
-      ],
-    },
-    {
-      jour: "Mercredi",
-      cours: [
-        {
-          titre: "Cardio Renfo",
-          heure: "10:00-11:00",
-          coach: "Jean-Baptiste",
-          lieu: "Plage du Débarquement, Saint-Raphaël",
-          description: "Cardio en plein air face à la mer",
-        },
-      ],
-    },
-    {
-      jour: "Jeudi",
-      cours: [
-        {
-          titre: "Yoga",
-          heure: "18:00-19:00",
-          coach: "Léa",
-          lieu: "Clinique Cardio-Vasculaire Raphaëloise",
-          description: "Souffle, souplesse et récupération",
-        },
-      ],
-    },
-    {
-      jour: "Vendredi",
-      cours: [
-        {
-          titre: "Circuit training",
-          heure: "15:00-16:00",
-          coach: "Clarisse",
-          lieu: "Clinique Cardio-Vasculaire Raphaëloise",
-          description: "Entraînement complet et dynamique",
-        },
-      ],
-    },
-  ];
 
   const coachs = [
     {
@@ -168,81 +92,8 @@ const SportSante = () => {
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto space-y-4">
-            {planning.map((jour) => (
-              <Card key={jour.jour} className="overflow-hidden">
-                <CardHeader className="bg-[#cc616b]/10">
-                  <CardTitle className="text-2xl font-['Poppins'] text-primary flex items-center gap-2">
-                    <Clock className="w-6 h-6 text-[#cc616b]" />
-                    {jour.jour}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="p-0">
-                  <div className="divide-y divide-border">
-                    {jour.cours.map((cours, index) => {
-                      const coachImage = getCoachImage(cours.coach);
-                      return (
-                        <div
-                          key={index}
-                          className="p-6 hover:bg-muted/30 transition-colors"
-                        >
-                          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                            {/* Photo du coach */}
-                            {coachImage && (
-                              <div className="flex-shrink-0">
-                                 <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-4 border-[#ff914d] shadow-lg">
-                                   <img
-                                     src={coachImage}
-                                     alt={cours.coach === "Noémie" ? "Noémie - Kinésithérapeute" : cours.coach === "Clarisse" ? "Clarisse - Coach APA" : cours.coach === "Jean-Baptiste" ? "Jean-Baptiste - Coach" : "Léa - Coach APA"}
-                                     className="w-full h-full object-cover"
-                                   />
-                                 </div>
-                              </div>
-                            )}
-                            
-                            <div className="flex-1">
-                              <div className="flex items-start gap-3">
-                                <Activity className="w-6 h-6 text-[#ff914d] mt-1 flex-shrink-0" />
-                                <div>
-                                  <h3 className="text-xl font-bold text-primary mb-1">
-                                    {cours.titre}
-                                  </h3>
-                                  <p className="text-sm text-muted-foreground mb-3">
-                                    {cours.description}
-                                  </p>
-                                  <div className="flex flex-wrap gap-4 text-sm">
-                                    <div className="flex items-center gap-2">
-                                      <Clock className="w-4 h-4 text-muted-foreground" />
-                                      <span className="font-medium">{cours.heure}</span>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                      <Users className="w-4 h-4 text-muted-foreground" />
-                                      <span>
-                                        {cours.coach === "Noémie" && "Noémie - Kinésithérapeute"}
-                                        {cours.coach === "Clarisse" && "Clarisse - Coach APA"}
-                                        {cours.coach === "Jean-Baptiste" && "Jean-Baptiste - Coach"}
-                                        {cours.coach === "Léa" && "Léa - Coach APA"}
-                                      </span>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                      <MapPin className="w-4 h-4 text-muted-foreground" />
-                                      <span className="text-muted-foreground">
-                                        {cours.lieu}
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          {/* Calendrier branché sur le planning de l'application */}
+          <Planning />
 
           {/* Section Test 1 mois */}
           <div className="max-w-3xl mx-auto mt-16">
@@ -466,7 +317,7 @@ const SportSante = () => {
                       Accédez à votre compte pour réserver vos prochaines séances et gérer vos participations.
                     </p>
                     <div className="space-y-3">
-                      <Button asChild variant="secondary" size="lg" className="w-full">
+                      <Button asChild variant="secondary" size="lg" className="w-full h-auto min-h-11 whitespace-normal py-2 text-center">
                         <a href="https://app.association-luciani.com/login">
                           Se connecter à mon espace membre
                         </a>

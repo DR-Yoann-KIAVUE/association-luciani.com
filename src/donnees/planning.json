@@ -1,0 +1,261 @@
+{
+  "genereLe": "2026-11-18",
+  "activites": [
+    {
+      "id": "b51728ba-df00-413f-b319-d0cbc1bd26f9",
+      "name": "Cardio",
+      "description": "Endurance accessible et progressive",
+      "color": "#EF4444"
+    },
+    {
+      "id": "0ade1580-c36d-4a52-ae66-89465fcdaee6",
+      "name": "Cardio Renfo",
+      "description": "Cardio en plein air face à la mer",
+      "color": "#3B82F6"
+    },
+    {
+      "id": "e93a3167-a220-463c-81b1-2c07d6f417e7",
+      "name": "Circuit training",
+      "description": "Entraînement complet et dynamique",
+      "color": "#10B981"
+    },
+    {
+      "id": "17e40316-f7df-4ade-a655-1107b65361c1",
+      "name": "Pilates",
+      "description": "Posture, mobilité, respiration",
+      "color": "#EC4899"
+    },
+    {
+      "id": "d0fa0346-35f5-4cd6-9b3f-33911f7ebf00",
+      "name": "Yoga",
+      "description": "Souffle, souplesse et récupération",
+      "color": "#8B5CF6"
+    }
+  ],
+  "creneaux": [
+    {
+      "id": "5b19801e-6134-47ae-a9ea-1f5a0d195a8e",
+      "dayOfWeek": "MONDAY",
+      "startTime": "08:00",
+      "endTime": "09:00",
+      "maxCapacity": 6,
+      "location": "Clinique Cardio-Vasculaire Raphaëloise",
+      "isRecurring": false,
+      "startDate": "2026-11-23T00:00:00.000Z",
+      "endDate": "2026-11-23T00:00:00.000Z",
+      "excludedDates": [],
+      "activity": {
+        "id": "17e40316-f7df-4ade-a655-1107b65361c1",
+        "name": "Pilates",
+        "color": "#EC4899"
+      },
+      "coach": {
+        "firstName": "Noémie"
+      }
+    },
+    {
+      "id": "e7c8b581-2185-42ff-9163-99dfd15cd3d1",
+      "dayOfWeek": "MONDAY",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "maxCapacity": 6,
+      "location": "Clinique Cardio Vasculaire Raphaëloise",
+      "isRecurring": true,
+      "startDate": "2026-04-13T00:00:00.000Z",
+      "endDate": null,
+      "excludedDates": [
+        "2026-06-22"
+      ],
+      "activity": {
+        "id": "17e40316-f7df-4ade-a655-1107b65361c1",
+        "name": "Pilates",
+        "color": "#EC4899"
+      },
+      "coach": {
+        "firstName": "Noémie"
+      }
+    },
+    {
+      "id": "7f36f8a8-516b-4137-b40c-9b9aff0c72cd",
+      "dayOfWeek": "MONDAY",
+      "startTime": "13:30",
+      "endTime": "14:30",
+      "maxCapacity": 10,
+      "location": "Salle de crossfit French Riviera",
+      "isRecurring": true,
+      "startDate": "2026-02-11T17:41:15.387Z",
+      "endDate": null,
+      "excludedDates": [
+        "2026-07-20"
+      ],
+      "activity": {
+        "id": "e93a3167-a220-463c-81b1-2c07d6f417e7",
+        "name": "Circuit training",
+        "color": "#10B981"
+      },
+      "coach": {
+        "firstName": "Clarisse"
+      }
+    },
+    {
+      "id": "ef0fd3b7-fde7-4f38-af2c-8ccf6f00af56",
+      "dayOfWeek": "TUESDAY",
+      "startTime": "11:30",
+      "endTime": "12:30",
+      "maxCapacity": 8,
+      "location": null,
+      "isRecurring": true,
+      "startDate": "2025-10-01T00:00:00.000Z",
+      "endDate": null,
+      "excludedDates": [
+        "2026-07-21",
+        "2026-07-28",
+        "2026-09-15"
+      ],
+      "activity": {
+        "id": "0ade1580-c36d-4a52-ae66-89465fcdaee6",
+        "name": "Cardio Renfo",
+        "color": "#3B82F6"
+      },
+      "coach": {
+        "firstName": "Jean-Baptiste"
+      }
+    },
+    {
+      "id": "a1286b8b-78fc-43d7-be5d-7018c3a3d9da",
+      "dayOfWeek": "WEDNESDAY",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "maxCapacity": 10,
+      "location": null,
+      "isRecurring": true,
+      "startDate": "2025-10-01T00:00:00.000Z",
+      "endDate": null,
+      "excludedDates": [
+        "2026-07-01",
+        "2026-07-08",
+        "2026-07-22",
+        "2026-07-29",
+        "2026-08-05",
+        "2026-08-12",
+        "2026-08-19",
+        "2026-08-26"
+      ],
+      "activity": {
+        "id": "b51728ba-df00-413f-b319-d0cbc1bd26f9",
+        "name": "Cardio",
+        "color": "#EF4444"
+      },
+      "coach": {
+        "firstName": "Jean-Baptiste"
+      }
+    },
+    {
+      "id": "75123721-23f6-4ba5-8f85-bedf1918435d",
+      "dayOfWeek": "THURSDAY",
+      "startTime": "17:00",
+      "endTime": "18:00",
+      "maxCapacity": 6,
+      "location": "Clinique Cardio-Vasculaire Raphaëloise",
+      "isRecurring": true,
+      "startDate": "2026-11-05T00:00:00.000Z",
+      "endDate": null,
+      "excludedDates": [],
+      "activity": {
+        "id": "d0fa0346-35f5-4cd6-9b3f-33911f7ebf00",
+        "name": "Yoga",
+        "color": "#8B5CF6"
+      },
+      "coach": {
+        "firstName": "Léa"
+      }
+    },
+    {
+      "id": "3646c5b1-642e-469c-8793-b15cc5aa53a4",
+      "dayOfWeek": "THURSDAY",
+      "startTime": "18:00",
+      "endTime": "19:00",
+      "maxCapacity": 6,
+      "location": "Clinique Cardio-Vasculaire Raphaëloise",
+      "isRecurring": true,
+      "startDate": "2026-02-11T17:43:58.396Z",
+      "endDate": null,
+      "excludedDates": [
+        "2026-08-20",
+        "2026-08-27"
+      ],
+      "activity": {
+        "id": "d0fa0346-35f5-4cd6-9b3f-33911f7ebf00",
+        "name": "Yoga",
+        "color": "#8B5CF6"
+      },
+      "coach": {
+        "firstName": "Léa"
+      }
+    },
+    {
+      "id": "06acf5d3-1966-42eb-9c0f-8a80fe6f760a",
+      "dayOfWeek": "THURSDAY",
+      "startTime": "19:00",
+      "endTime": "20:00",
+      "maxCapacity": 6,
+      "location": "Clinique Cardio-Vasculaire Raphaëloise",
+      "isRecurring": true,
+      "startDate": "2026-10-01T00:00:00.000Z",
+      "endDate": null,
+      "excludedDates": [],
+      "activity": {
+        "id": "17e40316-f7df-4ade-a655-1107b65361c1",
+        "name": "Pilates",
+        "color": "#EC4899"
+      },
+      "coach": {
+        "firstName": "Noémie"
+      }
+    },
+    {
+      "id": "77fa2395-9d44-4e80-bd41-502706235976",
+      "dayOfWeek": "FRIDAY",
+      "startTime": "15:00",
+      "endTime": "16:00",
+      "maxCapacity": 11,
+      "location": "Salle de crossfit French Riviera",
+      "isRecurring": false,
+      "startDate": "2026-11-20T00:00:00.000Z",
+      "endDate": "2026-11-20T00:00:00.000Z",
+      "excludedDates": [],
+      "activity": {
+        "id": "e93a3167-a220-463c-81b1-2c07d6f417e7",
+        "name": "Circuit training",
+        "color": "#10B981"
+      },
+      "coach": {
+        "firstName": "Clarisse"
+      }
+    },
+    {
+      "id": "42a5cb04-4109-463c-a2e1-75062637cdb3",
+      "dayOfWeek": "FRIDAY",
+      "startTime": "15:00",
+      "endTime": "16:00",
+      "maxCapacity": 10,
+      "location": "Salle de crossfit French Riviera",
+      "isRecurring": true,
+      "startDate": "2026-04-10T00:00:00.000Z",
+      "endDate": null,
+      "excludedDates": [
+        "2026-10-16",
+        "2026-11-20",
+        "2026-11-06"
+      ],
+      "activity": {
+        "id": "e93a3167-a220-463c-81b1-2c07d6f417e7",
+        "name": "Circuit training",
+        "color": "#10B981"
+      },
+      "coach": {
+        "firstName": "Clarisse"
+      }
+    }
+  ]
+}
