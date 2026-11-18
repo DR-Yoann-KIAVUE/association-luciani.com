@@ -19,7 +19,6 @@ export const ADHESIONS = [
     repere: "à moins de 2 euros par cours",
     annuel: { prix: "199", plan: "d67d313a-2000-4ed1-8cae-20fa56eaca7f" },
     mensuel: { prix: "19", plan: "5c7f7657-96fc-4aef-86e5-5ceb4e022d3b" },
-    populaire: true,
   },
   {
     nom: "Illimitée",
@@ -28,5 +27,7 @@ export const ADHESIONS = [
     repere: "à moins de 1 euro par cours",
     annuel: { prix: "219", plan: "699b4c98-1dff-4459-a888-20fc277c14c7" },
     mensuel: { prix: "22", plan: "9a1e070c-7129-48b5-b63b-cbca731e197c" },
+    // Formule la plus souscrite d'après les abonnements réels (13 actifs sur 21 au 18 nov. 2026).
+    populaire: true,
   },
 ];
