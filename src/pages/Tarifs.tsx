@@ -19,6 +19,13 @@ const clubPrevention = [
   { icone: MessagesSquare, texte: "Accès à une communauté WhatsApp pour échanger" },
 ];
 
+// Sur grand écran, la formule la plus souscrite est au centre ; les autres gardent l'ordre des prix.
+// Sur mobile, les cartes restent empilées par prix croissant.
+const autres = ADHESIONS.filter((adhesion) => !("populaire" in adhesion && adhesion.populaire));
+const PLACES = ADHESIONS.map((adhesion) =>
+  "populaire" in adhesion && adhesion.populaire ? "lg:order-2" : adhesion === autres[0] ? "lg:order-1" : "lg:order-3",
+);
+
 const Tarifs = () => {
   const [isAnnual, setIsAnnual] = useState(true);
 
@@ -66,7 +73,7 @@ const Tarifs = () => {
 
           <div className="cartes-tarifs mt-10 grid lg:grid-cols-3 gap-6 lg:gap-7 lg:items-stretch">
             {ADHESIONS.map((adhesion, rang) => (
-              <CarteAdhesion key={adhesion.nom} adhesion={adhesion} annuel={isAnnual} rang={rang} />
+              <CarteAdhesion key={adhesion.nom} adhesion={adhesion} annuel={isAnnual} rang={rang} place={PLACES[rang]} />
             ))}
           </div>
         </div>

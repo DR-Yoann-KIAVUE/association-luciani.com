@@ -35,7 +35,15 @@ const useCompteur = (cible: number) => {
  * Carte d'adhésion interactive : elle s'incline vers le pointeur, un reflet
  * suit le mouvement, le prix défile et la jauge montre le rythme hebdomadaire.
  */
-const CarteAdhesion = ({ adhesion, annuel, rang }: { adhesion: Adhesion; annuel: boolean; rang: number }) => {
+type CarteAdhesionProps = {
+  adhesion: Adhesion;
+  annuel: boolean;
+  rang: number;
+  /** Place sur grand écran (classe Tailwind `lg:order-*`) : la formule populaire va au centre. */
+  place?: string;
+};
+
+const CarteAdhesion = ({ adhesion, annuel, rang, place = "" }: CarteAdhesionProps) => {
   const carte = useRef<HTMLElement>(null);
   const offre = annuel ? adhesion.annuel : adhesion.mensuel;
   const prix = useCompteur(Number(offre.prix));
@@ -68,7 +76,7 @@ const CarteAdhesion = ({ adhesion, annuel, rang }: { adhesion: Adhesion; annuel:
       onPointerMove={incliner}
       onPointerLeave={redresser}
       style={{ animationDelay: `${rang * 0.09}s` }}
-      className={`carte-tarif group relative flex flex-col rounded-2xl p-7 md:p-8 ${
+      className={`carte-tarif group relative flex flex-col rounded-2xl p-7 md:p-8 ${place} ${
         vedette ? "carte-tarif-vedette text-white" : "border border-border bg-card"
       }`}
     >
