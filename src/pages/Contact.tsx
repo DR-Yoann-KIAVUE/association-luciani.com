@@ -15,6 +15,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import PageHero from "@/components/PageHero";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -85,18 +86,12 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-primary/5 to-background">
-        <div className="container mx-auto px-4 text-center">
-          <Send className="w-16 h-16 text-accent mx-auto mb-6" />
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 font-['Poppins'] text-primary">
-            Contactez-nous
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Une question ? Un projet de formation ? Nous sommes à votre écoute
-          </p>
-        </div>
-      </section>
+      <PageHero
+        ton="rouge"
+        surtitre="Contact"
+        titre="Contactez-nous"
+        texte="Une question ? Un projet de formation ? Nous sommes à votre écoute"
+      />
 
       {/* Contact Section */}
       <section className="py-20">

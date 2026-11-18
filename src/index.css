@@ -139,12 +139,142 @@ All colors MUST be HSL.
   }
 }
 
-/* ---------- Simulateur de cours et calendrier ----------
-   Animations désactivées si l'utilisateur préfère réduire les mouvements. */
+/* ---------- Mouvement ----------
+   Les apparitions au défilement ne s'appliquent qu'aux pages marquées data-anime.
+   Tout est désactivé sans JavaScript (classe .js absente) et si l'utilisateur
+   préfère réduire les animations. Le contenu reste donc toujours lisible. */
 @layer components {
-  .etape-anime {
+  /* Apparition au défilement : blocs de premier niveau de chaque section. */
+  .js [data-anime] section:not([data-hero]) > .container > * {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .js [data-anime] section:not([data-hero]) > .container > *[data-vu] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Entrée de l'en-tête de page, en cascade. */
+  .js [data-hero] [data-cascade] > * {
+    animation: monter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .js [data-hero] [data-cascade] > *:nth-child(2) { animation-delay: 0.08s; }
+  .js [data-hero] [data-cascade] > *:nth-child(3) { animation-delay: 0.16s; }
+  .js [data-hero] [data-cascade] > *:nth-child(4) { animation-delay: 0.24s; }
+  .js [data-hero] [data-cascade] > *:nth-child(5) { animation-delay: 0.32s; }
+
+  /* Photo plein cadre derrière un texte centré : voilée par la couleur de l'en-tête. */
+  .photo-fond {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% 75%;
+    opacity: 0.42;
+    mix-blend-mode: luminosity;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, #000 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, #000 100%);
+  }
+  /* Voile sombre très léger derrière le texte centré : le blanc reste lisible sur les couleurs vives. */
+  .voile-hero {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 62% 78% at 50% 50%, rgba(0, 0, 0, 0.24), transparent 78%);
+  }
+  .js [data-hero] .photo-fond {
+    animation: apparaitre-fond 1.6s ease-out both;
+  }
+  @keyframes apparaitre-fond {
+    from { opacity: 0; transform: scale(1.05); }
+  }
+  /* Encart d'essai : léger soulèvement au survol. */
+  .encart-essai {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s;
+  }
+  .encart-essai:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 26px 50px -20px rgba(4, 31, 73, 0.6);
+  }
+  /* Filet sous les titres : il s'étire à l'apparition. */
+  .js .filet-titre {
+    transform: scaleX(0);
+    transition: transform 0.7s 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .js [data-vu] .filet-titre {
+    transform: scaleX(1);
+  }
+
+  /* Photo de l'en-tête : fondue dans la couleur, sans cadre. */
+  .photo-hero {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 72% center;
+    opacity: 0.28;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 30%, #000 100%);
+    mask-image: linear-gradient(to bottom, transparent 30%, #000 100%);
+  }
+  @media (min-width: 1024px) {
+    .photo-hero {
+      width: 64%;
+      opacity: 1;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 38%, #000 70%);
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 38%, #000 70%);
+    }
+  }
+  .js [data-hero] .photo-hero {
+    animation: apparaitre 1.4s 0.1s ease-out both;
+  }
+  @keyframes apparaitre {
+    from { opacity: 0; transform: scale(1.04); }
+  }
+
+  /* Tracé ECG qui se dessine, puis battement discret. */
+  .ecg-trace {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: tracer 2.4s 0.3s cubic-bezier(0.65, 0, 0.35, 1) forwards, battre 3.2s 2.8s ease-in-out infinite;
+  }
+
+  /* Changement de prix et d'étape. */
+  .prix-anime, .etape-anime {
     animation: monter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
+
+  /* Listes en cascade : les éléments arrivent l'un après l'autre quand le bloc apparaît. */
+  .js [data-vu] .cascade > *,
+  .js .cascade[data-vu] > * {
+    animation: monter 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+  .cascade > *:nth-child(2) { animation-delay: 0.08s; }
+  .cascade > *:nth-child(3) { animation-delay: 0.16s; }
+  .cascade > *:nth-child(4) { animation-delay: 0.24s; }
+  .cascade > *:nth-child(5) { animation-delay: 0.32s; }
+  .cascade > *:nth-child(6) { animation-delay: 0.4s; }
+  /* Cadeau du parrainage : petit rebond à chaque palier. */
+  .cadeau-anime {
+    animation: rebond 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  @keyframes rebond {
+    0% { transform: scale(0.5) rotate(-18deg); }
+    60% { transform: scale(1.12) rotate(6deg); }
+    100% { transform: scale(1) rotate(0); }
+  }
+
+  /* Cartes cliquables : légère élévation. */
+  .carte-vivante {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s, border-color 0.35s;
+  }
+  .carte-vivante:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  /* ---------- Simulateur « Trouvez le cours fait pour vous » ---------- */
   .carte-choix {
     border-color: hsl(var(--border));
     transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s, box-shadow 0.3s, background-color 0.25s, opacity 0.25s;
@@ -171,6 +301,7 @@ All colors MUST be HSL.
   .carte-choix-prise .carte-choix-pastille {
     transform: scale(1.15);
   }
+  /* Le cœur se remplit, puis bat une fois le parcours terminé. */
   .coeur-niveau {
     transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
   }
@@ -178,6 +309,14 @@ All colors MUST be HSL.
     transform-origin: center;
     animation: pulsation 1.3s ease-in-out infinite;
   }
+  @keyframes pulsation {
+    0%, 100% { transform: scale(1); }
+    14% { transform: scale(1.12); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.08); }
+    56% { transform: scale(1); }
+  }
+  /* Révélation : billets en cascade et éclats de couleur. */
   .billet {
     animation: monter 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
   }
@@ -203,28 +342,181 @@ All colors MUST be HSL.
     height: 8px;
     animation-delay: 0.18s;
   }
-
-  @keyframes monter {
-    from { opacity: 0; transform: translateY(14px); }
-    to { opacity: 1; transform: none; }
-  }
-  @keyframes pulsation {
-    0%, 100% { transform: scale(1); }
-    14% { transform: scale(1.12); }
-    28% { transform: scale(1); }
-    42% { transform: scale(1.08); }
-    56% { transform: scale(1); }
-  }
   @keyframes eclat {
     0% { opacity: 1; transform: rotate(var(--angle)) translateY(0) scale(0.4); }
     70% { opacity: 1; }
     100% { opacity: 0; transform: rotate(var(--angle)) translateY(-210px) scale(1) rotate(160deg); }
   }
 
+  /* Cartes d'adhésion : inclinaison 3D vers le pointeur, reflet, entrée en cascade. */
+  .cartes-tarifs {
+    perspective: 1400px;
+  }
+  .carte-tarif {
+    transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--leve, 0px));
+    transform-style: preserve-3d;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s, border-color 0.35s;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .carte-tarif:hover,
+  .carte-tarif:focus-within {
+    --leve: -8px;
+    box-shadow: 0 30px 60px -28px rgba(4, 31, 73, 0.4);
+    border-color: hsl(var(--accent));
+  }
+  .carte-tarif-vedette {
+    background: linear-gradient(150deg, hsl(215 90% 20%), hsl(215 90% 12%));
+    box-shadow: 0 24px 50px -24px rgba(4, 31, 73, 0.65);
+  }
+  @media (min-width: 1024px) {
+    .carte-tarif-vedette { --leve: -12px; }
+    .carte-tarif-vedette:hover, .carte-tarif-vedette:focus-within { --leve: -20px; }
+  }
+  .carte-tarif-reflet {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.35s;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), hsl(var(--accent) / 0.12), transparent 65%);
+  }
+  .carte-tarif-vedette .carte-tarif-reflet {
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(255, 255, 255, 0.22), transparent 65%);
+  }
+  .carte-tarif:hover .carte-tarif-reflet {
+    opacity: 1;
+  }
+  .js [data-vu] > .carte-tarif {
+    /* « backwards » : l'animation ne fige pas la transformation, l'inclinaison reste possible ensuite. */
+    animation: monter 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+  /* Jauge : les segments pleins se remplissent l'un après l'autre. */
+  .js .jauge-pleine {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .js [data-vu] .jauge-pleine {
+    transform: scaleX(1);
+  }
+
+  /* Fond vivant des en-têtes : formes organiques en mouvement lent. */
+  .fond-vivant .forme {
+    position: absolute;
+    display: block;
+    will-change: transform, border-radius;
+  }
+  /* Couleurs des formes selon le ton de l'en-tête. */
+  .fond-rouge { --f1: #ffd84d; --f2: #ff914d; --f3: #e3929a; --f4: #b9505b; }
+  .fond-sport { --f1: #ffd84d; --f2: #1db5a6; --f3: #2f93ad; --f4: #04506a; }
+  .fond-marine { --f1: #ffd84d; --f2: #cc616b; --f3: #1db5a6; --f4: #0a3470; }
+  /* Jaune et orange : calés dans les coins par rapport à leur propre taille, pour ne jamais passer sur le texte. */
+  .fond-vivant .forme-1 {
+    --taille: clamp(130px, 23vw, 360px);
+    left: calc(var(--taille) * -0.5);
+    top: calc(var(--taille) * -0.66);
+    width: var(--taille);
+    height: var(--taille);
+    background: var(--f1);
+    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+    animation: deriver-1 22s ease-in-out infinite alternate;
+  }
+  .fond-vivant .forme-2 {
+    --taille: clamp(150px, 26vw, 400px);
+    right: calc(var(--taille) * -0.4);
+    bottom: calc(var(--taille) * -0.62);
+    width: var(--taille);
+    height: var(--taille);
+    background: var(--f2);
+    border-radius: 58% 42% 38% 62% / 55% 60% 40% 45%;
+    animation: deriver-2 26s ease-in-out infinite alternate;
+  }
+  .fond-vivant .forme-3 {
+    left: 38%;
+    top: -26%;
+    width: 15vw;
+    height: 15vw;
+    min-width: 130px;
+    min-height: 130px;
+    background: var(--f3);
+    opacity: 0.4;
+    border-radius: 50% 50% 34% 66% / 62% 38% 62% 38%;
+    animation: deriver-3 18s ease-in-out infinite alternate;
+  }
+  .fond-vivant .forme-4 {
+    left: 22%;
+    bottom: -36%;
+    width: 22vw;
+    height: 22vw;
+    min-width: 180px;
+    min-height: 180px;
+    background: var(--f4);
+    opacity: 0.5;
+    border-radius: 36% 64% 57% 43% / 48% 39% 61% 52%;
+    animation: deriver-4 30s ease-in-out infinite alternate;
+  }
+  .fond-vivant .halo {
+    position: absolute;
+    left: var(--halo-x, 50%);
+    top: var(--halo-y, 50%);
+    width: 520px;
+    height: 520px;
+    margin: -260px 0 0 -260px;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(255, 255, 255, 0.13), transparent);
+    opacity: var(--halo-opacite, 0);
+    transition: opacity 0.5s;
+  }
+
+  @keyframes deriver-1 {
+    0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }
+    50% { transform: translate3d(2vw, 1vh, 0) rotate(38deg) scale(1.08); border-radius: 61% 39% 45% 55% / 58% 36% 64% 42%; }
+    100% { transform: translate3d(1vw, 2vh, 0) rotate(80deg) scale(0.96); border-radius: 37% 63% 58% 42% / 46% 61% 39% 54%; }
+  }
+  @keyframes deriver-2 {
+    0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); border-radius: 58% 42% 38% 62% / 55% 60% 40% 45%; }
+    50% { transform: translate3d(-2vw, -1vh, 0) rotate(-32deg) scale(1.08); border-radius: 40% 60% 62% 38% / 43% 41% 59% 57%; }
+    100% { transform: translate3d(-1vw, -2vh, 0) rotate(-70deg) scale(1.02); border-radius: 64% 36% 44% 56% / 60% 52% 48% 40%; }
+  }
+  @keyframes deriver-3 {
+    0% { transform: translate3d(0, 0, 0) rotate(0deg); border-radius: 50% 50% 34% 66% / 62% 38% 62% 38%; }
+    100% { transform: translate3d(-10vw, 16vh, 0) rotate(120deg) scale(1.25); border-radius: 38% 62% 60% 40% / 44% 58% 42% 56%; }
+  }
+  @keyframes deriver-4 {
+    0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); border-radius: 36% 64% 57% 43% / 48% 39% 61% 52%; }
+    100% { transform: translate3d(12vw, -10vh, 0) rotate(-90deg) scale(1.2); border-radius: 60% 40% 42% 58% / 38% 57% 43% 62%; }
+  }
+
+  @keyframes monter {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes tracer {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes battre {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.45; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .etape-anime, .carte-choix, .billet, .coeur-bat { animation: none; }
+    .js [data-anime] section:not([data-hero]) > .container > * { opacity: 1; transform: none; transition: none; }
+    .js [data-hero] [data-cascade] > *, .js [data-hero] .photo-hero, .js [data-hero] .photo-fond, .prix-anime, .etape-anime { animation: none; }
+    .js .filet-titre { transform: none; transition: none; }
+    .encart-essai:hover { transform: none; }
+    .ecg-trace { animation: none; stroke-dashoffset: 0; }
+    .carte-vivante:hover { transform: none; }
+    .fond-vivant .forme { animation: none; }
+    .js [data-vu] .cascade > *, .js .cascade[data-vu] > *, .cadeau-anime { animation: none; }
+    .carte-choix, .billet, .coeur-bat { animation: none; }
     .carte-choix:hover, .carte-choix:hover .carte-choix-pastille { transform: none; }
     .coeur-niveau { transition: none; }
     .eclats { display: none; }
+    .carte-tarif { transform: none; transition: none; }
+    .js [data-vu] > .carte-tarif { animation: none; }
+    .js .jauge-pleine { transform: none; transition: none; }
+    .fond-vivant .halo { display: none; }
   }
 }

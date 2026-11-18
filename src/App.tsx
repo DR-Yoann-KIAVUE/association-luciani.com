@@ -25,6 +25,34 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+/** Révèle au défilement les blocs des pages marquées data-anime (voir index.css). */
+function Apparitions() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const blocs = document.querySelectorAll<HTMLElement>("[data-anime] section:not([data-hero]) > .container > *:not([data-vu])");
+    if (!("IntersectionObserver" in window)) {
+      blocs.forEach((bloc) => (bloc.dataset.vu = ""));
+      return;
+    }
+    const observateur = new IntersectionObserver(
+      (entrees) => {
+        entrees.forEach((entree) => {
+          // Visible, ou déjà dépassé lors d'un saut vers une ancre.
+          if (!entree.isIntersecting && entree.boundingClientRect.bottom > 0) return;
+          (entree.target as HTMLElement).dataset.vu = "";
+          observateur.unobserve(entree.target);
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.05 },
+    );
+    blocs.forEach((bloc) => observateur.observe(bloc));
+    return () => observateur.disconnect();
+  }, [pathname]);
+
+  return null;
+}
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -43,6 +71,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <ScrollToTop />
+      <Apparitions />
       <Seo />
       <BandeauCarteCoeur />
       <Navigation />

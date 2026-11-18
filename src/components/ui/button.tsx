@@ -16,6 +16,9 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         cta: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg hover:shadow-xl transition-all font-semibold",
+        // Sur fond coloré (en-têtes de page).
+        clair: "bg-white text-primary hover:bg-white/90 shadow-md font-semibold",
+        contour: "border border-white/60 text-white hover:bg-white/15 font-semibold",
         gold: "bg-[hsl(var(--accent-gold))] text-[hsl(var(--accent-gold-foreground))] hover:bg-[hsl(var(--accent-gold))]/90 shadow-md hover:shadow-lg transition-all font-semibold",
         sport: "bg-[hsl(var(--sport-accent))] text-[hsl(var(--sport-accent-foreground))] hover:bg-[hsl(var(--sport-accent))]/90 shadow-md hover:shadow-lg transition-all font-semibold",
       },
